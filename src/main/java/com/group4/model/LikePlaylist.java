@@ -1,19 +1,19 @@
 package com.group4.model;
 
-public class LikeSong {
+public class LikePlaylist {
     private int id;
     private int idUser;
-    private int idSong;
+    private int idPlaylist;
     private int listenTime;
     private int status;
 
-    public LikeSong() {
+    public LikePlaylist() {
     }
 
-    public LikeSong(int id, int idUser, int idSong, int listenTime, int status) {
+    public LikePlaylist(int id, int idUser, int idPlaylist, int listenTime, int status) {
         this.id = id;
         this.idUser = idUser;
-        this.idSong = idSong;
+        this.idPlaylist = idPlaylist;
         this.listenTime = listenTime;
         this.status = status;
     }
@@ -34,12 +34,12 @@ public class LikeSong {
         this.idUser = idUser;
     }
 
-    public int getIdSong() {
-        return idSong;
+    public int getIdPlaylist() {
+        return idPlaylist;
     }
 
-    public void setIdSong(int idSong) {
-        this.idSong = idSong;
+    public void setIdPlaylist(int idPlaylist) {
+        this.idPlaylist = idPlaylist;
     }
 
     public int getListenTime() {

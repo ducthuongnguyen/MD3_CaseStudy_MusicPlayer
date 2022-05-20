@@ -1,368 +1,807 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <!-- basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- mobile metas -->
+    <title>Mosaic a Entertainment Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <!-- site metas -->
-    <title>Rock</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- style css -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Responsive-->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- fevicon -->
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-    <!-- Tweaks for older IEs-->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-</head>
-<!-- body -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Mosaic Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="css/icon-font.css" type='text/css' />
+    <!-- //lined-icons -->
+    <!-- Meters graphs -->
+    <script src="js/jquery-2.1.4.js"></script>
 
-<body class="main-layout">
-<!-- loader  -->
-<div class="loader_bg">
-    <div class="loader"><img src="images/loading.gif" alt="#" /></div>
-</div>
-<!-- end loader -->
-<!-- header -->
-<header>
-    <!-- header inner -->
-    <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col logo_section">
-                    <div class="full">
-                        <div class="center-desk">
-                            <div class="logo">
-                                <a href="index.html"><img src="images/logo.jpg" alt="logo" /></a>
+
+</head>
+<!-- /w3layouts-agile -->
+<body class="sticky-header left-side-collapsed"  onload="initMap()">
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <h1><a href="index.html">Mosai<span>c</span></a></h1>
+        </div>
+        <div class="logo-icon text-center">
+            <a href="index.html">M </a>
+        </div>
+        <!-- /w3l-agile -->
+        <!--logo and iconic logo end-->
+        <div class="left-side-inner">
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li class="active"><a href="index.html"><i class="lnr lnr-home"></i><span>Home</span></a></li>
+                <li><a href="radio.html"><i class="camera"></i> <span>Radio</span></a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal1"><i class="fa fa-th"></i><span>Apps</span></a></li>
+                <li><a href="radio.html"><i class="lnr lnr-users"></i> <span>Artists</span></a></li>
+                <li><a href="browse.html"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>
+                <li class="menu-list"><a href="browse.html"><i class="lnr lnr-indent-increase"></i> <span>Browser</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="browse.html">Artists</a> </li>
+                        <li><a href="404.html">Services</a> </li>
+                    </ul>
+                </li>
+                <li><a href="blog.html"><i class="lnr lnr-book"></i><span>Blog</span></a></li>
+                <li><a href="typography.html"><i class="lnr lnr-pencil"></i> <span>Typography</span></a></li>
+                <li class="menu-list"><a href="#"><i class="lnr lnr-heart"></i>  <span>My Favourities</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="radio.html">All Songs</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href="contact.html"><i class="fa fa-thumb-tack"></i><span>Contact</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="contact.html">Location</a> </li>
+                    </ul>
+                </li>
+            </ul>
+            <!--sidebar nav end-->
+        </div>
+    </div>
+    <!-- /w3layouts-agile -->
+    <!-- app-->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog facebook" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="app-grids">
+                        <div class="app">
+                            <div class="col-md-5 app-left mpl">
+                                <h3>Mosaic mobile app on your smartphone!</h3>
+                                <p>Download and Avail Special Songs Videos and Audios.</p>
+                                <div class="app-devices">
+                                    <h5>Gets the app from</h5>
+                                    <a href="#"><img src="images/1.png" alt=""></a>
+                                    <a href="#"><img src="images/2.png" alt=""></a>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 app-image">
+                                <img src="images/apps.png" alt="">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //app-->
+    <!-- /w3l-agile -->
+    <!-- signup -->
+    <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body modal-spa">
+                    <div class="sign-grids">
+                        <div class="sign">
+                            <div class="sign-left">
+                                <ul>
+                                    <li><a class="fb" href="#"><i></i>Sign in with Facebook</a></li>
+                                    <li><a class="goog" href="#"><i></i>Sign in with Google</a></li>
+                                    <li><a class="linkin" href="#"><i></i>Sign in with Linkedin</a></li>
+                                </ul>
+                            </div>
+                            <div class="sign-right">
+                                <form action="#" method="post">
+
+                                    <h3>Create your account </h3>
+                                    <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                                    <input type="text" value="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
+                                    <input type="text" value="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">
+                                    <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+
+                                    <input type="submit" value="CREATE ACCOUNT" >
+                                </form>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //signup -->
+    <!-- /w3l-agile -->
+    <!-- left side end-->
+    <!-- main content start-->
+    <div class="main-content">
+        <!-- header-starts -->
+        <div class="header-section">
+            <!--toggle button start-->
+            <a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+            <!--notification menu start -->
+            <div class="menu-right">
+                <div class="profile_details">
+                    <div class="col-md-4 serch-part">
+                        <div id="sb-search" class="sb-search">
+                            <form action="#" method="post">
+
+                                <input class="sb-search-input" placeholder="Search" type="search" name="search" id="search">
+                                <input class="sb-search-submit" type="submit" value="">
+                                <span class="sb-icon-search"> </span>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- search-scripts -->
+                    <script src="js/classie.js"></script>
+                    <script src="js/uisearch.js"></script>
+                    <script>
+                        new UISearch( document.getElementById( 'sb-search' ) );
+                    </script>
+                    <!-- //search-scripts -->
+                    <!---->
+                    <div class="col-md-4 player">
+                        <div class="audio-player">
+                            <audio id="audio-player"  controls="controls">
+                                <source src="media/Blue Browne.ogg" type="audio/ogg"></source>
+                                <source src="media/Blue Browne.mp3" type="audio/mpeg"></source>
+                                <source src="media/Georgia.ogg" type="audio/ogg"></source>
+                                <source src="media/Georgia.mp3" type="audio/mpeg"></source></audio>
+                        </div>
+                        <!---->
+                        <script type="text/javascript">
+                            $(function(){
+                                $('#audio-player').mediaelementplayer({
+                                    alwaysShowControls: true,
+                                    features: ['playpause','progress','volume'],
+                                    audioVolume: 'horizontal',
+                                    iPadUseNativeControls: true,
+                                    iPhoneUseNativeControls: true,
+                                    AndroidUseNativeControls: true
+                                });
+                            });
+                        </script>
+                        <!--audio-->
+                        <link rel="stylesheet" type="text/css" media="all" href="css/audio.css">
+                        <script type="text/javascript" src="js/mediaelement-and-player.min.js"></script>
+                        <!---->
+
+
+                        <!--//-->
+                        <ul class="next-top">
+                            <li><a class="ar" href="#"> <img src="images/arrow.png" alt=""/></a></li>
+                            <li><a class="ar2" href="#"><img src="images/arrow2.png" alt=""/></i></a></li>
+
+                        </ul>
+                    </div>
+                    <div class="col-md-4 login-pop">
+                        <div id="loginpop"> <a href="#" id="loginButton"><span>Login <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a><a class="top-sign" href="#" data-toggle="modal" data-target="#myModal5"><i class="fa fa-sign-in"></i></a>
+                            <div id="loginBox">
+                                <form action="#" method="post" id="loginForm">
+                                    <fieldset id="body">
+                                        <fieldset>
+                                            <label for="email">Email Address</label>
+                                            <input type="text" name="email" id="email">
+                                        </fieldset>
+                                        <fieldset>
+                                            <label for="password">Password</label>
+                                            <input type="password" name="password" id="password">
+                                        </fieldset>
+                                        <input type="submit" id="login" value="Sign in">
+                                        <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+                                    </fieldset>
+                                    <span><a href="#">Forgot your password?</a></span>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <!-------->
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!--notification menu end -->
+        <!-- //header-ends -->
+        <!-- /w3l-agileits -->
+        <!-- //header-ends -->
+        <div id="page-wrapper">
+            <div class="inner-content">
+
+                <div class="music-left">
+                    <!--banner-section-->
+                    <div class="banner-section">
+                        <div class="banner">
+                            <div class="callbacks_container">
+                                <ul class="rslides callbacks callbacks1" id="slider4">
+                                    <li>
+                                        <div class="banner-img">
+                                            <img src="images/11.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="banner-info">
+                                            <a class="trend" href="single.html">TRENDING</a>
+                                            <h3>Let Your Home</h3>
+                                            <p>Album by <span>Rock star</span></p>
+                                        </div>
+
+                                    </li>
+                                    <li>
+                                        <div class="banner-img">
+                                            <img src="images/22.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="banner-info">
+                                            <a class="trend" href="single.html">TRENDING</a>
+                                            <h3>Charis Brown feet</h3>
+                                            <p>Album by <span>Rock star</span></p>
+                                        </div>
+
+
+                                    </li>
+                                    <li>
+                                        <div class="banner-img">
+                                            <img src="images/33.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="banner-info">
+                                            <a class="trend" href="single.html">TRENDING</a>
+                                            <h3>Let Your Home</h3>
+                                            <p>Album by <span>Rock star</span></p>
+                                        </div>
+
+                                        <!-- /w3layouts-agileits -->
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--banner-->
+                            <script src="js/responsiveslides.min.js"></script>
+                            <script>
+                                // You can also use "$(window).load(function() {"
+                                $(function () {
+                                    // Slideshow 4
+                                    $("#slider4").responsiveSlides({
+                                        auto: true,
+                                        pager:true,
+                                        nav:true,
+                                        speed: 500,
+                                        namespace: "callbacks",
+                                        before: function () {
+                                            $('.events').append("<li>before event fired.</li>");
+                                        },
+                                        after: function () {
+                                            $('.events').append("<li>after event fired.</li>");
+                                        }
+                                    });
+
+                                });
+                            </script>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <!--//End-banner-->
+                    <!--albums-->
+                    <!-- pop-up-box -->
+                    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all">
+                    <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+                    <script>
+                        $(document).ready(function() {
+                            $('.popup-with-zoom-anim').magnificPopup({
+                                type: 'inline',
+                                fixedContentPos: false,
+                                fixedBgPos: true,
+                                overflowY: 'auto',
+                                closeBtnInside: true,
+                                preloader: false,
+                                midClick: true,
+                                removalDelay: 300,
+                                mainClass: 'my-mfp-zoom-in'
+                            });
+                        });
+                    </script>
+                    <!--//pop-up-box -->
+                    <div class="albums">
+                        <div class="tittle-head">
+                            <h3 class="tittle">New Releases <span class="new">New</span></h3>
+                            <a href="index.html"><h4 class="tittle">See all</h4></a>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="images/v1.jpg" title="allbum-name"></a>
+                            <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
+                        </div>
+                        <div id="small-dialog" class="mfp-hide">
+                            <iframe src="https://player.vimeo.com/video/12985622"></iframe>
+
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="images/v2.jpg" title="allbum-name"></a>
+
+                            <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="images/v3.jpg" title="allbum-name"></a>
+
+                            <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
+                        </div>
+                        <div class="col-md-3 content-grid last-grid">
+                            <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="images/v4.jpg" title="allbum-name"></a>
+
+                            <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="images/v5.jpg" title="allbum-name"></a>
+
+                            <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
+                        </div>
+                        <div id="small-dialog" class="mfp-hide">
+                            <iframe src="https://player.vimeo.com/video/12985622"></iframe>
+
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="images/v6.jpg" title="allbum-name"></a>
+
+                            <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="images/v7.jpg" title="allbum-name"></a>
+
+                            <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
+                        </div>
+                        <div class="col-md-3 content-grid last-grid">
+                            <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="images/v8.jpg" title="allbum-name"></a>
+                            <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <!--//End-albums-->
+                    <!--//discover-view-->
+
+                    <div class="albums second">
+                        <div class="tittle-head">
+                            <h3 class="tittle">Discover <span class="new">View</span></h3>
+                            <a href="index.html"><h4 class="tittle two">See all</h4></a>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a href="single.html"><img src="images/v11.jpg" title="allbum-name"></a>
+                            <div class="inner-info"><a href="single.html"><h5>Pop</h5></a></div>
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a href="single.html"><img src="images/v22.jpg" title="allbum-name"></a>
+                            <div class="inner-info"><a href="single.html"><h5>Pop</h5></a></div>
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a href="single.html"><img src="images/v33.jpg" title="allbum-name"></a>
+                            <div class="inner-info"><a href="single.html"><h5>Pop</h5></a></div>
+                        </div>
+                        <div class="col-md-3 content-grid last-grid">
+                            <a href="single.html"><img src="images/v44.jpg" title="allbum-name"></a>
+                            <div class="inner-info"><a href="single.html"><h5>Pop</h5></a></div>
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a href="single.html"><img src="images/v55.jpg" title="allbum-name"></a>
+                            <div class="inner-info"><a href="single.html"><h5>Pop</h5></a></div>
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a href="single.html"><img src="images/v66.jpg" title="allbum-name"></a>
+                            <div class="inner-info"><a href="single.html"><h5>Pop</h5></a></div>
+                        </div>
+                        <div class="col-md-3 content-grid">
+                            <a href="single.html"><img src="images/v11.jpg" title="allbum-name"></a>
+                            <div class="inner-info"><a href="single.html"><h5>Pop</h5></a></div>
+                        </div>
+                        <div class="col-md-3 content-grid last-grid">
+                            <a href="single.html"><img src="images/v22.jpg" title="allbum-name"></a>
+                            <div class="inner-info"><a href="single.html"><h5>Pop</h5></a></div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <!--//discover-view-->
+                </div>
+                <!--//music-left-->
+                <!--/music-right-->
+                <div class="music-right">
+                    <!--/video-main-->
+                    <div class="video-main">
+                        <div class="video-record-list">
+                            <div id="jp_container_1" class="jp-video jp-video-270p" role="application" aria-label="media player">
+                                <div class="jp-type-playlist">
+                                    <div id="jquery_jplayer_1" class="jp-jplayer" style="width: 480px; height: 270px;"><img id="jp_poster_0" src="video/play1.png" style="width: 480px; height: 270px; display: inline;"><video id="jp_video_0" preload="metadata" src="http://192.168.30.9/vijayaa/2015/Dec/mosaic/web/video/Ellie-Goulding.webm" title="1. Ellie-Goulding" style="width: 0px; height: 0px;"></video></div>
+                                    <div class="jp-gui">
+                                        <div class="jp-video-play" style="display: block;">
+                                            <button class="jp-video-play-icon" role="button" tabindex="0">play</button>
+                                        </div>
+                                        <div class="jp-interface">
+                                            <div class="jp-progress">
+                                                <div class="jp-seek-bar" style="width: 100%;">
+                                                    <div class="jp-play-bar" style="width: 0%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="jp-current-time" role="timer" aria-label="time">00:00</div>
+                                            <div class="jp-duration" role="timer" aria-label="duration">00:18</div>
+                                            <div class="jp-controls-holder">
+                                                <div class="jp-controls">
+                                                    <button class="jp-previous" role="button" tabindex="0">previous</button>
+                                                    <button class="jp-play" role="button" tabindex="0">play</button>
+                                                </div>
+                                                <div class="jp-volume-controls">
+                                                    <button class="jp-mute" role="button" tabindex="0">mute</button>
+                                                    <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                                                    <div class="jp-volume-bar">
+                                                        <div class="jp-volume-bar-value" style="width: 100%;"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="jp-toggles">
+
+                                                    <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+                                                </div>
+                                            </div>
+                                            <div class="jp-details" style="display: none;">
+                                                <div class="jp-title" aria-label="title">1. Ellie-Goulding</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jp-playlist">
+                                        <ul style="display: block;"><li class="jp-playlist-current"><div><a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a><a href="javascript:;" class="jp-playlist-item jp-playlist-current" tabindex="0">1. Ellie-Goulding <span class="jp-artist">by Pixar</span></a></div></li><li><div><a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a><a href="javascript:;" class="jp-playlist-item" tabindex="0">2. Mark-Ronson-Uptown <span class="jp-artist">by Pixar</span></a></div></li><li><div><a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a><a href="javascript:;" class="jp-playlist-item" tabindex="0">3. Ellie-Goulding <span class="jp-artist">by Pixar</span></a></div></li><li><div><a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a><a href="javascript:;" class="jp-playlist-item" tabindex="0">4. Maroon-Sugar <span class="jp-artist">by Pixar</span></a></div></li><li><div><a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a><a href="javascript:;" class="jp-playlist-item" tabindex="0">5. Pharrell-Williams <span class="jp-artist">by Pixar</span></a></div></li><li><div><a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a><a href="javascript:;" class="jp-playlist-item" tabindex="0">6. Ellie-Goulding <span class="jp-artist">by Pixar</span></a></div></li><li><div><a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a><a href="javascript:;" class="jp-playlist-item" tabindex="0">7. Pharrell-Williams <span class="jp-artist">by Pixar</span></a></div></li></ul>
+                                    </div>
+                                    <div class="jp-no-solution" style="display: none;">
+                                        <span>Update Required</span>
+                                        To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10">
-                    <div class="menu-area">
-                        <div class="limit-box">
-                            <nav class="main-menu">
-                                <ul class="menu-area-main">
-                                    <li class="active"> <a href="index.html">Home</a> </li>
-                                    <li> <a href="about.html">about</a> </li>
-                                    <li> <a href="album.html"> Albums</a> </li>
-                                    <li> <a href="blog.html">Blog</a> </li>
-                                    <li> <a href="contact.html">Contact</a> </li>
-                                    <li> <a href="#contact">Login</a> </li>
-                                </ul>
-                            </nav>
+                    <!-- script for play-list -->
+                    <link href="css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css">
+                    <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+                    <script type="text/javascript" src="js/jplayer.playlist.min.js"></script>
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        $(document).ready(function(){
+
+                            new jPlayerPlaylist({
+                                jPlayer: "#jquery_jplayer_1",
+                                cssSelectorAncestor: "#jp_container_1"
+                            }, [
+
+                                {
+                                    title:"1. Ellie-Goulding",
+                                    artist:"",
+                                    mp4: "video/Ellie-Goulding.mp4",
+                                    ogv: "video/Ellie-Goulding.ogv",
+                                    webmv: "video/Ellie-Goulding.webm",
+                                    poster:"video/play1.png"
+                                },
+                                {
+                                    title:"2. Mark-Ronson-Uptown",
+                                    artist:"",
+                                    mp4: "video/Mark-Ronson-Uptown.mp4",
+                                    ogv: "video/Mark-Ronson-Uptown.ogv",
+                                    webmv: "video/Mark-Ronson-Uptown.webm",
+                                    poster:"video/play2.png"
+                                },
+                                {
+                                    title:"3. Ellie-Goulding",
+                                    artist:"",
+                                    mp4: "video/Ellie-Goulding.mp4",
+                                    ogv: "video/Ellie-Goulding.ogv",
+                                    webmv: "video/Ellie-Goulding.webm",
+                                    poster:"video/play1.png"
+                                },
+                                {
+                                    title:"4. Maroon-Sugar",
+                                    artist:"",
+                                    mp4: "video/Maroon-Sugar.mp4",
+                                    ogv: "video/Maroon-Sugar.ogv",
+                                    webmv: "video/Maroon-Sugar.webm",
+                                    poster:"video/play4.png"
+                                },
+                                {
+                                    title:"5. Pharrell-Williams",
+                                    artist:"",
+                                    mp4: "video/Pharrell-Williams.mp4",
+                                    ogv: "video/Pharrell-Williams.ogv",
+                                    webmv: "video/Pharrell-Williams.webm",
+                                    poster:"video/play5.png"
+                                },
+                                {
+                                    title:"6. Ellie-Goulding",
+                                    artist:"",
+                                    mp4: "video/Ellie-Goulding.mp4",
+                                    ogv: "video/Ellie-Goulding.ogv",
+                                    webmv: "video/Ellie-Goulding.webm",
+                                    poster:"video/play1.png"
+                                },
+                                {
+                                    title:"7. Pharrell-Williams",
+                                    artist:"",
+                                    mp4: "video/Pharrell-Williams.mp4",
+                                    ogv: "video/Pharrell-Williams.ogv",
+                                    webmv: "video/Pharrell-Williams.webm",
+                                    poster:"video/play5.png"
+                                }
+                            ], {
+                                swfPath: "../../dist/jplayer",
+                                supplied: "webmv,ogv,mp4",
+                                useStateClassSkin: true,
+                                autoBlur: false,
+                                smoothPlayBar: true,
+                                keyEnabled: true
+                            });
+
+                        });
+                        //]]>
+                    </script>
+                    <!-- //script for play-list -->
+
+                    <!--//video-main-->
+                    <!--/app_store-->
+                    <div class="apps">
+                        <h3 class="hd-tittle">Mosaic now available in</h3>
+                        <div class="banner-button">
+                            <a href="#"><img src="images/1.png" alt=""></a>
                         </div>
+                        <div class="banner-button green-button">
+                            <a href="#"><img src="images/2.png" alt=""></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--//app_store-->
+                    <!--/start-paricing-tables-->
+                    <div class="price-section">
+                        <div class="pricing-inner">
+                            <h3 class="hd-tittle">Upgrade your Plan</h3>
+                            <div class="pricing">
+                                <div class="price-top">
+                                    <h3><span>$20</span></h3>
+                                    <h4>per year</h4>
+                                </div>
+                                <div class="price-bottom">
+                                    <ul>
+                                        <li><a class="icon" href="#"><i class="glyphicon glyphicon-ok"></i></a><a class="text" href="#">Download unlimited songs</a><div class="clearfix"></div></li>
+                                        <li><a class="icon" href="#"><i class="glyphicon glyphicon-ok"></i></a><a class="text" href="#">Stream songs in High Definition</a><div class="clearfix"></div></li>
+                                        <li><a class="icon" href="#"><i class="glyphicon glyphicon-ok"></i></a><a class="text" href="#">No ads unlimited Devices</a><div class="clearfix"></div></li>
+                                        <li><a class="icon" href="#"><i class="glyphicon glyphicon-ok"></i></a><a class="text" href="#">Stream songs in High Definition</a><div class="clearfix"></div></li>
+                                    </ul>
+                                    <a href="single.html" class="price">Upgrade</a>
+                                </div>
+                            </div>
+                            <div class="pricing two">
+                                <div class="price-top">
+                                    <h3><span>$30</span></h3>
+                                    <h4>per year</h4>
+                                </div>
+                                <div class="price-bottom">
+                                    <ul>
+                                        <li><a class="icon" href="#"><i class="glyphicon glyphicon-ok"></i></a><a class="text" href="#">Download unlimited songs</a><div class="clearfix"></div></li>
+                                        <li><a class="icon" href="#"><i class="glyphicon glyphicon-ok"></i></a><a class="text" href="#">Stream songs in High Definition</a><div class="clearfix"></div></li>
+                                        <li><a class="icon" href="#"><i class="glyphicon glyphicon-ok"></i></a><a class="text" href="#">No ads unlimited Devices</a><div class="clearfix"></div></li>
+                                        <li><a class="icon" href="#"><i class="glyphicon glyphicon-ok"></i></a><a class="text" href="#">Stream songs in High Definition</a><div class="clearfix"></div></li>
+                                    </ul>
+                                    <a href="single.html" class="price">Upgrade</a>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!--//end-pricing-tables-->
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                    <form class="search">
-                        <input class="form-control" type="text" placeholder="Search">
-                        <button><img src="images/search_icon.png"></button>
-                    </form>
+                <!--//music-right-->
+                <div class="clearfix"></div>
+                <!-- /w3l-agile-its -->
+            </div>
+            <!--body wrapper start-->
+
+            <div class="review-slider">
+                <div class="tittle-head">
+                    <h3 class="tittle">Featured Albums <span class="new"> New</span></h3>
+                    <div class="clearfix"> </div>
                 </div>
+                <ul id="flexiselDemo1">
+                    <li>
+                        <a href="single.html"><img src="images/v1.jpg" alt=""/></a>
+                        <div class="slide-title"><h4>Adele21 </div>
+                        <div class="date-city">
+                            <h5>Jan-02-16</h5>
+                            <div class="buy-tickets">
+                                <a href="single.html">READ MORE</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="single.html"><img src="images/v2.jpg" alt=""/></a>
+                        <div class="slide-title"><h4>Adele21</h4></div>
+                        <div class="date-city">
+                            <h5>Jan-02-16</h5>
+                            <div class="buy-tickets">
+                                <a href="single.html">READ MORE</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="single.html"><img src="images/v3.jpg" alt=""/></a>
+                        <div class="slide-title"><h4>Shomlock</h4></div>
+                        <div class="date-city">
+                            <h5>Jan-02-16</h5>
+                            <div class="buy-tickets">
+                                <a href="single.html">READ MORE</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="single.html"><img src="images/v4.jpg" alt=""/></a>
+                        <div class="slide-title"><h4>Stuck on a feeling</h4></div>
+                        <div class="date-city">
+                            <h5>Jan-02-16</h5>
+                            <div class="buy-tickets">
+                                <a href="single.html">READ MORE</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="single.html"><img src="images/v5.jpg" alt=""/></a>
+                        <div class="slide-title"><h4>Ricky Martine </h4></div>
+                        <div class="date-city">
+                            <h5>Jan-02-16</h5>
+                            <div class="buy-tickets">
+                                <a href="single.html">READ MORE</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="single.html"><img src="images/v6.jpg" alt=""/></a>
+                        <div class="slide-title"><h4>Ellie Goluding </h4></div>
+                        <div class="date-city">
+                            <h5>Jan-02-16</h5>
+                            <div class="buy-tickets">
+                                <a href="single.html">READ MORE</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="single.html"><img src="images/v6.jpeg" alt=""/></a>
+                        <div class="slide-title"><h4>Fifty Shades </h4></div>
+                        <div class="date-city">
+                            <h5>Jan-02-16</h5>
+                            <div class="buy-tickets">
+                                <a href="single.html">READ MORE</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <script type="text/javascript">
+                    $(window).load(function() {
+
+                        $("#flexiselDemo1").flexisel({
+                            visibleItems: 5,
+                            animationSpeed: 1000,
+                            autoPlay: true,
+                            autoPlaySpeed: 3000,
+                            pauseOnHover: false,
+                            enableResponsiveBreakpoints: true,
+                            responsiveBreakpoints: {
+                                portrait: {
+                                    changePoint:480,
+                                    visibleItems: 2
+                                },
+                                landscape: {
+                                    changePoint:640,
+                                    visibleItems: 3
+                                },
+                                tablet: {
+                                    changePoint:800,
+                                    visibleItems: 4
+                                }
+                            }
+                        });
+                    });
+                </script>
+                <script type="text/javascript" src="js/jquery.flexisel.js"></script>
             </div>
         </div>
-        <!-- end header inner -->
-</header>
-<!-- end header -->
-<section class="banner_section">
-    <div class="banner-main">
-        <img src="images/banner2.jpg" />
-        <div class="container">
-
-            <div class="text-bg relative">
-                <h1>Mp3<br><span class="Perfect">The Perfect Music</span><br>Welcome To The Music</h1>
-                <p>Lorem ipsum dolor sit amet consec tetur adipiscing elit elit at felis lacinia nec et est
-                    <br> aptent taciti sociosqu ad litora torquent per conubia nostra</p>
-                <a href="#">Download Now</a>
-            </div>
-
-        </div>
+        <div class="clearfix"></div>
+        <!--body wrapper end-->
+        <!-- /w3l-agile -->
     </div>
-
+    <!--body wrapper end-->
+    <div class="footer">
+        <div class="footer-grid">
+            <h3>Navigation</h3>
+            <ul class="list1">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="radio.html">All Songs</a></li>
+                <li><a href="browse.html">Albums</a></li>
+                <li><a href="radio.html">New Collections</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid">
+            <h3>Our Account</h3>
+            <ul class="list1">
+                <li><a href="#" data-toggle="modal" data-target="#myModal5">Your Account</a></li>
+                <li><a href="#">Personal information</a></li>
+                <li><a href="#">Addresses</a></li>
+                <li><a href="#">Discount</a></li>
+                <li><a href="#">Orders history</a></li>
+                <li><a href="#">Addresses</a></li>
+                <li><a href="#">Search Terms</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid">
+            <h3>Our Support</h3>
+            <ul class="list1">
+                <li><a href="contact.html">Site Map</a></li>
+                <li><a href="#">Search Terms</a></li>
+                <li><a href="#">Advanced Search</a></li>
+                <li><a href="#">Mobile</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">Mobile</a></li>
+                <li><a href="#">Addresses</a></li>
+            </ul>
+        </div>
+        <div class="footer-grid">
+            <h3>Newsletter</h3>
+            <p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+            <div class="search_footer">
+                <form>
+                    <input type="text" placeholder="Email...." required="">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="footer-grid footer-grid_last">
+            <h3>About Us</h3>
+            <p class="footer_desc">Diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat enim ad minim veniam,.</p>
+            <p class="f_text">Phone:  &nbsp;&nbsp;&nbsp;00-250-2131</p>
+            <p class="email">Email : &nbsp;<span><a href="mailto:mail@example.com">info(at)mailing.com</a></span></p>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    </div>
+    <!--footer section start-->
+    <footer>
+        <p>&copy 2016 Mosaic. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts.</a></p>
+    </footer>
+    <!--footer section end-->
+    <!-- /w3l-agile -->
+    <!-- main content end-->
 </section>
 
-<!-- music-box  -->
-<div class="music-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="for-box">
-                    <i><img src="icon/icon1.png" alt="icon"/></i>
-                    <h3>Custom Player</h3>
-                    <p>t is a long established fact that a reader will be distracted by the readable </p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="for-box">
-                    <i><img src="icon/icon2.png" alt="icon"/></i>
-                    <h3>Easy customize</h3>
-                    <p>t is a long established fact that a reader will be distracted by the readable </p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="for-box">
-                    <i><img src="icon/icon3.png" alt="icon"/></i>
-                    <h3>Music Playlist</h3>
-                    <p>t is a long established fact that a reader will be distracted by the readable </p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="for-box">
-                    <i><img src="icon/icon4.png" alt="icon"/></i>
-                    <h3>Custom Gallery</h3>
-                    <p>t is a long established fact that a reader will be distracted by the readable </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end music-box  -->
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 padding">
-            <div class="img-box">
-                <figure><img src="images/musicbg.jpg" alt="img" /></figure>
-            </div>
-        </div>
-        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 padding">
-            <div class="text-box">
-                <div class="box">
-                    <i><img src="images/5.png"/></i>
-                    <h3>MEET OUR Music STARS</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable
-                        <br> content of a page when looking at its layout. The point of using Lorem </p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Download -->
-<div id="screenshot" class="Lastestnews">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <h2>Latest News</h2>
-                    <span>It is a long established fact that a reader will be distracted by the readable <br>content of a page when looking at its layout. The point of using Lorem </span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div class="news-box">
-                    <figure><img src="images/1.jpg" alt="img" /></figure>
-                    <h3>Live With Music</h3>
-                    <span> March 20</span><span>Comment</span>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div class="news-box">
-                    <figure><img src="images/2.jpg" alt="img" /></figure>
-                    <h3>Best Music</h3>
-                    <span> March 20</span><span>Comment</span>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div class="news-box">
-                    <figure><img src="images/3.jpg" alt="img" /></figure>
-                    <h3>Live With Music</h3>
-                    <span> March 20</span><span>Comment</span>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end Download -->
-
-<!-- Albums -->
-<div id="screenshot" class="Albums">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <h2>Albums-box </h2>
-                    <span>It is a long established fact that a reader will be distracted by the readable <br>content of a page when looking at its layout. The point of using Lorem </span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
-                <div class="Albums-box">
-                    <figure>
-                        <a href="images/album1.jpg" class="fancybox" rel="ligthbox">
-                            <img src="images/album1.jpg" class="zoom img-fluid " alt="">
-                        </a>
-                        <span class="hoverle">
-                        <a href="images/album1.jpg" class="fancybox" rel="ligthbox"><img src="images/search.png"></a>
-                        </span>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
-                <div class="Albums-box">
-                    <figure>
-                        <a href="images/album2.jpg" class="fancybox" rel="ligthbox ">
-                            <img src="images/album2.jpg" class="zoom img-fluid " alt="">
-                        </a>
-                        <span class="hoverle">
-                        <a href="images/album2.jpg" class="fancybox" rel="ligthbox"><img src="images/search.png"></a>
-                        </span>
-                    </figure>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- end Albums -->
-
-<!-- Newsletter -->
-<div class="Newsletter">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <h2>Newsletter</h2>
-                <div class="row">
-                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 padding-right">
-                        <input class="email" placeholder="Enter Your Email" type="text" name="Enter Your Email">
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 padding-left">
-                        <button class="submit-btn">Subscribe</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- end Newsletter -->
-
-<!--  footer -->
-<footr id="footer_with_contact">
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12 width">
-                    <div class="address">
-                        <h3>Contact Us</h3>
-                        <ul class="locarion_icon">
-                            <li><img src="icon/1.png" alt="icon" />104 New York , USA</li>
-                            <li><img src="icon/2.png" alt="icon" />Phone : ( +71 5896547 )</li>
-                            <li><img src="icon/3.png" alt="icon" />Email : demo@email.com</li>
-
-                        </ul>
-
-                        <ul class="contant_icon">
-                            <li><img src="icon/fb.png" alt="icon" /></li>
-                            <li><img src="icon/tw.png" alt="icon" /></li>
-                            <li><img src="icon/lin(2).png" alt="icon" /></li>
-                            <li><img src="icon/instagram.png" alt="icon" /></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 width">
-                    <div class="address">
-                        <h3>Get In Touch</h3>
-                        <form>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Name" type="text" name="Name">
-                                </div>
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Phone" type="text" name="Email">
-                                </div>
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Email" type="text" name="Email">
-                                </div>
-                                <div class="col-sm-12">
-                                    <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
-                                </div>
-                                <div class="col-sm-12">
-                                    <button class="send">Send</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 width">
-                    <div class="address">
-                        <h3>New Music </h3>
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                <figure><img src="images/music1.jpg" /></figure>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                <figure><img src="images/music2.jpg" /></figure>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                <figure><img src="images/music3.jpg" /></figure>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                <figure><img src="images/music4.jpg" /></figure>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>© 2019 All Rights Reserved. <a href="https://html.design/">Free html Templates</a></p>
-        </div>
-    </div>
-</footr>
-<!-- end footer -->
-<!-- Javascript files-->
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/jquery-3.0.0.min.js"></script>
-<script src="js/plugin.js"></script>
-<!-- sidebar -->
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $(".fancybox").fancybox({
-            openEffect: "none",
-            closeEffect: "none"
-        });
-
-        $(".zoom").hover(function() {
-
-            $(this).addClass('transition');
-        }, function() {
-
-            $(this).removeClass('transition');
-        });
-    });
-</script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.js"></script>
 </body>
-
 </html>

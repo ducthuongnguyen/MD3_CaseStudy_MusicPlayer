@@ -35,7 +35,6 @@ public class Playlist {
     public String getNamePlaylist() {
         return namePlaylist;
     }
-
     public void setNamePlaylist(String namePlaylist) {
         this.namePlaylist = namePlaylist;
     }

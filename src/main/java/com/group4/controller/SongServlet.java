@@ -24,9 +24,20 @@ public class SongServlet extends HttpServlet {
             case "create":
                 showCreateForm(request, response);
                 break;
+            case "detail":
+                showSongDetail(request, response);
+                break;
             default:
                 showSongList(request, response);
+                break;
         }
+    }
+
+    private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Song song = songDao.findById(id);
+        request.setAttribute("song", song);
+        request.getRequestDispatcher("songs/detail.jsp").forward(request, response);
     }
 
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,6 +54,28 @@ public class SongServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "create":
+                createSong(request, response);
+                break;
+            default:
+                showSongList(request, response);
+        }
+    }
 
+    private void createSong(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("nameSong");
+        String des = request.getParameter("description");
+        String linkMp3 = request.getParameter("mp3File");
+        String avatar = request.getParameter("avatar");
+        String author = request.getParameter("author");
+        int typeId = Integer.parseInt(request.getParameter("typeId"));
+        String album = request.getParameter("album");
+        Song song = new Song(name, des, linkMp3, avatar, author, typeId, album);
+        songDao.save(song);
     }
 }

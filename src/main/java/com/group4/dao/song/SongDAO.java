@@ -18,7 +18,11 @@ public class SongDAO implements ISongDao {
     public SongDAO() {
         songs = new ArrayList<>();
     }
-private static final String SELECT_ALL_SONG = "select * from songs;";
+
+    private static final String SELECT_ALL_SONG = "select * from songs;";
+    private static final String INSERT_SONG = "insert into songs(nameSong,description,mp3File,avatar,author,typeId,album) values (?,?,?,?,?,?,?);";
+    private static final String SELECT_BY_ID = "select nameSong,singerId,userId,mp3File from songs where id =?;";
+
 
     @Override
     public List<Song> findAll() {
@@ -46,12 +50,37 @@ private static final String SELECT_ALL_SONG = "select * from songs;";
 
     @Override
     public Song findById(int id) {
-        return null;
+        Song song = null;
+            try (Connection connection = getConnection();
+                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID)) {
+                preparedStatement.setInt(1, id);
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    String nameSong = rs.getString("nameSong");
+                    int singerId = rs.getInt("singerId");
+                    int userId = rs.getInt("userId");
+                    String mp3File = rs.getString("mp3File");
+                    song = new Song(id, nameSong,singerId,userId,mp3File);
+                }
+            } catch (SQLException e) {
+            }
+        return song;
     }
 
     @Override
     public void save(Song song) {
-
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_SONG)) {
+            preparedStatement.setString(1, song.getNameSong());
+            preparedStatement.setString(2, song.getDescription());
+            preparedStatement.setString(3, song.getMp3File());
+            preparedStatement.setString(4, song.getAvatar());
+            preparedStatement.setString(5, song.getAuthor());
+            preparedStatement.setInt(6, song.getTypeId());
+            preparedStatement.setString(7, song.getAlbum());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+        }
     }
 
     @Override

@@ -47,7 +47,7 @@ public class SongDAO implements ISongDao {
     }
 
     @Override
-    public List<Song> findById(int id) {
+    public Song findById(int id) {
         return null;
     }
 

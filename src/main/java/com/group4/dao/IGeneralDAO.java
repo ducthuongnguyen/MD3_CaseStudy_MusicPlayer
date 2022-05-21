@@ -5,7 +5,7 @@ import java.util.List;
 public interface IGeneralDAO<T> {
     List<T> findAll();
 
-    List<T> findById(int id);
+    T findById(int id);
 
     void save(T t);
 

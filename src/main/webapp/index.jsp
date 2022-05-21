@@ -66,11 +66,6 @@
                                     <ul class="dropdown">
                                         <li><a href="/songs">Show list songs</a></li>
                                         <li><a href="/songs?action=create">Add new song</a></li>
-                                        <li><a href="event.html">Events</a></li>
-                                        <li><a href="blog.html">News</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="elements.html">Elements</a></li>
-                                        <li><a href="login.html">Login</a></li>
                                         <li><a href="#">Dropdown</a>
                                             <ul class="dropdown">
                                                 <li><a href="#">Even Dropdown</a></li>

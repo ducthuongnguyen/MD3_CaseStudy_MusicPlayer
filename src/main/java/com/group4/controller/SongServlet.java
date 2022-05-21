@@ -24,10 +24,20 @@ public class SongServlet extends HttpServlet {
             case "create":
                 showCreateForm(request, response);
                 break;
+            case "detail":
+                showSongDetail(request, response);
+                break;
             default:
                 showSongList(request, response);
                 break;
         }
+    }
+
+    private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Song song = songDao.findById(id);
+        request.setAttribute("song", song);
+        request.getRequestDispatcher("songs/detail.jsp").forward(request, response);
     }
 
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

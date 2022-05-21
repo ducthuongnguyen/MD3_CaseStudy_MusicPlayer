@@ -21,7 +21,7 @@ public class SongDAO implements ISongDao {
 
     private static final String SELECT_ALL_SONG = "select * from songs;";
     private static final String INSERT_SONG = "insert into songs(nameSong,description,mp3File,avatar,author,typeId,album) values (?,?,?,?,?,?,?);";
-    private static final String SELECT_BY_ID = "select nameSong,singerId,userId from songs where id =1;";
+    private static final String SELECT_BY_ID = "select nameSong,singerId,userId,mp3File from songs where id =?;";
 
 
     @Override
@@ -50,14 +50,21 @@ public class SongDAO implements ISongDao {
 
     @Override
     public Song findById(int id) {
-//        try (Connection connection = getConnection();
-//             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_SONG)) {
-//            preparedStatement.setString(1, song.getNameSong());
-//            preparedStatement.setString(2, song.getDescription());
-//            preparedStatement.setString(3, song.getMp3File());
-//            preparedStatement.setString(4, song.getAvatar());
-
-        return null;
+        Song song = null;
+            try (Connection connection = getConnection();
+                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID)) {
+                preparedStatement.setInt(1, id);
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    String nameSong = rs.getString("nameSong");
+                    int singerId = rs.getInt("singerId");
+                    int userId = rs.getInt("userId");
+                    String mp3File = rs.getString("mp3File");
+                    song = new Song(id, nameSong,singerId,userId,mp3File);
+                }
+            } catch (SQLException e) {
+            }
+        return song;
     }
 
     @Override

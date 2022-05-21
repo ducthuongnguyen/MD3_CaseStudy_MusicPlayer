@@ -201,7 +201,7 @@
             </div>
             <div class="col-md-3">
                 <div class="load-more-btn text-center">
-                    <button type="button" class="btn btn-outline-dark">Delete</button>
+                    <a href="/songs?action=delete&id=${song.getId()}" class="btn btn-outline-dark">Delete</a>
                 </div>
             </div>
         </div>

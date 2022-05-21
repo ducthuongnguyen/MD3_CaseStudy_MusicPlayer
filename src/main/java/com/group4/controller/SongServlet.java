@@ -27,10 +27,21 @@ public class SongServlet extends HttpServlet {
             case "detail":
                 showSongDetail(request, response);
                 break;
+            case "delete":
+                deleteSong(request, response);
+                break;
             default:
                 showSongList(request, response);
                 break;
         }
+    }
+
+    private void deleteSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        songDao.delete(id);
+        List<Song> songs = songDao.findAll();
+        request.setAttribute("songList",songs);
+        request.getRequestDispatcher("songs/list.jsp").forward(request,response);
     }
 
     private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

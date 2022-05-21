@@ -22,6 +22,7 @@ public class SongDAO implements ISongDao {
     private static final String SELECT_ALL_SONG = "select * from songs;";
     private static final String INSERT_SONG = "insert into songs(nameSong,description,mp3File,avatar,author,typeId,album) values (?,?,?,?,?,?,?);";
     private static final String SELECT_BY_ID = "select nameSong,singerId,userId,mp3File from songs where id =?;";
+    private static final String DELETE_SONG ="delete from songs where id=?;";
 
 
     @Override
@@ -85,7 +86,12 @@ public class SongDAO implements ISongDao {
 
     @Override
     public void delete(int id) {
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SONG)){
+            preparedStatement.setInt(1, id);
 
+        } catch (SQLException e) {
+        }
     }
 
     @Override

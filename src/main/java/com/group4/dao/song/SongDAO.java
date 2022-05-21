@@ -19,9 +19,6 @@ public class SongDAO implements ISongDao {
         songs = new ArrayList<>();
     }
 
-    DatabaseConnection connection = new DatabaseConnection();
-
-
     @Override
     public List<Song> findAll() {
         try (Connection connection = getConnection();

@@ -30,6 +30,16 @@ public class Song {
         this.singerId = singerId;
     }
 
+    public Song(String nameSong, String description, String mp3File, String avatar, String author, int typeId, String album) {
+        this.nameSong = nameSong;
+        this.description = description;
+        this.mp3File = mp3File;
+        this.avatar = avatar;
+        this.author = author;
+        this.typeId = typeId;
+        this.album = album;
+    }
+
     public int getId() {
         return id;
     }

@@ -26,6 +26,7 @@ public class SongServlet extends HttpServlet {
                 break;
             default:
                 showSongList(request, response);
+                break;
         }
     }
 
@@ -43,6 +44,28 @@ public class SongServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "create":
+                createSong(request, response);
+                break;
+            default:
+                showSongList(request, response);
+        }
+    }
 
+    private void createSong(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("nameSong");
+        String des = request.getParameter("description");
+        String linkMp3 = request.getParameter("mp3File");
+        String avatar = request.getParameter("avatar");
+        String author = request.getParameter("author");
+        int typeId = Integer.parseInt(request.getParameter("typeId"));
+        String album = request.getParameter("album");
+        Song song = new Song(name, des, linkMp3, avatar, author, typeId, album);
+        songDao.save(song);
     }
 }

@@ -64,8 +64,8 @@
                                 <li><a href="album.html">Album</a></li>
                                 <li><a href="/songs">Songs</a>
                                     <ul class="dropdown">
+                                        <li><a href="/songs">Show list songs</a></li>
                                         <li><a href="/songs?action=create">Add new song</a></li>
-                                        <li><a href="albums-store.html">Albums</a></li>
                                         <li><a href="event.html">Events</a></li>
                                         <li><a href="blog.html">News</a></li>
                                         <li><a href="contact.html">Contact</a></li>

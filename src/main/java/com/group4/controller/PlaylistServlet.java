@@ -1,7 +1,7 @@
 package com.group4.controller;
 
-import com.group4.dao.playlist.IPlaylistDAO;
 import com.group4.dao.playlist.PlaylistDAO;
+import com.group4.dao.playlist.IPlaylistDAO;
 import com.group4.model.Playlist;
 
 import javax.servlet.RequestDispatcher;

@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "SongServlet", value = "/songs")
@@ -25,15 +26,23 @@ public class SongServlet extends HttpServlet {
                 showCreateForm(request, response);
                 break;
             case "detail":
-                showSongDetail(request, response);
+                try {
+                    showSongDetail(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
-                showSongList(request, response);
+                try {
+                    showSongList(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }
 
-    private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
         Song song = songDao.findById(id);
         request.setAttribute("song", song);
@@ -45,7 +54,7 @@ public class SongServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void showSongList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showSongList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("songs/list.jsp");
         List<Song> songs = songDao.findAll();
         request.setAttribute("songList", songs);
@@ -60,14 +69,22 @@ public class SongServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                createSong(request, response);
+                try {
+                    createSong(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
-                showSongList(request, response);
+                try {
+                    showSongList(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
     }
 
-    private void createSong(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void createSong(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
         String name = request.getParameter("nameSong");
         String des = request.getParameter("description");
         String linkMp3 = request.getParameter("mp3File");

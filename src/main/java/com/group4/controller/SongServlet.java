@@ -67,7 +67,7 @@ public class SongServlet extends HttpServlet {
         }
     }
 
-    private void createSong(HttpServletRequest request, HttpServletResponse response) {
+    private void createSong(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String name = request.getParameter("nameSong");
         String des = request.getParameter("description");
         String linkMp3 = request.getParameter("mp3File");
@@ -77,5 +77,6 @@ public class SongServlet extends HttpServlet {
         String album = request.getParameter("album");
         Song song = new Song(name, des, linkMp3, avatar, author, typeId, album);
         songDao.save(song);
+        response.sendRedirect("/songs");
     }
 }

@@ -70,13 +70,8 @@
                                 <li><a href="albums-store.html">Albums</a></li>
                                 <li><a href="#">Songs</a>
                                     <ul class="dropdown">
+                                        <li><a href="/songs">Show list songs</a></li>
                                         <li><a href="#">Add new song</a></li>
-                                        <li><a href="albums-store.html">Albums</a></li>
-                                        <li><a href="event.html">Events</a></li>
-                                        <li><a href="blog.html">News</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="elements.html">Elements</a></li>
-                                        <li><a href="login.html">Login</a></li>
                                         <li><a href="#">Dropdown</a>
                                             <ul class="dropdown">
                                                 <li><a href="#">Even Dropdown</a></li>
@@ -141,38 +136,43 @@
             <div class="col-12">
                 <!-- Create Form Area -->
                 <div class="contact-form-area">
-                    <form action="#" method="post">
+                    <form  method="post">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group wow fadeInUp">
                                     <input type="text" class="form-control" placeholder="Song's name" name="nameSong">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group wow fadeInUp">
                                     <input type="text" class="form-control" placeholder="mp3File"
                                            name="mp3File">
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="form-group">
+                                <div class="form-group wow fadeInUp">
                                     <input type="text" class="form-control" placeholder="Avatar" name="avatar">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group wow fadeInUp">
                                     <input type="text" class="form-control" placeholder="Author's name" name="author">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group wow fadeInUp">
                                     <input type="number" class="form-control" placeholder="Music type" name="typeId">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group wow fadeInUp">
                                     <input type="text" class="form-control" placeholder="Album"
                                            name="album">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group wow fadeInUp" data-wow-delay="400ms">
+                                    <textarea name="description" class="form-control" cols="15" rows="5" placeholder="Description"></textarea>
                                 </div>
                             </div>
                         </div>

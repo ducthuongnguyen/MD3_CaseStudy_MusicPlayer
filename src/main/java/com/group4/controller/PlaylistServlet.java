@@ -60,10 +60,11 @@ public class PlaylistServlet extends HttpServlet {
     private void deletePlaylist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         playlistDAO.delete(id);
-        List<Playlist> playlists = playlistDAO.findAll();
-        request.setAttribute("playlist", playlists);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("/PlaylistServlet");
+//        List<Playlist> playlists = playlistDAO.findAll();
+//        request.setAttribute("playlist", playlists);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+//        dispatcher.forward(request, response);
 
     }
 

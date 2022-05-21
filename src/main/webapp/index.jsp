@@ -64,7 +64,7 @@
                                 <li><a href="albums-store.html">Albums</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
-                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="/PlaylistServlet/index.jsp">Home</a></li>
                                         <li><a href="albums-store.html">Albums</a></li>
                                         <li><a href="event.html">Events</a></li>
                                         <li><a href="blog.html">News</a></li>
@@ -133,7 +133,7 @@
         <!-- Single Hero Slide -->
         <div class="single-hero-slide d-flex align-items-center justify-content-center">
             <!-- Slide Img -->
-            <div class="slide-img bg-img" style="background-image: url(img/bg-img/bg-1.jpg);"></div>
+            <div class="slide-img bg-img" ></div>
             <!-- Slide Content -->
             <div class="container">
                 <div class="row">
@@ -151,7 +151,7 @@
         <!-- Single Hero Slide -->
         <div class="single-hero-slide d-flex align-items-center justify-content-center">
             <!-- Slide Img -->
-            <div class="slide-img bg-img" style="background-image: url(img/bg-img/bg-2.jpg);"></div>
+            <div class="slide-img bg-img" ></div>
             <!-- Slide Content -->
             <div class="container">
                 <div class="row">
@@ -506,7 +506,7 @@
 <!-- ##### Buy Now Area End ##### -->
 
 <!-- ##### Featured Artist Area Start ##### -->
-<section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style="background-image: url(img/bg-img/bg-4.jpg);">
+<section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" >
     <div class="container">
         <div class="row align-items-end">
             <div class="col-12 col-md-5 col-lg-4">
@@ -823,7 +823,7 @@
 <!-- ##### Miscellaneous Area End ##### -->
 
 <!-- ##### Contact Area Start ##### -->
-<section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">
+<section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" >
     <div class="container">
         <div class="row">
             <div class="col-12">

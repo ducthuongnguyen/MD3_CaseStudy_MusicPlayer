@@ -18,11 +18,12 @@ public class SongDAO implements ISongDao {
     public SongDAO() {
         songs = new ArrayList<>();
     }
+private static final String SELECT_ALL_SONG = "select * from songs;";
 
     @Override
     public List<Song> findAll() {
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("select * from songs;")) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_SONG)) {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");

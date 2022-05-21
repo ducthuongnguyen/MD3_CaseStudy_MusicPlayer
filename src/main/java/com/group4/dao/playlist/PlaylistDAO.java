@@ -1,15 +1,17 @@
 package com.group4.dao.playlist;
 
+import com.group4.model.Playlist;
+
 import java.util.List;
 
 public class PlaylistDAO implements IPlaylistDAO{
     @Override
-    public List findAll() {
+    public List<Playlist> findAll() {
         return null;
     }
 
     @Override
-    public List findById(int id) {
+    public Playlist findById(int id) {
         return null;
     }
 

@@ -16,7 +16,7 @@ import java.util.List;
 
 @WebServlet(name = "PlaylistServlet", value = "/PlaylistServlet")
 public class PlaylistServlet extends HttpServlet {
-    IPlaylistDAO playlistDAO=new PlaylistDAO();
+    IPlaylistDAO playlistDAO = new PlaylistDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

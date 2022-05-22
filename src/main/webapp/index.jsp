@@ -94,7 +94,7 @@
                                 <ul class="dropdown">
                                     <li><a href="/PlaylistServlet">Show My Playlist</a></li>
                                     <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
-                                    <li><a href="event.html">Events</a></li>
+                                    <li><a href="/PlaylistServlet?action=popular">Popular Playlist</a></li>
                                     <li><a href="blog.html">News</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                     <li><a href="elements.html">Elements</a></li>

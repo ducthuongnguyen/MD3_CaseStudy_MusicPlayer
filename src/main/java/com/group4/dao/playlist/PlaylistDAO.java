@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PlaylistDAO implements IPlaylistDAO {
     private static final String SELECT_ALL_PLAYLIST = "select * from playlists;";
-    private static final String SELECT_POPULAR_PLAYLIST = "select * from playlists order by view desc limit 4;";
+    private static final String SELECT_POPULAR_PLAYLIST = "select * from playlists order by view desc limit 6;";
     private static final String INSERT_PLAYLIST = "insert into playlists(namePlaylist,typeId,description,songQuantity,view,userId,songId) values (?,?,?,?,?,?,?);";
     private static final String UPDATE_PLAYLIST = "update playlists set namePlaylist=?,typeId=?,description=?,songQuantity=?,view=?,userId=?,songId=? where playlists.id=?;";
     private static final String DELETE_PLAYLIST = "delete from playlists where playlists.id=?;";

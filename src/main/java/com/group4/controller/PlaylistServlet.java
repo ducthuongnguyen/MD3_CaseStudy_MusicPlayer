@@ -61,9 +61,9 @@ public class PlaylistServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         playlistDAO.delete(id);
         response.sendRedirect("/PlaylistServlet");
-//        List<Playlist> playlists = playlistDAO.findAll();
+        List<Playlist> playlists = playlistDAO.findAll();
 //        request.setAttribute("playlist", playlists);
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/myplaylist.jsp.jsp");
 //        dispatcher.forward(request, response);
 
     }
@@ -114,9 +114,10 @@ public class PlaylistServlet extends HttpServlet {
         }
     }
 
-    private void updatePlaylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void updatePlaylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
-
+//
+//        Playlist playlist = playlistDAO.findById(id);
         String namePlaylist = request.getParameter("namePlaylist");
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String description = request.getParameter("description");
@@ -124,14 +125,14 @@ public class PlaylistServlet extends HttpServlet {
         int view = Integer.parseInt(request.getParameter("view"));
         int userId = Integer.parseInt(request.getParameter("userId"));
         int songId = Integer.parseInt(request.getParameter("songId"));
-        Playlist playlist = new Playlist(namePlaylist, typeId, description, songQuantity, view, userId, songId);
-        playlistDAO.update(playlist);
+      Playlist playlist = new Playlist(namePlaylist, typeId, description, songQuantity, view, userId, songId);
+
+        playlistDAO.update(id,playlist);
         RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/edit.jsp");
         dispatcher.forward(request, response);
     }
 
     private void addPlaylist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-//        System.out.println("SAVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
         String namePlaylist = request.getParameter("namePlaylist");
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String description = request.getParameter("description");

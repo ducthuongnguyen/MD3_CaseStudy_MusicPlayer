@@ -67,7 +67,7 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="/PlaylistServlet">Home</a></li>
+                                <li><a href="index.jsp">Home</a></li>
                                 <li><a href="albums-store.html">Albums</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
@@ -97,7 +97,12 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="event.html">Events</a></li>
+                                <li><a href="event.html">My Playlist</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/PlaylistServlet">Show My Playlist</a></li>
+                                        <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
+
+                                    </ul></li>
                                 <li><a href="blog.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
@@ -126,7 +131,7 @@
 <!-- ##### Header Area End ##### -->
 
 <!-- ##### Breadcumb Area Start ##### -->
-<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(../img/bg-img/breadcumb3.jpg);">
+<section class="breadcumb-area bg-img bg-overlay" >
     <div class="bradcumbContent">
 <%--        <p>See what’s new</p>--%>
         <h2>Edit A Playlist</h2>
@@ -514,7 +519,9 @@
 <!-- ##### Song Area End ##### -->
 
 <!-- ##### Contact Area Start ##### -->
-<section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" style="background-image: url(../img/bg-img/bg-2.jpg);">
+
+<section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" >
+
     <div class="container">
 
         <div class="row">
@@ -566,7 +573,7 @@
                             <div class="col-12 text-center">
                                 <button class="btn oneMusic-btn mt-30" type="submit">Edit <i class="fa fa-angle-double-right"></i></button>
                             </div>
-                    </form>
+    </form>
                         </div>
 
                 </div>

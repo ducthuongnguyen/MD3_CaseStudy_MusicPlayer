@@ -71,7 +71,7 @@
                                 <li><a href="albums-store.html">Albums</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
-                                        <li><a href="/PlaylistServlet/index.jsp">Home</a></li>
+                                        <li><a href="index.jsp">Home</a></li>
                                         <li><a href="albums-store.html">Albums</a></li>
                                         <li><a href="event.html">Events</a></li>
                                         <li><a href="blog.html">News</a></li>
@@ -97,7 +97,12 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="event.html">Events</a></li>
+                                <li><a href="event.html">My Playlist</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/PlaylistServlet">Show My Playlist</a></li>
+                                        <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
+
+                                    </ul></li>
                                 <li><a href="blog.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
@@ -126,7 +131,7 @@
 <!-- ##### Header Area End ##### -->
 
 <!-- ##### Breadcumb Area Start ##### -->
-<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(../img/bg-img/breadcumb3.jpg);">
+<section class="breadcumb-area bg-img bg-overlay" >
     <div class="bradcumbContent">
 <%--        <p>See what’s new</p>--%>
         <h2>CREATE PLAYLIST</h2>
@@ -514,7 +519,7 @@
         <!-- ##### Song Area End ##### -->
 
         <!-- ##### Contact Area Start ##### -->
-        <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" style="background-image: url(../img/bg-img/bg-2.jpg);">
+        <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" >
             <div class="container">
                 <%--        <div class="row">--%>
                 <%--            <div class="col-12">--%>
@@ -524,68 +529,53 @@
                 <%--                </div>--%>
                 <%--            </div>--%>
                 <%--        </div>--%>
-                    <form  method="post">
+
                 <div class="row">
                     <div class="col-12">
                         <!-- Contact Form Area -->
                         <div class="contact-form-area">
-
+                            <form  method="post">
                                 <div class="row">
                                     <div class="col-md-6 col-lg-4">
-                                        <div class="form-group">
+                                        <div >
                                             <input type="text" class="form-control" name="namePlaylist" placeholder="namePlaylist">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4">
-                                        <div class="form-group">
+                                        <div >
                                             <input type="number" class="form-control" name="typeId" placeholder="typeId">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-4">
-                                        <div class="form-group">
+                                        <div >
                                             <input type="text" class="form-control" name="description" placeholder="description">
                                         </div>
                                     </div><div class="col-md-6 col-lg-4">
-                                    <div class="form-group">
+                                    <div >
                                         <input type="number" class="form-control" name="songQuantity" placeholder="songQuantity">
                                     </div>
                                 </div><div class="col-md-6 col-lg-4">
-                                    <div class="form-group">
+                                    <div >
                                         <input type="number" class="form-control" name="view" placeholder="view">
                                     </div>
                                 </div><div class="col-md-6 col-lg-4">
-                                    <div class="form-group">
+                                    <div >
                                         <input type="number" class="form-control" name="userId" placeholder="userId">
                                     </div>
                                 </div> </div><div class="col-md-6 col-lg-4">
-                                <div class="form-group">
+                                <div >
                                     <input type="number" class="form-control" name="songId" placeholder="songId">
                                 </div>
                             </div>
-                                <%--                            <div class="col-md-6 col-lg-4">--%>
-                                <%--                                <div class="form-group">--%>
-                                <%--                                    <input type="email" class="form-control" id="email" placeholder="E-mail">--%>
-                                <%--                                </div>--%>
-                                <%--                            </div>--%>
-                                <%--                            <div class="col-lg-4">--%>
-                                <%--                                <div class="form-group">--%>
-                                <%--                                    <input type="text" class="form-control" id="subject" placeholder="Subject">--%>
-                                <%--                                </div>--%>
-                                <%--                            </div>--%>
-                                <%--                            <div class="col-12">--%>
-                                <%--                                <div class="form-group">--%>
-                                <%--                                    <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>--%>
-                                <%--                                </div>--%>
-                                <%--                            </div>--%>
                                 <div class="col-12 text-center">
                                     <button class="btn oneMusic-btn mt-30" type="submit">Create <i class="fa fa-angle-double-right"></i></button>
                                 </div>
 
-
+                            </form>
                         </div>
                     </div>
                 </div>
-            </form>
+
             </div>
         </section>
         <!-- ##### Contact Area End ##### -->

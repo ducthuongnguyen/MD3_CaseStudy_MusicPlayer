@@ -181,5 +181,22 @@ public class PlaylistDAO implements IPlaylistDAO {
     @Override
     public void update(int id, Playlist playlist) {
 
+        try
+                (Connection connection = DatabaseConnection.getConnection();
+                 PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PLAYLIST)) {
+
+            preparedStatement.setString(1, playlist.getNamePlaylist());
+            preparedStatement.setInt(2, playlist.getTypeId());
+            preparedStatement.setString(3, playlist.getDescription());
+            preparedStatement.setInt(4, playlist.getSongQuantity());
+            preparedStatement.setInt(5, playlist.getView());
+            preparedStatement.setInt(6, playlist.getUserId());
+            preparedStatement.setInt(7, playlist.getSongId());
+            preparedStatement.setInt(8, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

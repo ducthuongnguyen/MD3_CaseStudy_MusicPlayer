@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IPlaylistDAO extends IGeneralDAO<Playlist> {
-    void update(Playlist playlist);
     List<Playlist> findPopular() throws SQLException;
 
 }

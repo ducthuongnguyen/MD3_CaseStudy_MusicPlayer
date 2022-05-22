@@ -39,10 +39,10 @@ public class SingerServlet extends HttpServlet {
                 break;
         }
     }
-    List<Singer> singers = new ArrayList<>();
+
     private void showListSinger(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("singer/list.jsp");
-        singers = singerDAO.findAll();
+        List<Singer> singers = singerDAO.findAll();
         request.setAttribute("singers", singers);
         requestDispatcher.forward(request, response);
 
@@ -72,15 +72,15 @@ public class SingerServlet extends HttpServlet {
     }
 
     private void createSinger(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, IOException {
-        singers = singerDAO.findAll();
+//        singers = singerDAO.findAll();
         String nameSinger = request.getParameter("nameSinger");
         String sex = request.getParameter("sex");
         String dateOfBirth = request.getParameter("dateOfBirth");
-        int typeId= Integer.parseInt(request.getParameter("typeId"));
+        int typeId = Integer.parseInt(request.getParameter("typeId"));
         String story = request.getParameter("story");
 //        int userId = Integer.parseInt(request.getParameter("userId"));
         String avatar = request.getParameter("avatar");
-        Singer singer=new Singer(nameSinger,sex,dateOfBirth,typeId,story,avatar);
+        Singer singer = new Singer(nameSinger, sex, dateOfBirth, typeId, story, avatar);
 //        for (int i=1;i<=singers.size();i++){
 //            String x=singers.get(i).getSingerName();
 //            if (singers.get(i).getSingerName().equals(nameSinger)&&
@@ -98,7 +98,7 @@ public class SingerServlet extends HttpServlet {
 //                showCreateForm(request,response);
 //            }
 //        }
-singerDAO.save(singer);
-                response.sendRedirect("/index.jsp");
+        singerDAO.save(singer);
+        response.sendRedirect("/index.jsp");
     }
 }

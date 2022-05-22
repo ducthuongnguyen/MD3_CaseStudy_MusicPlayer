@@ -32,12 +32,6 @@ public class SongServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 break;
-            case "edit":
-                showEditForm(request,response);
-                break;
-            case "delete":
-                deleteSong(request, response);
-                break;
             default:
                 try {
                     showSongList(request, response);
@@ -46,21 +40,6 @@ public class SongServlet extends HttpServlet {
                 }
                 break;
         }
-    }
-
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("songs/edit.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    private void deleteSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        songDao.delete(id);
-//        List<Song> listUser = songDao.findAll();
-//        request.setAttribute("songList", listUser);
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("songs/list.jsp");
-//        dispatcher.forward(request, response);
-        response.sendRedirect("songs");
     }
 
     private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
@@ -90,7 +69,11 @@ public class SongServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                createSong(request, response);
+                try {
+                    createSong(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 try {
@@ -101,7 +84,7 @@ public class SongServlet extends HttpServlet {
         }
     }
 
-    private void createSong(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void createSong(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
         String name = request.getParameter("nameSong");
         String des = request.getParameter("description");
         String linkMp3 = request.getParameter("mp3File");

@@ -28,33 +28,6 @@
 <body>
 <!-- Preloader -->
 
-
-<!-- ##### Header Area Start ##### -->
-
-<!-- ##### Header Area End ##### -->
-
-<!-- ##### Breadcumb Area Start ##### -->
-
-<!-- ##### Breadcumb Area End ##### -->
-
-<!-- ##### Album Catagory Area Start ##### -->
-
-<!-- ##### Album Catagory Area End ##### -->
-
-<!-- ##### Buy Now Area Start ##### -->
-
-<!-- ##### Buy Now Area End ##### -->
-
-<!-- ##### Add Area Start ##### -->
-
-<!-- ##### Add Area End ##### -->
-
-<!-- ##### Song Area Start ##### -->
-
-<!-- ##### Song Area End ##### -->
-
-<!-- ##### Contact Area Start ##### -->
-
 <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"
          style="background-image: url(img/bg-img/bg-2.jpg);">
     <div class="container">
@@ -90,7 +63,7 @@
                                            placeholder="Date of Birth">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="typeId" placeholder="Music style">
+                                    <input type="number" class="form-control" name="typeId" placeholder="Music style">
                                 </div>
                             </div>
                             <div class="col-12">

@@ -8,7 +8,7 @@ public interface IGeneralDAO<T> {
 
     T findById(int id) throws SQLException;
 
-    void save(T t);
+    void save(T t) throws SQLException;
 
     void delete(int id);
 

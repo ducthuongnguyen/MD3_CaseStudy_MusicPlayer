@@ -8,10 +8,26 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 public class SingerDAO implements ISingerDAO {
 
     public static final String SELECT_ALL_SINGER = "select*from singers";
     public static final String INSERT_NEW_SINGER = "insert into singers(singerName,sex,dateOfBirth,typeId,story,userId,avatar) VALUES(?,?,?,?,?,?,?)";
+=======
+public class SingerDAO<preparedStatement> implements ISingerDAO {
+    //    public static void main(String[] args) throws SQLException {
+//        List<Singer>singers=new SingerDAO().findAll();
+//        System.out.println("size"+singers.size());
+//        for (int i = 0; i <singers.size(); i++) {
+//            System.out.println(singers.get(i).getSingerName());
+//            System.out.println();
+//        }
+//    }
+
+    public static final String SELECT_ALL_SINGER = "select*from singers";
+    public static final String INSERT_NEW_SINGER = "insert into singers(singerName,sex,dateOfBirth,typeId,story,userId,avatar) VALUES(?,?,?,?,?,?,?)";
+
+>>>>>>> c9911e2971205445f22202e7f459021d6d49f809
     protected Connection getConnection() {
         Connection connection = null;
         try {
@@ -44,11 +60,16 @@ public class SingerDAO implements ISingerDAO {
                 String avatar = resultSet.getString("avatar");
                 singers.add(new Singer(id, singerName, sex, dateOfBirth, typeId, story, userId, avatar));
             }
+<<<<<<< HEAD
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return singers;
+=======
+            return singers;
+        }
+>>>>>>> c9911e2971205445f22202e7f459021d6d49f809
     }
 
     @Override
@@ -64,7 +85,10 @@ public class SingerDAO implements ISingerDAO {
     public void save(Singer singer) {
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW_SINGER)) {
+<<<<<<< HEAD
             User user = new User();
+=======
+>>>>>>> c9911e2971205445f22202e7f459021d6d49f809
             preparedStatement.setString(1, singer.getSingerName());
             preparedStatement.setString(2, singer.getSex());
             preparedStatement.setString(3, singer.getDateOfBirth());

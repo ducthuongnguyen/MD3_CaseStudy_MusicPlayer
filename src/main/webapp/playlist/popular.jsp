@@ -186,21 +186,18 @@
 
 
             <!-- Single Album -->
-            <c:forEach items="${playlist}" var="play">
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
-                    <div class="single-album">
-                        <img src="img/bg-img/a2.jpg" alt="">
-                        <div class="album-info">
-                            <a href="#">
-                                <h5> <a href="#"><c:out value="${play.namePlaylist}"/></a></h5>
-                            </a>
-                            <p> <a href="/PlaylistServlet?action=edit&id=${play.id}">Edit</a>
-                                <a href="/PlaylistServlet?action=delete&id=${play.id}">Delete</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
+<%--            <c:forEach items="${playlist}" var="play">--%>
+<%--                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">--%>
+<%--                    <div class="single-album">--%>
+<%--                        <img src="img/bg-img/a2.jpg" alt="">--%>
+<%--                        <div class="album-info">--%>
+
+<%--                                <h5> <a href="#"><c:out value="${play.view}"/></a></h5>--%>
+
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </c:forEach>--%>
 
         </div>
     </div>

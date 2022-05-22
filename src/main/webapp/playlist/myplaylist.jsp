@@ -1,13 +1,25 @@
 <%--
   Created by IntelliJ IDEA.
-  User: ASUS
-  Date: 5/21/2022
-  Time: 10:14 AM
+  User: Duc Thuong Nguyen
+  Date: 5/20/2022
+  Time: 9:27 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<html>--%>
+<%--<head>--%>
+<%--    <title>Title</title>--%>
+<%--</head>--%>
+<%--<body>--%>
+<%--<c:forEach items="${songList}" var="song">--%>
+<%--    ${song.id}--%>
+<%--    ${song.nameSong}--%>
+<%--    <img src="${song.avatar}" alt="">--%>
+<%--    ${song.author}--%>
+<%--</c:forEach>--%>
+<%--</body>--%>
+<%--</html>--%>
 <html lang="en">
 
 <head>
@@ -40,6 +52,85 @@
 </div>
 
 <!-- ##### Header Area Start ##### -->
+<%--<header class="header-area">--%>
+<%--    <!-- Navbar Area -->--%>
+<%--    <div class="oneMusic-main-menu">--%>
+<%--        <div class="classy-nav-container breakpoint-off">--%>
+<%--            <div class="container">--%>
+<%--                <!-- Menu -->--%>
+<%--                <nav class="classy-navbar justify-content-between" id="oneMusicNav">--%>
+
+<%--                    <!-- Nav brand -->--%>
+<%--                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>--%>
+
+<%--                    <!-- Navbar Toggler -->--%>
+<%--                    <div class="classy-navbar-toggler">--%>
+<%--                        <span class="navbarToggler"><span></span><span></span><span></span></span>--%>
+<%--                    </div>--%>
+
+<%--                    <!-- Menu -->--%>
+<%--                    <div class="classy-menu">--%>
+
+<%--                        <!-- Close Button -->--%>
+<%--                        <div class="classycloseIcon">--%>
+<%--                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>--%>
+<%--                        </div>--%>
+
+<%--                        <!-- Nav Start -->--%>
+<%--                        <div class="classynav">--%>
+<%--                            <ul>--%>
+<%--                                <li><a href="index.html">Home</a></li>--%>
+<%--                                <li><a href="albums-store.html">Albums</a></li>--%>
+<%--                                <li><a href="#">Songs</a>--%>
+<%--                                    <ul class="dropdown">--%>
+<%--                                        <li><a href="/songs">Show list songs</a></li>--%>
+<%--                                        <li><a href="/songs?action=create">Add new song</a></li>--%>
+<%--                                        <li><a href="#">Dropdown</a>--%>
+<%--                                            <ul class="dropdown">--%>
+<%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+<%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+<%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+<%--                                                <li><a href="#">Even Dropdown</a>--%>
+<%--                                                    <ul class="dropdown">--%>
+<%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+<%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+<%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+<%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+<%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+<%--                                                    </ul>--%>
+<%--                                                </li>--%>
+<%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+<%--                                            </ul>--%>
+<%--                                        </li>--%>
+<%--                                    </ul>--%>
+<%--                                </li>--%>
+<%--                                <li><a href="event.html">Events</a></li>--%>
+<%--                                <li><a href="blog.html">News</a></li>--%>
+<%--                                <li><a href="contact.html">Contact</a></li>--%>
+<%--                            </ul>--%>
+
+<%--                            <!-- Login/Register & Cart Button -->--%>
+<%--                            <div class="login-register-cart-button d-flex align-items-center">--%>
+<%--                                <!-- Login/Register -->--%>
+<%--                                <div class="login-register-btn mr-50">--%>
+<%--                                    <a href="login.html" id="loginBtn">Login / Register</a>--%>
+<%--                                </div>--%>
+
+<%--                                <!-- Cart Button -->--%>
+<%--                                <div class="cart-btn">--%>
+<%--                                    <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <!-- Nav End -->--%>
+
+<%--                    </div>--%>
+<%--                </nav>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</header>--%>
+<!-- ##### Header Area End ##### -->
 <header class="header-area">
     <!-- Navbar Area -->
     <div class="oneMusic-main-menu">
@@ -49,7 +140,7 @@
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="index.html" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -71,7 +162,7 @@
                                 <li><a href="albums-store.html">Albums</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
-                                        <li><a href="index.jsp">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
                                         <li><a href="albums-store.html">Albums</a></li>
                                         <li><a href="event.html">Events</a></li>
                                         <li><a href="blog.html">News</a></li>
@@ -99,7 +190,7 @@
                                 </li>
                                 <li><a href="event.html">My Playlist</a>
                                     <ul class="dropdown">
-                                        <li><a href="#">Show My Playlist</a></li>
+                                        <li><a href="/PlaylistServlet">Show My Playlist</a></li>
                                         <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
 
                                     </ul></li>
@@ -128,10 +219,9 @@
         </div>
     </div>
 </header>
-<!-- ##### Header Area End ##### -->
 
 <!-- ##### Breadcumb Area Start ##### -->
-<section class="breadcumb-area bg-img bg-overlay" >
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
     <div class="bradcumbContent">
 <%--        <p>See what’s new</p>--%>
         <h2>My Playlist</h2>
@@ -142,71 +232,32 @@
 <!-- ##### Album Catagory Area Start ##### -->
 <section class="album-catagory section-padding-100-0">
     <div class="container">
-<%--        <div class="row">--%>
-<%--&lt;%&ndash;            <div class="col-12">&ndash;%&gt;--%>
-<%--&lt;%&ndash;                <div class="browse-by-catagories catagory-menu d-flex flex-wrap align-items-center mb-70">&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter="*">Browse All</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".a" class="active">A</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".b">B</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".c">C</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".d">D</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".e">E</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".f">F</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".g">G</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".h">H</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".i">I</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".j">J</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".k">K</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".l">L</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".m">M</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".n">N</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".o">O</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".p">P</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".q">Q</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".r">R</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".s">S</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".t">T</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".u">U</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".v">V</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".w">W</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".x">X</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".y">Y</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".z">Z</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                    <a href="#" data-filter=".number">0-9</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                </div>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            </div>&ndash;%&gt;--%>
-<%--        </div>--%>
+
 
         <div class="row oneMusic-albums">
 
-
-
-
-
-
-
             <!-- Single Album -->
-<c:forEach items="${playlist}" var="play">
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
-                <div class="single-album">
-                    <img src="img/bg-img/a2.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5> <a href="#"><c:out value="${play.namePlaylist}"/></a></h5>
-                        </a>
-                        <p> <a href="/PlaylistServlet?action=edit&id=${play.id}">Edit</a>
-                            <a href="/PlaylistServlet?action=delete&id=${play.id}">Delete</a>
-                        </p>
+            <c:forEach items="${playlist}" var="play">
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
+                    <div class="single-album">
+                        <img src="img/bg-img/a2.jpg" alt="">
+                        <div class="album-info">
+                            <a href="#">
+                                <h5> <a href="#"><c:out value="${play.namePlaylist}"/></a></h5>
+                            </a>
+                            <p> <a href="/PlaylistServlet?action=edit&id=${play.id}" style="color: crimson">Edit</a>
+                                <a href="/PlaylistServlet?action=delete&id=${play.id}" style="color: crimson">Delete</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-</c:forEach>
-
+            </c:forEach>
         </div>
     </div>
 </section>
 <!-- ##### Album Catagory Area End ##### -->
 
+<!-- ##### Buy Now Area Start ##### -->
 
 <!-- ##### Buy Now Area End ##### -->
 
@@ -214,86 +265,114 @@
 
 <!-- ##### Add Area End ##### -->
 
-<!-- ##### Song Area Start ##### -->
-<%--<div class="one-music-songs-area mb-70">--%>
+<%--<section class="latest-albums-area section-padding-100">--%>
 <%--    <div class="container">--%>
 <%--        <div class="row">--%>
-
-<%--            <!-- Single Song Area -->--%>
 <%--            <div class="col-12">--%>
-<%--                <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">--%>
-<%--                    <div class="song-thumbnail">--%>
-<%--                        <img src="img/bg-img/s1.jpg" alt="">--%>
-<%--                    </div>--%>
-<%--                    <div class="song-play-area">--%>
-<%--                        <div class="song-name">--%>
-<%--                            <p>01. Main Hit Song</p>--%>
+<%--                <div class="section-heading style-2">--%>
+<%--                    <p>See what’s new</p>--%>
+<%--                    <h2>Latest Albums</h2>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="row justify-content-center">--%>
+<%--            <div class="col-12 col-lg-9">--%>
+<%--                <div class="ablums-text text-center mb-70">--%>
+<%--                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+
+<%--        <div class="row">--%>
+<%--            <div class="col-12">--%>
+<%--                <div class="albums-slideshow owl-carousel">--%>
+<%--                    <!-- Single Album -->--%>
+<%--                    <div class="single-album">--%>
+<%--                        <img src="img/bg-img/a1.jpg" alt="">--%>
+<%--                        <div class="album-info">--%>
+<%--                            <a href="#">--%>
+
+<%--                                ////////////--%>
+<%--                                <h5>The Cure</h5>--%>
+<%--                            </a>--%>
+<%--                            <p>Second Song</p>--%>
 <%--                        </div>--%>
-<%--                        <audio preload="auto" controls>--%>
-<%--                            <source src="audio/dummy-audio.mp3">--%>
-<%--                        </audio>--%>
+<%--                    </div>--%>
+
+<%--                    <!-- Single Album -->--%>
+<%--                    <div class="single-album">--%>
+<%--                        <img src="img/bg-img/a2.jpg" alt="">--%>
+<%--                        <div class="album-info">--%>
+<%--                            <a href="#">--%>
+<%--                                <h5>Sam Smith</h5>--%>
+<%--                            </a>--%>
+<%--                            <p>Underground</p>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+
+<%--                    <!-- Single Album -->--%>
+<%--                    <div class="single-album">--%>
+<%--                        <img src="img/bg-img/a3.jpg" alt="">--%>
+<%--                        <div class="album-info">--%>
+<%--                            <a href="#">--%>
+<%--                                <h5>Will I am</h5>--%>
+<%--                            </a>--%>
+<%--                            <p>First</p>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+
+<%--                    <!-- Single Album -->--%>
+<%--                    <div class="single-album">--%>
+<%--                        <img src="img/bg-img/a4.jpg" alt="">--%>
+<%--                        <div class="album-info">--%>
+<%--                            <a href="#">--%>
+<%--                                <h5>The Cure</h5>--%>
+<%--                            </a>--%>
+<%--                            <p>Second Song</p>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+
+<%--                    <!-- Single Album -->--%>
+<%--                    <div class="single-album">--%>
+<%--                        <img src="img/bg-img/a5.jpg" alt="">--%>
+<%--                        <div class="album-info">--%>
+<%--                            <a href="#">--%>
+<%--                                <h5>DJ SMITH</h5>--%>
+<%--                            </a>--%>
+<%--                            <p>The Album</p>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+
+<%--                    <!-- Single Album -->--%>
+<%--                    <div class="single-album">--%>
+<%--                        <img src="img/bg-img/a6.jpg" alt="">--%>
+<%--                        <div class="album-info">--%>
+<%--                            <a href="#">--%>
+<%--                                <h5>The Ustopable</h5>--%>
+<%--                            </a>--%>
+<%--                            <p>Unplugged</p>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+
+<%--                    <!-- Single Album -->--%>
+<%--                    <div class="single-album">--%>
+<%--                        <img src="img/bg-img/a7.jpg" alt="">--%>
+<%--                        <div class="album-info">--%>
+<%--                            <a href="#">--%>
+<%--                                <h5>Beyonce</h5>--%>
+<%--                            </a>--%>
+<%--                            <p>Songs</p>--%>
+<%--                        </div>--%>
 <%--                    </div>--%>
 <%--                </div>--%>
 <%--            </div>--%>
-
-<%--            <!-- Single Song Area -->--%>
-<%--            <div class="col-12">--%>
-<%--                <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">--%>
-<%--                    <div class="song-thumbnail">--%>
-<%--                        <img src="img/bg-img/s2.jpg" alt="">--%>
-<%--                    </div>--%>
-<%--                    <div class="song-play-area">--%>
-<%--                        <div class="song-name">--%>
-<%--                            <p>01. Main Hit Song</p>--%>
-<%--                        </div>--%>
-<%--                        <audio preload="auto" controls>--%>
-<%--                            <source src="audio/dummy-audio.mp3">--%>
-<%--                        </audio>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-<%--            <!-- Single Song Area -->--%>
-<%--            <div class="col-12">--%>
-<%--                <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">--%>
-<%--                    <div class="song-thumbnail">--%>
-<%--                        <img src="img/bg-img/s3.jpg" alt="">--%>
-<%--                    </div>--%>
-<%--                    <div class="song-play-area">--%>
-<%--                        <div class="song-name">--%>
-<%--                            <p>01. Main Hit Song</p>--%>
-<%--                        </div>--%>
-<%--                        <audio preload="auto" controls>--%>
-<%--                            <source src="audio/dummy-audio.mp3">--%>
-<%--                        </audio>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-<%--            <!-- Single Song Area -->--%>
-<%--            <div class="col-12">--%>
-<%--                <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">--%>
-<%--                    <div class="song-thumbnail">--%>
-<%--                        <img src="img/bg-img/s4.jpg" alt="">--%>
-<%--                    </div>--%>
-<%--                    <div class="song-play-area">--%>
-<%--                        <div class="song-name">--%>
-<%--                            <p>01. Main Hit Song</p>--%>
-<%--                        </div>--%>
-<%--                        <audio preload="auto" controls>--%>
-<%--                            <source src="audio/dummy-audio.mp3">--%>
-<%--                        </audio>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
 <%--        </div>--%>
 <%--    </div>--%>
-<%--</div>--%>
-<%--<!-- ##### Song Area End ##### -->--%>
+<%--</section>--%>
 
 <!-- ##### Contact Area Start ##### -->
-<%--<section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" >--%>
+<%--<section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"--%>
+<%--         style="background-image: url(img/bg-img/bg-2.jpg);">--%>
 <%--    <div class="container">--%>
 <%--        <div class="row">--%>
 <%--            <div class="col-12">--%>
@@ -327,11 +406,13 @@
 <%--                            </div>--%>
 <%--                            <div class="col-12">--%>
 <%--                                <div class="form-group">--%>
-<%--                                    <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>--%>
+<%--                                    <textarea name="message" class="form-control" id="message" cols="30" rows="10"--%>
+<%--                                              placeholder="Message"></textarea>--%>
 <%--                                </div>--%>
 <%--                            </div>--%>
 <%--                            <div class="col-12 text-center">--%>
-<%--                                <button class="btn oneMusic-btn mt-30" type="submit">Send <i class="fa fa-angle-double-right"></i></button>--%>
+<%--                                <button class="btn oneMusic-btn mt-30" type="submit">Send <i--%>
+<%--                                        class="fa fa-angle-double-right"></i></button>--%>
 <%--                            </div>--%>
 <%--                        </div>--%>
 <%--                    </form>--%>
@@ -340,7 +421,7 @@
 <%--        </div>--%>
 <%--    </div>--%>
 <%--</section>--%>
-<%--<!-- ##### Contact Area End ##### -->--%>
+<!-- ##### Contact Area End ##### -->
 
 <!-- ##### Footer Area Start ##### -->
 <footer class="footer-area">
@@ -348,9 +429,12 @@
         <div class="row d-flex flex-wrap align-items-center">
             <div class="col-12 col-md-6">
                 <a href="#"><img src="img/core-img/logo.png" alt=""></a>
-                <!--                    <p class="copywrite-text"><a href="#">&lt;!&ndash; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. &ndash;&gt;-->
-                <!--Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>-->
-                <!--&lt;!&ndash; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. &ndash;&gt;</p>-->
+                <p class="copywrite-text"><a href="#"></a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
 
             <div class="col-12 col-md-6">

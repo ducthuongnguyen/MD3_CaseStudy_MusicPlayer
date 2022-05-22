@@ -14,5 +14,4 @@ public interface IGeneralDAO<T> {
 
     void update(int id, T t);
 
-
 }

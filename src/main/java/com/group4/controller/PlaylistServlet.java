@@ -66,9 +66,9 @@ public class PlaylistServlet extends HttpServlet {
 
     private void showPopularPlaylist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<Playlist> playlists = playlistDAO.findPopular();
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/popular.jsp");
         request.setAttribute("playlist", playlists);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+
         dispatcher.forward(request, response);
     }
 
@@ -87,7 +87,7 @@ public class PlaylistServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Playlist playlist = playlistDAO.findById(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/edit.jsp");
-        request.setAttribute("playlistEdit", playlist);
+        request.setAttribute("playlist", playlist);
         dispatcher.forward(request, response);
     }
 

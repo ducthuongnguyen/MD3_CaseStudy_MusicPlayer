@@ -169,14 +169,14 @@
             <div class="col-lg-12">
                 <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
                     <div class="song-thumbnail">
-                        <img src="img/songs/tungthuong.jpg" alt="">
+                        <img src="${song.avatar}" alt="">
                     </div>
                     <div class="song-play-area">
                         <div class="song-name">
                             <p>${song.nameSong}</p>
                         </div>
                         <audio preload="auto" controls>
-                            <source src="audio/tungthuong.mp3">
+                            <source src="${song.mp3File}">
                         </audio>
                     </div>
                 </div>
@@ -201,16 +201,16 @@
             </div>
             <div class="col-md-3">
                 <div class="load-more-btn text-center">
-                    <a href="/songs?action=delete&id=${song.getId()}" class="btn btn-outline-dark">Delete</a>
+                    <a href="/songs?action=delete&id=${song.id}" class="btn btn-outline-dark">Delete</a>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="blog-content col-lg-12">
                 <!-- Post Title -->
-                <a href="#" class="post-title">Description</a>
+                <a class="post-title">Description</a>
                 <!-- Post Excerpt -->
-                <p>${song.description} Them description vao day ma eo chay</p>
+                <p>${song.description}</p>
             </div>
         </div>
 </section>

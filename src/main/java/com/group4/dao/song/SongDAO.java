@@ -1,16 +1,8 @@
 package com.group4.dao.song;
-
-import com.group4.config.DatabaseConnection;
 import com.group4.model.Song;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.group4.config.DatabaseConnection.getConnection;
 
 public class SongDAO implements ISongDao {
     List<Song> songs;
@@ -24,6 +16,17 @@ public class SongDAO implements ISongDao {
     private static final String SELECT_BY_ID = "select nameSong,singerId,userId,mp3File from songs where id =?;";
     private static final String DELETE_SONG ="delete from songs where id=?;";
 
+    protected Connection getConnection() {
+        Connection connection = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicplayer", "root", "123456");
+        } catch (SQLException | ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return connection;
+    }
 
     @Override
     public List<Song> findAll() {
@@ -51,7 +54,7 @@ public class SongDAO implements ISongDao {
 
     @Override
     public Song findById(int id) {
-        Song song = null;
+        Song song = new Song();
             try (Connection connection = getConnection();
                  PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID)) {
                 preparedStatement.setInt(1, id);
@@ -61,7 +64,8 @@ public class SongDAO implements ISongDao {
                     int singerId = rs.getInt("singerId");
                     int userId = rs.getInt("userId");
                     String mp3File = rs.getString("mp3File");
-                    song = new Song(id, nameSong,singerId,userId,mp3File);
+                    String description = rs.getString("description");
+                   song = new Song(id,nameSong,singerId,userId,mp3File,description);
                 }
             } catch (SQLException e) {
             }
@@ -89,7 +93,7 @@ public class SongDAO implements ISongDao {
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SONG)){
             preparedStatement.setInt(1, id);
-
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
         }
     }

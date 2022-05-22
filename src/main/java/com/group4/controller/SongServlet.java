@@ -39,9 +39,11 @@ public class SongServlet extends HttpServlet {
     private void deleteSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         songDao.delete(id);
-        List<Song> songs = songDao.findAll();
-        request.setAttribute("songList",songs);
-        request.getRequestDispatcher("songs/list.jsp").forward(request,response);
+//        List<Song> listUser = songDao.findAll();
+//        request.setAttribute("songList", listUser);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("songs/list.jsp");
+//        dispatcher.forward(request, response);
+        response.sendRedirect("songs");
     }
 
     private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

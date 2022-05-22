@@ -61,11 +61,40 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="index.html">Home</a></li>
-                                <li><a href="album.html">Album</a></li>
+                                <li><a href="/singers">Singers</a>
+                                    <ul class="dropdown">
+
+                                        <li><a href="/singers">Show List Singers</a></li>
+                                        <li><a href="/singers?action=create">Add New Singer</a></li>
+                                        <%--                                        <li><a href="event.html">Events</a></li>--%>
+                                        <%--                                        <li><a href="blog.html">News</a></li>--%>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <%--                                        <li><a href="elements.html">Elements</a></li>--%>
+                                        <%--&lt;%&ndash;                                        <li><a href="login.html">Login</a></li>&ndash;%&gt;--%>
+                                        <%--                                        <li><a href="#">Dropdown</a>--%>
+                                        <%--                                            <ul class="dropdown">--%>
+                                        <%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+                                        <%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+                                        <%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+                                        <%--                                                <li><a href="#">Even Dropdown</a>--%>
+                                        <%--                                                    <ul class="dropdown">--%>
+                                        <%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+                                        <%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+                                        <%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+                                        <%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+                                        <%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+                                        <%--                                                    </ul>--%>
+                                        <%--                                                </li>--%>
+                                        <%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+                                        <%--                                            </ul>--%>
+                                        <%--                                        </li>--%>
+                                    </ul>
+                                </li>
                                 <li><a href="/songs">Songs</a>
                                     <ul class="dropdown">
+
                                         <li><a href="/songs?action=create">Add new song</a></li>
-                                        <li><a href="albums-store.html">Albums</a></li>
+                                        <li><a href="/singers?action=create">Add New Singer</a></li>
                                         <li><a href="event.html">Events</a></li>
                                         <li><a href="blog.html">News</a></li>
                                         <li><a href="contact.html">Contact</a></li>
@@ -132,7 +161,8 @@
                         <div class="hero-slides-content text-center">
                             <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
                             <h2 data-animation="fadeInUp" data-delay="300ms">Beyond Time <span>Beyond Time</span></h2>
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
+                            <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover
+                                <i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -149,8 +179,10 @@
                     <div class="col-12">
                         <div class="hero-slides-content text-center">
                             <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">Colorlib Music <span>Colorlib Music</span></h2>
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
+                            <h2 data-animation="fadeInUp" data-delay="300ms">Colorlib Music <span>Colorlib Music</span>
+                            </h2>
+                            <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover
+                                <i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -174,7 +206,10 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9">
                 <div class="ablums-text text-center mb-70">
-                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
+                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius
+                        rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi,
+                        ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit
+                        non elit pulvinar pellentesque et non eros.</p>
                 </div>
             </div>
         </div>
@@ -497,7 +532,8 @@
 <!-- ##### Buy Now Area End ##### -->
 
 <!-- ##### Featured Artist Area Start ##### -->
-<section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style="background-image: url(img/bg-img/bg-4.jpg);">
+<section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed"
+         style="background-image: url(img/bg-img/bg-4.jpg);">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-12 col-md-5 col-lg-4">
@@ -512,7 +548,10 @@
                         <p>See what’s new</p>
                         <h2>Buy What’s New</h2>
                     </div>
-                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
+                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius
+                        rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi,
+                        ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit
+                        non elit pulvinar pellentesque et non eros.</p>
                     <div class="song-play-area">
                         <div class="song-name">
                             <p>01. Main Hit Song</p>
@@ -618,7 +657,8 @@
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
+                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
+                         data-wow-delay="100ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
                                 <img src="img/bg-img/wt7.jpg" alt="">
@@ -634,7 +674,8 @@
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="150ms">
+                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
+                         data-wow-delay="150ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
                                 <img src="img/bg-img/wt8.jpg" alt="">
@@ -650,7 +691,8 @@
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="200ms">
+                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
+                         data-wow-delay="200ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
                                 <img src="img/bg-img/wt9.jpg" alt="">
@@ -666,7 +708,8 @@
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="250ms">
+                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
+                         data-wow-delay="250ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
                                 <img src="img/bg-img/wt10.jpg" alt="">
@@ -682,7 +725,8 @@
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
+                         data-wow-delay="300ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
                                 <img src="img/bg-img/wt11.jpg" alt="">
@@ -698,7 +742,8 @@
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="350ms">
+                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
+                         data-wow-delay="350ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
                                 <img src="img/bg-img/wt12.jpg" alt="">
@@ -801,7 +846,8 @@
 <!-- ##### Miscellaneous Area End ##### -->
 
 <!-- ##### Contact Area Start ##### -->
-<section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">
+<section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"
+         style="background-image: url(img/bg-img/bg-2.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -835,11 +881,13 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group wow fadeInUp" data-wow-delay="400ms">
-                                    <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                    <textarea name="message" class="form-control" id="message" cols="30" rows="10"
+                                              placeholder="Message"></textarea>
                                 </div>
                             </div>
                             <div class="col-12 text-center wow fadeInUp" data-wow-delay="500ms">
-                                <button class="btn oneMusic-btn mt-30" type="submit">Send <i class="fa fa-angle-double-right"></i></button>
+                                <button class="btn oneMusic-btn mt-30" type="submit">Send <i
+                                        class="fa fa-angle-double-right"></i></button>
                             </div>
                         </div>
                     </form>
@@ -856,8 +904,11 @@
         <div class="row d-flex flex-wrap align-items-center">
             <div class="col-12 col-md-6">
                 <a href="#"><img src="img/core-img/logo.png" alt=""></a>
-                <p class="copywrite-text"><a href="#"></a></a><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <p class="copywrite-text"><a href="#"></a></a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
 

@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "SongServlet", value = "/songs")
@@ -25,7 +26,11 @@ public class SongServlet extends HttpServlet {
                 showCreateForm(request, response);
                 break;
             default:
-                showSongList(request, response);
+                try {
+                    showSongList(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
     }
 
@@ -34,7 +39,7 @@ public class SongServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void showSongList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showSongList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("songs/list.jsp");
         List<Song> songs = songDao.findAll();
         request.setAttribute("songList", songs);

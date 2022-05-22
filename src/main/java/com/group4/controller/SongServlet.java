@@ -39,7 +39,11 @@ public class SongServlet extends HttpServlet {
                 deleteSong(request, response);
                 break;
             default:
-                showSongList(request, response);
+                try {
+                    showSongList(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }
@@ -71,7 +75,7 @@ public class SongServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void showSongList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showSongList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("songs/list.jsp");
         List<Song> songs = songDao.findAll();
         request.setAttribute("songList", songs);
@@ -89,7 +93,11 @@ public class SongServlet extends HttpServlet {
                 createSong(request, response);
                 break;
             default:
-                showSongList(request, response);
+                try {
+                    showSongList(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
     }
 

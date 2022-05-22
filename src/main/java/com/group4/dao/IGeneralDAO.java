@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IGeneralDAO<T> {
-    List<T> findAll();
+    List<T> findAll() throws SQLException;
 
     T findById(int id) throws SQLException;
 

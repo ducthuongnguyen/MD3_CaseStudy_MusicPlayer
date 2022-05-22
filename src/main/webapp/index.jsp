@@ -61,11 +61,45 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="index.html">Home</a></li>
-                                <li><a href="album.html">Album</a></li>
+                                <li><a href="/singers">Singers</a>
+                                <li><a href="/singers">Singers</a>
+                                    <ul class="dropdown">
+
+                                        <li><a href="/singers">Show List Singers</a></li>
+                                        <li><a href="/singers?action=create">Add New Singer</a></li>
+                                        <%--                                        <li><a href="event.html">Events</a></li>--%>
+                                        <%--                                        <li><a href="blog.html">News</a></li>--%>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <%--                                        <li><a href="elements.html">Elements</a></li>--%>
+                                        <%--&lt;%&ndash;                                        <li><a href="login.html">Login</a></li>&ndash;%&gt;--%>
+                                        <%--                                        <li><a href="#">Dropdown</a>--%>
+                                        <%--                                            <ul class="dropdown">--%>
+                                        <%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+                                        <%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+                                        <%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+                                        <%--                                                <li><a href="#">Even Dropdown</a>--%>
+                                        <%--                                                    <ul class="dropdown">--%>
+                                        <%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+                                        <%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+                                        <%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+                                        <%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+                                        <%--                                                        <li><a href="#">Deeply Dropdown</a></li>--%>
+                                        <%--                                                    </ul>--%>
+                                        <%--                                                </li>--%>
+                                        <%--                                                <li><a href="#">Even Dropdown</a></li>--%>
+                                        <%--                                            </ul>--%>
+                                        <%--                                        </li>--%>
+                                    </ul>
+                                </li>
                                 <li><a href="/songs">Songs</a>
                                     <ul class="dropdown">
-                                        <li><a href="/songs">Show list songs</a></li>
                                         <li><a href="/songs?action=create">Add new song</a></li>
+                                        <li><a href="albums-store.html">Albums</a></li>
+                                        <li><a href="event.html">Events</a></li>
+                                        <li><a href="blog.html">News</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="elements.html">Elements</a></li>
+                                        <li><a href="login.html">Login</a></li>
                                         <li><a href="#">Dropdown</a>
                                             <ul class="dropdown">
                                                 <li><a href="#">Even Dropdown</a></li>

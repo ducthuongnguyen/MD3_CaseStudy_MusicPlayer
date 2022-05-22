@@ -72,23 +72,6 @@
                                     <ul class="dropdown">
                                         <li><a href="/songs">Show list songs</a></li>
                                         <li><a href="#">Add new song</a></li>
-                                        <li><a href="#">Dropdown</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Even Dropdown</a></li>
-                                                <li><a href="#">Even Dropdown</a></li>
-                                                <li><a href="#">Even Dropdown</a></li>
-                                                <li><a href="#">Even Dropdown</a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="#">Deeply Dropdown</a></li>
-                                                        <li><a href="#">Deeply Dropdown</a></li>
-                                                        <li><a href="#">Deeply Dropdown</a></li>
-                                                        <li><a href="#">Deeply Dropdown</a></li>
-                                                        <li><a href="#">Deeply Dropdown</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Even Dropdown</a></li>
-                                            </ul>
-                                        </li>
                                     </ul>
                                 </li>
                                 <li><a href="event.html">Events</a></li>
@@ -127,7 +110,7 @@
             <div class="col-12">
                 <div class="section-heading white">
                     <p>See what’s new</p>
-                    <h2>Create a new song</h2>
+                    <h2>Add a new song</h2>
                 </div>
             </div>
         </div>

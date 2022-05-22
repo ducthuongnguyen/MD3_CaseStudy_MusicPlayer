@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "SongServlet", value = "/songs")
@@ -25,7 +26,14 @@ public class SongServlet extends HttpServlet {
                 showCreateForm(request, response);
                 break;
             case "detail":
-                showSongDetail(request, response);
+                try {
+                    showSongDetail(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "edit":
+                showEditForm(request,response);
                 break;
             case "delete":
                 deleteSong(request, response);
@@ -34,6 +42,11 @@ public class SongServlet extends HttpServlet {
                 showSongList(request, response);
                 break;
         }
+    }
+
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("songs/edit.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void deleteSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,7 +59,7 @@ public class SongServlet extends HttpServlet {
         response.sendRedirect("songs");
     }
 
-    private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
         Song song = songDao.findById(id);
         request.setAttribute("song", song);

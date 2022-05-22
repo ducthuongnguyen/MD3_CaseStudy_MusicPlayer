@@ -40,13 +40,14 @@ public class Song {
         this.album = album;
     }
 
-    public Song(int id, String nameSong, int singerId, int userId, String mp3File, String description) {
+    public Song(int id, String nameSong, int singerId, int userId, String mp3File, String description, String avatar) {
         this.id = id;
         this.nameSong = nameSong;
         this.userId = userId;
         this.singerId = singerId;
         this.mp3File = mp3File;
         this.description = description;
+        this.avatar = avatar;
     }
 
     public int getId() {

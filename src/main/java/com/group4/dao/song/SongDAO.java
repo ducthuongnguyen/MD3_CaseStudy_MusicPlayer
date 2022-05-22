@@ -1,20 +1,21 @@
 package com.group4.dao.song;
+
 import com.group4.model.Song;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SongDAO implements ISongDao {
-    List<Song> songs;
+
 
     public SongDAO() {
-        songs = new ArrayList<>();
     }
 
     private static final String SELECT_ALL_SONG = "select * from songs;";
     private static final String INSERT_SONG = "insert into songs(nameSong,description,mp3File,avatar,author,typeId,album) values (?,?,?,?,?,?,?);";
-    private static final String SELECT_BY_ID = "select nameSong,singerId,userId,mp3File from songs where id =?;";
-    private static final String DELETE_SONG ="delete from songs where id=?;";
+    private static final String SELECT_BY_ID = "select nameSong,singerId,userId,mp3File,description,avatar from songs where id =?;";
+    private static final String DELETE_SONG = "delete from songs where id=?;";
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -30,6 +31,7 @@ public class SongDAO implements ISongDao {
 
     @Override
     public List<Song> findAll() {
+        List<Song> songs= new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_SONG)) {
             ResultSet rs = preparedStatement.executeQuery();
@@ -48,27 +50,32 @@ public class SongDAO implements ISongDao {
                 songs.add(new Song(id, name, des, link, avatar, author, typeId, album, view, userId, singerId));
             }
         } catch (SQLException e) {
+            printSQLException(e);
         }
         return songs;
     }
 
+
+
     @Override
     public Song findById(int id) {
-        Song song = new Song();
-            try (Connection connection = getConnection();
-                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID)) {
-                preparedStatement.setInt(1, id);
-                ResultSet rs = preparedStatement.executeQuery();
-                while (rs.next()) {
-                    String nameSong = rs.getString("nameSong");
-                    int singerId = rs.getInt("singerId");
-                    int userId = rs.getInt("userId");
-                    String mp3File = rs.getString("mp3File");
-                    String description = rs.getString("description");
-                   song = new Song(id,nameSong,singerId,userId,mp3File,description);
-                }
-            } catch (SQLException e) {
+        Song song = null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID)) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String nameSong = rs.getString("nameSong");
+                int singerId = rs.getInt("singerId");
+                int userId = rs.getInt("userId");
+                String mp3File = rs.getString("mp3File");
+                String description = rs.getString("description");
+                String avatar = rs.getString("avatar");
+                song = new Song(id, nameSong, singerId, userId, mp3File, description,avatar);
             }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
         return song;
     }
 
@@ -91,7 +98,7 @@ public class SongDAO implements ISongDao {
     @Override
     public void delete(int id) {
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SONG)){
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SONG)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -101,5 +108,21 @@ public class SongDAO implements ISongDao {
     @Override
     public void update(int id, Song song) {
 
+    }
+
+    private void printSQLException(SQLException ex) {
+        for (Throwable e : ex) {
+            if (e instanceof SQLException) {
+                e.printStackTrace(System.err);
+                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
+                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
+                System.err.println("Message: " + e.getMessage());
+                Throwable t = ex.getCause();
+                while (t != null) {
+                    System.out.println("Cause: " + t);
+                    t = t.getCause();
+                }
+            }
+        }
     }
 }

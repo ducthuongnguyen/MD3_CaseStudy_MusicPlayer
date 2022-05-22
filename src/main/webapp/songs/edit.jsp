@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Duc Thuong Nguyen
-  Date: 5/21/2022
-  Time: 2:11 PM
+  Date: 5/22/2022
+  Time: 8:28 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -71,7 +71,7 @@
                                 <li><a href="#">Songs</a>
                                     <ul class="dropdown">
                                         <li><a href="/songs">Show list songs</a></li>
-                                        <li><a href="/songs?action=create">Add new song</a></li>
+                                        <li><a href="#">Add new song</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="event.html">Events</a></li>
@@ -102,69 +102,6 @@
 </header>
 <!-- ##### Header Area End ##### -->
 
-<!-- ##### Breadcumb Area Start ##### -->
-<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
-    <div class="bradcumbContent">
-        <p>Let enjoy the music</p>
-    </div>
-</section>
-<!-- ##### Breadcumb Area End ##### -->
-
-<!-- ##### Album Catagory Area Start ##### -->
-<section class="album-catagory section-padding-100-0">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
-                    <div class="song-thumbnail">
-                        <img src="${song.avatar}" alt="">
-                    </div>
-                    <div class="song-play-area">
-                        <div class="song-name">
-                            <p>${song.nameSong}</p>
-                        </div>
-                        <audio preload="auto" controls>
-                            <source src="${song.mp3File}">
-                        </audio>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-3">
-                <div class="load-more-btn text-center">
-                    <a href="#" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="load-more-btn text-right">
-                    <a href="#" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="load-more-btn text-right">
-                    <a href="/songs?action=edit&id=${song.id}" class="btn btn-outline-dark">Edit</a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="load-more-btn text-right">
-                    <a href="/songs?action=delete&id=${song.id}" class="btn btn-outline-dark">Delete</a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="blog-content col-lg-12">
-                <!-- Post Title -->
-                <a class="post-title">Description</a>
-                <!-- Post Excerpt -->
-                <p>${song.description}</p>
-            </div>
-        </div>
-</section>
-<!-- ##### Album Catagory Area End ##### -->
-
-
 <!-- ##### Contact Area Start ##### -->
 <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"
          style="background-image: url(img/bg-img/bg-2.jpg);">
@@ -173,47 +110,65 @@
             <div class="col-12">
                 <div class="section-heading white">
                     <p>See what’s new</p>
-                    <h2>Get In Touch</h2>
+                    <h2>Edit a song</h2>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12">
-                <!-- Contact Form Area -->
+                <!-- Create Form Area -->
                 <div class="contact-form-area">
-                    <form action="#" method="post">
+                    <form  method="post">
                         <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="name" placeholder="Name">
+                            <div class="col-md-6">
+                                <div class="form-group wow fadeInUp">
+                                    <input type="text" class="form-control" placeholder="Song's name" name="nameSong">
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" id="email" placeholder="E-mail">
+                            <div class="col-md-6">
+                                <div class="form-group wow fadeInUp">
+                                    <input type="text" class="form-control" placeholder="mp3File"
+                                           name="mp3File">
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                            <div class="col-lg-6">
+                                <div class="form-group wow fadeInUp">
+                                    <input type="text" class="form-control" placeholder="Avatar" name="avatar">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group wow fadeInUp">
+                                    <input type="text" class="form-control" placeholder="Author's name" name="author">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group wow fadeInUp">
+                                    <input type="number" class="form-control" placeholder="Music type" name="typeId">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group wow fadeInUp">
+                                    <input type="text" class="form-control" placeholder="Album"
+                                           name="album">
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-group">
-                                    <textarea name="message" class="form-control" id="message" cols="30" rows="10"
-                                              placeholder="Message"></textarea>
+                                <div class="form-group wow fadeInUp" data-wow-delay="400ms">
+                                    <textarea name="description" class="form-control" cols="15" rows="5" placeholder="Description"></textarea>
                                 </div>
                             </div>
-                            <div class="col-12 text-center">
-                                <button class="btn oneMusic-btn mt-30" type="submit">Send <i
-                                        class="fa fa-angle-double-right"></i></button>
-                            </div>
                         </div>
-                    </form>
+
+                        <div class="col-12 text-center">
+                            <button class="btn oneMusic-btn mt-30" type="submit">Edit <i
+                                    class="fa fa-angle-double-right"></i></button>
+                        </div>
                 </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!-- ##### Contact Area End ##### -->

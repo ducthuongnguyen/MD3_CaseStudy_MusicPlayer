@@ -102,7 +102,8 @@
                                         <li><a href="#">Show My Playlist</a></li>
                                         <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
 
-                                    </ul></li>
+                                    </ul>
+                                </li>
                                 <li><a href="blog.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
@@ -131,10 +132,10 @@
 <!-- ##### Header Area End ##### -->
 
 <!-- ##### Breadcumb Area Start ##### -->
-<section class="breadcumb-area bg-img bg-overlay" >
+<section class="breadcumb-area bg-img bg-overlay">
     <div class="bradcumbContent">
         <%--        <p>See what’s new</p>--%>
-        <h2>My Playlist</h2>
+        <h2>Most Popular</h2>
     </div>
 </section>
 <!-- ##### Breadcumb Area End ##### -->
@@ -142,62 +143,21 @@
 <!-- ##### Album Catagory Area Start ##### -->
 <section class="album-catagory section-padding-100-0">
     <div class="container">
-        <%--        <div class="row">--%>
-        <%--&lt;%&ndash;            <div class="col-12">&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                <div class="browse-by-catagories catagory-menu d-flex flex-wrap align-items-center mb-70">&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter="*">Browse All</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".a" class="active">A</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".b">B</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".c">C</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".d">D</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".e">E</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".f">F</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".g">G</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".h">H</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".i">I</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".j">J</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".k">K</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".l">L</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".m">M</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".n">N</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".o">O</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".p">P</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".q">Q</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".r">R</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".s">S</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".t">T</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".u">U</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".v">V</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".w">W</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".x">X</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".y">Y</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".z">Z</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                    <a href="#" data-filter=".number">0-9</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;                </div>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;            </div>&ndash;%&gt;--%>
-        <%--        </div>--%>
-
         <div class="row oneMusic-albums">
+            <c:forEach items="${playlist}" var="play">
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
+                    <div class="single-album">
+                        <img src="img/bg-img/a2.jpg" alt="">
+                        <div>
+                            <a href="#"><c:out value="View ${play.namePlaylist}"/></a>
+                        </div>
+                        <div>
+                            <a href="#"><c:out value="View ${play.view}"/></a>
 
-
-
-
-
-
-
-            <!-- Single Album -->
-<%--            <c:forEach items="${playlist}" var="play">--%>
-<%--                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">--%>
-<%--                    <div class="single-album">--%>
-<%--                        <img src="img/bg-img/a2.jpg" alt="">--%>
-<%--                        <div class="album-info">--%>
-
-<%--                                <h5> <a href="#"><c:out value="${play.view}"/></a></h5>--%>
-
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </c:forEach>--%>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
 
         </div>
     </div>

@@ -80,7 +80,7 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="event.html">My Playlist</a>
+                                <li><a href="#">My Playlist</a>
                                 <ul class="dropdown">
                                     <li><a href="/PlaylistServlet">Show My Playlist</a></li>
                                     <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
@@ -737,18 +737,9 @@
                     <div class="section-heading text-left mb-50 wow fadeInUp" data-wow-delay="50ms">
                         <p>See what’s new</p><h2>Popular Playlist</h2>
                         <!-- Single Top Item -->
-                        <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="100ms">
+<%--                        <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="100ms">--%>
 
-                            <c:forEach items="${playlist}" var="play">
-                            <div class="thumbnail">
-                                <img src="img/bg-img/wt1.jpg" alt="">
-                                <p><a href="#"><c:out value="${play.namePlaylist}"/></a></p>
-                                <p>  <a href="#"><c:out value="View: ${play.view}"/></a></p>
-                                </c:forEach>
-                            </div>
-                        </div>
-
-<%--                        <c:forEach items="${playlist}" var="play">--%>
+<%--                            <c:forEach items="${playlist}" var="play">--%>
 <%--                            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">--%>
 <%--                                <div class="single-album">--%>
 <%--                                    <img src="img/bg-img/a2.jpg" alt="">--%>
@@ -760,93 +751,28 @@
 <%--                                </div>--%>
 <%--                            </div>--%>
 <%--                        </c:forEach>--%>
-                    </div>
-                    <%--<h1>huong</h1>--%>
+<%--                            </div>--%>
+
+                    <%--<h1>huong</h1>--%>  </div>
                     <!-- Single Artist -->
-                    <%--                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="100ms">--%>
-                    <%--                        <div class="thumbnail">--%>
-                    <%--                            <img src="img/bg-img/pa1.jpg" alt="">--%>
-                    <%--                        </div>--%>
-                    <%--                    <c:forEach items="${playlist}" var="p">--%>
-                    <%--                        <div class="content-">--%>
-                    <%--                            <div>--%>
+                                        <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="100ms">
+                                            <c:forEach items="${playlist}" var="play">
+                                            <div class="thumbnail">
+                                                <img src="img/bg-img/pa1.jpg" alt="">
+                                            </div>
 
-                    <%--                                    <p>${p.namePlaylist}</p>--%>
-                    <%--                                    <a href="/PlaylistServlet?action=edit&id=${p.id}">Edit</a>--%>
-                    <%--                                    <a href="/PlaylistServlet?action=delete&id=${p.id}">Delete</a>--%>
+                                            <div class="content-">
+                                                <div>
+                                                        <p>${play.namePlaylist}</p>
+                                                    <h5> <a href="#"><c:out value="${play.view}"/></a></h5>
+                                                </div>
+                                            </div>
+                                            </c:forEach>
+                                        </div>
 
-                    <%--                            </div>--%>
-
-                    <%--                        </div>--%>
-                    <%--                    </c:forEach>--%>
-                    <%--                    </div>--%>
-
-                    <!-- Single Artist -->
-
-
-                    <%--                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="150ms">--%>
-                    <%--                        <div class="thumbnail">--%>
-                    <%--                            <img src="img/bg-img/pa2.jpg" alt="">--%>
-                    <%--                        </div>--%>
-                    <%--                        <div class="content-">--%>
-                    <%--                            <p>William Parker</p>--%>
-
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
-
-                    <%--                    <!-- Single Artist -->--%>
-                    <%--                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="200ms">--%>
-                    <%--                        <div class="thumbnail">--%>
-                    <%--                            <img src="img/bg-img/pa3.jpg" alt="">--%>
-                    <%--                        </div>--%>
-                    <%--                        <div class="content-">--%>
-                    <%--                            <p>Jessica Walsh</p>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
-
-                    <%--                    <!-- Single Artist -->--%>
-                    <%--                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="250ms">--%>
-                    <%--                        <div class="thumbnail">--%>
-                    <%--                            <img src="img/bg-img/pa4.jpg" alt="">--%>
-                    <%--                        </div>--%>
-                    <%--                        <div class="content-">--%>
-                    <%--                            <p>Tha Stoves</p>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
-
-                    <%--                    <!-- Single Artist -->--%>
-                    <%--                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="300ms">--%>
-                    <%--                        <div class="thumbnail">--%>
-                    <%--                            <img src="img/bg-img/pa5.jpg" alt="">--%>
-                    <%--                        </div>--%>
-                    <%--                        <div class="content-">--%>
-                    <%--                            <p>DJ Ajay</p>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
-
-                    <%--                    <!-- Single Artist -->--%>
-                    <%--                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="350ms">--%>
-                    <%--                        <div class="thumbnail">--%>
-                    <%--                            <img src="img/bg-img/pa6.jpg" alt="">--%>
-                    <%--                        </div>--%>
-                    <%--                        <div class="content-">--%>
-                    <%--                            <p>Radio Vibez</p>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
-
-                    <%--                    <!-- Single Artist -->--%>
-                    <%--                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="400ms">--%>
-                    <%--                        <div class="thumbnail">--%>
-                    <%--                            <img src="img/bg-img/pa7.jpg" alt="">--%>
-                    <%--                        </div>--%>
-                    <%--                        <div class="content-">--%>
-                    <%--                            <p>Music 4u</p>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
-
-                </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!-- ##### Miscellaneous Area End ##### -->

@@ -52,7 +52,7 @@ public class PlaylistServlet extends HttpServlet {
                 break;
             default:
                 try {
-                    allPlaylist(request, response);
+                  allPlaylist(request, response);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -67,8 +67,7 @@ public class PlaylistServlet extends HttpServlet {
     private void showPopularPlaylist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<Playlist> playlists = playlistDAO.findPopular();
         request.setAttribute("playlist", playlists);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-
+        RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/popular.jsp");
         dispatcher.forward(request, response);
     }
 

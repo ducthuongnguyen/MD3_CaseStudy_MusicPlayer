@@ -40,7 +40,7 @@ public class Song {
         this.album = album;
     }
 
-    public Song(int id, String nameSong, int singerId, int userId, String mp3File, String description, String avatar) {
+    public Song(int id, String nameSong, int singerId, int userId, String mp3File, String description, String avatar, String author, String album) {
         this.id = id;
         this.nameSong = nameSong;
         this.userId = userId;
@@ -48,6 +48,18 @@ public class Song {
         this.mp3File = mp3File;
         this.description = description;
         this.avatar = avatar;
+        this.author = author;
+        this.album = album;
+    }
+
+    public Song(int id, String nameSong, String avatar, String author, int typeId, String album, String description) {
+        this.id = id;
+        this.nameSong = nameSong;
+        this.description = description;
+        this.avatar = avatar;
+        this.author = author;
+        this.album = album;
+        this.typeId = typeId;
     }
 
     public int getId() {

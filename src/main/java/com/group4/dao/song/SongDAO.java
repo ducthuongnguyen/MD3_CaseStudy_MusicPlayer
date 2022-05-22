@@ -14,8 +14,9 @@ public class SongDAO implements ISongDao {
 
     private static final String SELECT_ALL_SONG = "select * from songs;";
     private static final String INSERT_SONG = "insert into songs(nameSong,description,mp3File,avatar,author,typeId,album) values (?,?,?,?,?,?,?);";
-    private static final String SELECT_BY_ID = "select nameSong,singerId,userId,mp3File,description,avatar from songs where id =?;";
+    private static final String SELECT_BY_ID = "select nameSong,singerId,userId,mp3File,description,avatar,author,album from songs where id =?;";
     private static final String DELETE_SONG = "delete from songs where id=?;";
+    private static final String UPDATE_SONG_BY_ID = "update songs set nameSong=?,avatar =?,author =?,typeId=?,album=?,description =? where id = ?;";
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -31,7 +32,7 @@ public class SongDAO implements ISongDao {
 
     @Override
     public List<Song> findAll() {
-        List<Song> songs= new ArrayList<>();
+        List<Song> songs = new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_SONG)) {
             ResultSet rs = preparedStatement.executeQuery();
@@ -56,7 +57,6 @@ public class SongDAO implements ISongDao {
     }
 
 
-
     @Override
     public Song findById(int id) {
         Song song = null;
@@ -71,7 +71,9 @@ public class SongDAO implements ISongDao {
                 String mp3File = rs.getString("mp3File");
                 String description = rs.getString("description");
                 String avatar = rs.getString("avatar");
-                song = new Song(id, nameSong, singerId, userId, mp3File, description,avatar);
+                String author = rs.getString("author");
+                String album = rs.getString("album");
+                song = new Song(id, nameSong, singerId, userId, mp3File, description, avatar, author, album);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -92,6 +94,7 @@ public class SongDAO implements ISongDao {
             preparedStatement.setString(7, song.getAlbum());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
+            printSQLException(e);
         }
     }
 
@@ -102,12 +105,26 @@ public class SongDAO implements ISongDao {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
+            printSQLException(e);
         }
     }
 
+    //    update songs set nameSong=?,avatar =?,author =?,typeId=?,album=?,description =? where id = ?;
     @Override
     public void update(int id, Song song) {
-
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SONG_BY_ID)) {
+            preparedStatement.setString(1, song.getNameSong());
+            preparedStatement.setString(2,song.getAvatar());
+            preparedStatement.setString(3,song.getAuthor());
+            preparedStatement.setInt(4,song.getTypeId());
+            preparedStatement.setString(5,song.getAlbum());
+            preparedStatement.setString(6,song.getDescription());
+            preparedStatement.setInt(7,id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
     }
 
     private void printSQLException(SQLException ex) {

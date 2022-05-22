@@ -123,39 +123,34 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
-                                    <input type="text" class="form-control" placeholder="Song's name" name="nameSong">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group wow fadeInUp">
-                                    <input type="text" class="form-control" placeholder="mp3File"
-                                           name="mp3File">
+                                    <input type="text" class="form-control" placeholder="Song's name" name="nameSong" value="${editSong.nameSong}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group wow fadeInUp">
-                                    <input type="text" class="form-control" placeholder="Avatar" name="avatar">
+                                    <input type="text" class="form-control" placeholder="Avatar" name="avatar"value="${editSong.avatar}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
-                                    <input type="text" class="form-control" placeholder="Author's name" name="author">
+                                    <input type="text" class="form-control" placeholder="Author's name" name="author" value="${editSong.author}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
-                                    <input type="number" class="form-control" placeholder="Music type" name="typeId">
+                                    <input type="number" class="form-control" placeholder="Music type" name="typeId" value="${editSong.typeId}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
                                     <input type="text" class="form-control" placeholder="Album"
-                                           name="album">
+                                           name="album" value="${editSong.album}">
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="form-group wow fadeInUp" data-wow-delay="400ms">
-                                    <textarea name="description" class="form-control" cols="15" rows="5" placeholder="Description"></textarea>
+                            <div class="col-md-6">
+                                <div class="form-group wow fadeInUp">
+                                    <input type="text" class="form-control" placeholder="Description"
+                                           name="description" value="${editSong.description}">
                                 </div>
                             </div>
                         </div>

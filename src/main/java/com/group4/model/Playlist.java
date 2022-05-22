@@ -24,6 +24,9 @@ public class Playlist {
         this.songId = songId;
     }
 
+    public Playlist(String namePlaylist, int typeId, String description, int songQuantity, int view, int userId, int songId) {
+    }
+
     public int getId() {
         return id;
     }

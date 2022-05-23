@@ -1,7 +1,6 @@
 package com.group4.dao.singer;
 
 import com.group4.model.Singer;
-import com.group4.model.Song;
 import com.group4.model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -50,8 +49,8 @@ public class SingerDAO implements ISingerDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return singers;
-    }
+            return singers;
+        }
 
     @Override
     public Singer findById(int id) {
@@ -75,6 +74,10 @@ public class SingerDAO implements ISingerDAO {
         }
         return singer;
     }
+
+
+//    ResultSet  resultSet=preparedStatement.executeUpdate();
+
 
     @Override
     public void save(Singer singer) {

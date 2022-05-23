@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "PlaylistServlet", value = "/PlaylistServlet")
@@ -61,7 +60,7 @@ public class PlaylistServlet extends HttpServlet {
 
             default:
                 try {
-                  allPlaylist(request, response);
+                    playlist(request, response);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

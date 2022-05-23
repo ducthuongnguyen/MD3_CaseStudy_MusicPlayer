@@ -2,7 +2,10 @@ package com.group4.controller;
 
 import com.group4.dao.playlist.PlaylistDAO;
 import com.group4.dao.playlist.IPlaylistDAO;
+import com.group4.dao.song.ISongDao;
+import com.group4.dao.song.SongDAO;
 import com.group4.model.Playlist;
+import com.group4.model.Song;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,11 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "PlaylistServlet", value = "/PlaylistServlet")
 public class PlaylistServlet extends HttpServlet {
-    IPlaylistDAO playlistDAO=new PlaylistDAO();
+    IPlaylistDAO playlistDAO = new PlaylistDAO();
+    ISongDao songDao=new SongDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,9 +48,20 @@ public class PlaylistServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 break;
+            case "popular":
+                try {
+                    showPopularPlaylist(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "findSongPlaylist":
+                showFindSongInPlaylist(request,response);
+                break;
+
             default:
                 try {
-                    playlist(request, response);
+                  allPlaylist(request, response);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -55,6 +71,32 @@ public class PlaylistServlet extends HttpServlet {
 //        catch (SQLException ex) {
 //            throw new ServletException(ex);
 //        }
+    }
+
+    private void showFindSongInPlaylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        List<Song> songList = playlistDAO.findAllSongInPlaylist(id);
+        request.setAttribute("songList", songList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/listsonginplaylist.jsp");
+        dispatcher.forward(request, response);
+
+    }
+
+    List<Song> findAllSongInPlaylist(List<Playlist> playlists) throws SQLException {
+        List<Song> list=new ArrayList<>();
+        for (int i=0;i<playlists.size();i++){
+            Song song=songDao.findById(playlists.get(i).getSongId());
+            list.add(song);
+        }
+        return list;
+    }
+
+
+    private void showPopularPlaylist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        List<Playlist> playlists = playlistDAO.findPopular();
+        request.setAttribute("playlist", playlists);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/popular.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void deletePlaylist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -72,7 +114,7 @@ public class PlaylistServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Playlist playlist = playlistDAO.findById(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/edit.jsp");
-        request.setAttribute("playlistEdit", playlist);
+        request.setAttribute("playlist", playlist);
         dispatcher.forward(request, response);
     }
 
@@ -82,9 +124,11 @@ public class PlaylistServlet extends HttpServlet {
 
     }
 
-    private void playlist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    private void allPlaylist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<Playlist> playlists = playlistDAO.findAll();
+        List<Song> songList = findAllSongInPlaylist(playlists);
         request.setAttribute("playlist", playlists);
+        request.setAttribute("songlist", songList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/myplaylist.jsp");
         dispatcher.forward(request, response);
     }
@@ -125,9 +169,9 @@ public class PlaylistServlet extends HttpServlet {
         int view = Integer.parseInt(request.getParameter("view"));
         int userId = Integer.parseInt(request.getParameter("userId"));
         int songId = Integer.parseInt(request.getParameter("songId"));
-      Playlist playlist = new Playlist(namePlaylist, typeId, description, songQuantity, view, userId, songId);
+        Playlist playlist = new Playlist(namePlaylist, typeId, description, songQuantity, view, userId, songId);
 
-        playlistDAO.update(id,playlist);
+        playlistDAO.update(id, playlist);
         RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/edit.jsp");
         dispatcher.forward(request, response);
     }

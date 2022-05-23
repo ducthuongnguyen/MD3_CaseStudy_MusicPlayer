@@ -1,6 +1,7 @@
 package com.group4.dao.playlist;
 
 import com.group4.model.Playlist;
+import com.group4.model.Song;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,11 +9,12 @@ import java.util.List;
 
 public class PlaylistDAO implements IPlaylistDAO {
     private static final String SELECT_ALL_PLAYLIST = "select * from playlists;";
-    private static final String SELECT_POPULAR_PLAYLIST = "select * from playlists order by view desc limit 4;";
+    private static final String SELECT_POPULAR_PLAYLIST = "select * from playlists order by view desc limit 6;";
     private static final String INSERT_PLAYLIST = "insert into playlists(namePlaylist,typeId,description,songQuantity,view,userId,songId) values (?,?,?,?,?,?,?);";
     private static final String UPDATE_PLAYLIST = "update playlists set namePlaylist=?,typeId=?,description=?,songQuantity=?,view=?,userId=?,songId=? where playlists.id=?;";
     private static final String DELETE_PLAYLIST = "delete from playlists where playlists.id=?;";
     private static final String FIND_BY_ID = "select *from playlists where id =?;";
+    private static final String SELECT_ALL_SONG_IN_PLAYLIST="select s.nameSong, s.avatar from  songs s join type t on t.typeId = s.typeId join playlists pl on pl.typeId = s.typeId where pl.id=?;";
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
@@ -174,5 +176,37 @@ public class PlaylistDAO implements IPlaylistDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Song> findAllSongInPlaylist(int id) {
+        List<Song> songList = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_SONG_IN_PLAYLIST)) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+            while (rs.next()) {
+//                int id = rs.getInt("id");
+                String nameSong = rs.getString("nameSong");
+//                String description = rs.getString("description");
+//                String mp3File = rs.getString("mp3File");
+                String avatar = rs.getString("avatar");
+//                String author = rs.getString("author");
+//                int typeId = Integer.parseInt(rs.getString("typeId"));
+//                String album = rs.getString("album");
+//                int view = rs.getInt("view");
+//                int userId = rs.getInt("userId");
+//                int songId = rs.getInt("songId");
+
+                songList.add(new Song(nameSong, avatar));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+
+        return songList;
     }
 }

@@ -1,25 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Duc Thuong Nguyen
-  Date: 5/20/2022
-  Time: 9:27 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Title</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<c:forEach items="${songList}" var="song">--%>
-<%--    ${song.id}--%>
-<%--    ${song.nameSong}--%>
-<%--    <img src="${song.avatar}" alt="">--%>
-<%--    ${song.author}--%>
-<%--</c:forEach>--%>
-<%--</body>--%>
-<%--</html>--%>
+
 <html lang="en">
 
 <head>
@@ -50,6 +32,8 @@
         <div></div>
     </div>
 </div>
+
+
 <!-- ##### Header Area End ##### -->
 <header class="header-area">
     <!-- Navbar Area -->
@@ -143,8 +127,8 @@
 <!-- ##### Breadcumb Area Start ##### -->
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
     <div class="bradcumbContent">
-<%--        <p>See what’s new</p>--%>
-        <h2>My Playlist</h2>
+        <%--        <p>See what’s new</p>--%>
+        <h2>Song In Playlist</h2>
     </div>
 </section>
 <!-- ##### Breadcumb Area End ##### -->
@@ -155,19 +139,17 @@
 
 
         <div class="row oneMusic-albums">
-
-            <!-- Single Album -->
-            <c:forEach items="${playlist}" var="play">
+            <c:forEach var="songList" items="${songList}">
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
                     <div class="single-album">
                         <a href="/PlaylistServlet?action=findSongPlaylist&id=${play.id}"><img src="img/bg-img/a2.jpg" alt=""></a>
                         <div class="album-info">
                             <a href="#">
-                                <h5> <a href="#"><c:out value="${play.namePlaylist}"/></a></h5>
+                                <h5>${songList.nameSong}</h5>
                             </a>
-                            <p> <a href="/PlaylistServlet?action=edit&id=${play.id}" style="color: crimson">Edit</a>
-                                <a href="/PlaylistServlet?action=delete&id=${play.id}" style="color: crimson">Delete</a>
-                            </p>
+<%--                            <p> <a href="/PlaylistServlet?action=edit&id=${play.id}" style="color: crimson">Edit</a>--%>
+<%--                                <a href="/PlaylistServlet?action=delete&id=${play.id}" style="color: crimson">Delete</a>--%>
+<%--                            </p>--%>
                         </div>
                     </div>
                 </div>

@@ -155,8 +155,11 @@
 
                             </div>
                             <div class="form-group">
+                                <p style="color: red">${mess5}</p>
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Enter Password">
+                                <small id="emailHelp11" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>Max password length is 10 characters</small>
+
                             </div>
                             <div class="form-group">
                                 <p style="color: red">${mess2}</p>

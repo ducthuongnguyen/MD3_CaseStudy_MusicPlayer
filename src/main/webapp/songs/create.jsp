@@ -155,11 +155,22 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
+                                    <select name="singerId" class="form-control" style="padding: 0px">
+                                        <option value="">Select singer</option>
+                                        <c:forEach items="${singers}" var="singer">
+                                            <option value="${singer.id}" class="form-control"
+                                                    style="color: black">${singer.singerName}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group wow fadeInUp">
                                     <input type="text" class="form-control" placeholder="Album"
                                            name="album">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
                                     <input type="text" class="form-control" placeholder="Description"
                                            name="description">

@@ -55,10 +55,6 @@ public class SingerDAO implements ISingerDAO {
         return null;
     }
 
-
-//    ResultSet  resultSet=preparedStatement.executeUpdate();
-
-
     @Override
     public void save(Singer singer) {
         try (Connection connection = getConnection();

@@ -1,7 +1,10 @@
 package com.group4.controller;
 
 import com.group4.dao.singer.SingerDAO;
+import com.group4.dao.songtype.ISongTypeDAO;
+import com.group4.dao.songtype.SongTypeDAO;
 import com.group4.model.Singer;
+import com.group4.model.SongType;
 import com.group4.model.User;
 
 import javax.servlet.*;
@@ -16,6 +19,7 @@ import java.util.jar.JarOutputStream;
 @WebServlet(name = "SingerServlet", value = "/singers")
 public class SingerServlet extends HttpServlet {
     SingerDAO singerDAO = new SingerDAO();
+    ISongTypeDAO songTypeDAO = new SongTypeDAO();
 
     public SingerServlet() throws SQLException {
     }
@@ -28,7 +32,11 @@ public class SingerServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                showCreateForm(request, response);
+                try {
+                    showCreateForm(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 try {
@@ -48,8 +56,10 @@ public class SingerServlet extends HttpServlet {
 
     }
 
-    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("singer/create.jsp");
+        List<SongType> typeList = songTypeDAO.findAll();
+        request.setAttribute("typeList", typeList);
         requestDispatcher.forward(request, response);
     }
 

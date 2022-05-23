@@ -1,9 +1,12 @@
 package com.group4.controller;
 
+import com.group4.dao.singer.ISingerDAO;
+import com.group4.dao.singer.SingerDAO;
 import com.group4.dao.song.ISongDao;
 import com.group4.dao.song.SongDAO;
 import com.group4.dao.songtype.ISongTypeDAO;
 import com.group4.dao.songtype.SongTypeDAO;
+import com.group4.model.Singer;
 import com.group4.model.Song;
 import com.group4.model.SongType;
 
@@ -19,6 +22,11 @@ import java.util.List;
 public class SongServlet extends HttpServlet {
     ISongDao songDao = new SongDAO();
     ISongTypeDAO songTypeDAO = new SongTypeDAO();
+    ISingerDAO singerDAO = new SingerDAO();
+
+    public SongServlet() throws SQLException {
+    }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -61,6 +69,10 @@ public class SongServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
         Song song = songDao.findById(id);
+        List<SongType> typeList = songTypeDAO.findAll();
+        request.setAttribute("types", typeList);
+        List<Singer> singerList = singerDAO.findAll();
+        request.setAttribute("singers",singerList);
         request.setAttribute("editSong", song);
         request.getRequestDispatcher("songs/edit.jsp").forward(request, response);
     }
@@ -76,6 +88,8 @@ public class SongServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("songs/create.jsp");
         List<SongType> typeList = songTypeDAO.findAll();
         request.setAttribute("types", typeList);
+        List<Singer> singerList = singerDAO.findAll();
+        request.setAttribute("singers",singerList);
         dispatcher.forward(request, response);
     }
 

@@ -127,15 +127,15 @@
         <div class="row oneMusic-albums">
 
             <!-- Single Album -->
-            <c:forEach var="i" begin="0" end="${songList.size()-1}">
+            <c:forEach items="${songList}" var="song">
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
                     <div class="single-album">
-                        <img src="${songList.get(i).avatar}" alt="">
+                        <img src="${song.avatar}" alt="">
                         <div class="album-info">
                             <a href="/songs?action=detail&id=${song.id}">
-                                <h5>${songList.get(i).nameSong}</h5>
+                                <h5>${song.nameSong}</h5>
                             </a>
-                            <p>${songList.get(i).album}</p>
+                            <p>${song.album}</p>
                         </div>
                     </div>
                 </div>

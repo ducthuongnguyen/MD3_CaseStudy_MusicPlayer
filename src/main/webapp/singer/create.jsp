@@ -5,6 +5,7 @@
   Time: 10:17 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 
@@ -63,7 +64,14 @@
                                            placeholder="Date of Birth">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" name="typeId" placeholder="Music style">
+                                    <select name="typeId" id="categories" class="form-control" style="padding: 0px">
+                                        <option value="">Select music type</option>
+                                        <c:forEach items="${typeList}" var="type">
+                                            <option value="${type.id}" class="form-control"
+                                                    style="color: black">${type.name}</option>
+                                        </c:forEach>
+                                    </select>
+<%--                                    <input type="number" class="form-control" name="typeId" placeholder="Music style">--%>
                                 </div>
                             </div>
                             <div class="col-12">

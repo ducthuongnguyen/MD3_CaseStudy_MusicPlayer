@@ -119,51 +119,59 @@
             <div class="col-12">
                 <!-- Create Form Area -->
                 <div class="contact-form-area">
-                    <form  method="post">
+                    <form method="post">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
-                                    <input type="text" class="form-control" placeholder="Song's name" name="nameSong" value="${editSong.nameSong}">
+                                    <input type="text" class="form-control" placeholder="Song's name" name="nameSong"
+                                           value="${editSong.nameSong}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group wow fadeInUp">
-                                    <input type="text" class="form-control" placeholder="Avatar" name="avatar"value="${editSong.avatar}">
+                                    <input type="text" class="form-control" placeholder="Avatar" name="avatar"
+                                           value="${editSong.avatar}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
-                                    <input type="text" class="form-control" placeholder="Author's name" name="author" value="${editSong.author}">
+                                    <input type="text" class="form-control" placeholder="Author's name" name="author"
+                                           value="${editSong.author}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
-                                    <input type="number" class="form-control" placeholder="Music type" name="typeId" value="${editSong.typeId}">
+                                    <select name="typeId" id="categories" class="form-control" style="padding: 0px">
+                                        <option value="">Select music type</option>
+                                        <c:forEach items="${types}" var="type">
+                                            <option value="${type.id}" class="form-control"
+                                                    style="color: black">${type.name}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group wow fadeInUp">
+                                        <input type="text" class="form-control" placeholder="Album"
+                                               name="album" value="${editSong.album}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group wow fadeInUp">
+                                        <input type="text" class="form-control" placeholder="Description"
+                                               name="description" value="${editSong.description}">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group wow fadeInUp">
-                                    <input type="text" class="form-control" placeholder="Album"
-                                           name="album" value="${editSong.album}">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group wow fadeInUp">
-                                    <input type="text" class="form-control" placeholder="Description"
-                                           name="description" value="${editSong.description}">
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-12 text-center">
-                            <button class="btn oneMusic-btn mt-30" type="submit">Edit <i
-                                    class="fa fa-angle-double-right"></i></button>
+                            <div class="col-12 text-center">
+                                <button class="btn oneMusic-btn mt-30" type="submit">Edit <i
+                                        class="fa fa-angle-double-right"></i></button>
+                            </div>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
-    </div>
     </div>
 </section>
 <!-- ##### Contact Area End ##### -->

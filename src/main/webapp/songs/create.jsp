@@ -160,9 +160,10 @@
                                            name="album">
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="form-group wow fadeInUp" data-wow-delay="400ms">
-                                    <textarea name="description" class="form-control" cols="15" rows="5" placeholder="Description"></textarea>
+                            <div class="col-md-12">
+                                <div class="form-group wow fadeInUp">
+                                    <input type="text" class="form-control" placeholder="Description"
+                                           name="description">
                                 </div>
                             </div>
                         </div>

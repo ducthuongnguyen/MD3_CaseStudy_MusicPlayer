@@ -6,15 +6,16 @@ public class Singer {
     private int id;
     private String singerName;
     private String sex;
-    private LocalDate dateOfBirth;
+    private String dateOfBirth;
     private int typeId;
     private String story;
     private int userId;
+    private String avatar;
 
     public Singer() {
     }
 
-    public Singer(int id, String singerName, String sex, LocalDate dateOfBirth, int typeId, String story, int userId) {
+    public Singer(int id, String singerName, String sex, String dateOfBirth, int typeId, String story, int userId, String avatar) {
         this.id = id;
         this.singerName = singerName;
         this.sex = sex;
@@ -22,6 +23,26 @@ public class Singer {
         this.typeId = typeId;
         this.story = story;
         this.userId = userId;
+        this.avatar = avatar;
+    }
+
+    public Singer(String singerName, String sex, String dateOfBirth, int typeId, String story, int userId, String avatar) {
+        this.singerName = singerName;
+        this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
+        this.typeId = typeId;
+        this.story = story;
+        this.userId = userId;
+        this.avatar = avatar;
+    }
+
+    public Singer(String singerName, String sex, String dateOfBirth, int typeId, String story, String avatar) {
+        this.singerName = singerName;
+        this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
+        this.typeId = typeId;
+        this.story = story;
+        this.avatar = avatar;
     }
 
     public int getId() {
@@ -48,11 +69,11 @@ public class Singer {
         this.sex = sex;
     }
 
-    public LocalDate getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -78,5 +99,13 @@ public class Singer {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

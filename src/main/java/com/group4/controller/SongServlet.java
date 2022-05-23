@@ -33,30 +33,27 @@ public class SongServlet extends HttpServlet {
                 }
                 break;
             case "edit":
-                showEditForm(request,response);
-                break;
-            case "delete":
-                deleteSong(request, response);
+                try {
+                    showEditForm(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
-                showSongList(request, response);
+                try {
+                    showSongList(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }
 
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("songs/edit.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    private void deleteSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
-        songDao.delete(id);
-//        List<Song> listUser = songDao.findAll();
-//        request.setAttribute("songList", listUser);
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("songs/list.jsp");
-//        dispatcher.forward(request, response);
-        response.sendRedirect("songs");
+        Song song = songDao.findById(id);
+        request.setAttribute("editSong", song);
+        request.getRequestDispatcher("songs/edit.jsp").forward(request, response);
     }
 
     private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
@@ -71,7 +68,7 @@ public class SongServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void showSongList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showSongList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("songs/list.jsp");
         List<Song> songs = songDao.findAll();
         request.setAttribute("songList", songs);
@@ -86,14 +83,38 @@ public class SongServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                createSong(request, response);
+                try {
+                    createSong(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "edit":
+                editSong(request, response);
                 break;
             default:
-                showSongList(request, response);
+                try {
+                    showSongList(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
     }
+    //    update songs set nameSong=?,avatar =?,author =?,typeId=?,album=?,description =? where id = ?;
+    private void editSong(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String nameSong = request.getParameter("nameSong");
+        String avatar = request.getParameter("avatar");
+        String author = request.getParameter("author");
+        int typeId = Integer.parseInt(request.getParameter("typeId"));
+        String album = request.getParameter("album");
+        String description = request.getParameter("description");
+        Song editSong = new Song(id,nameSong,avatar,author,typeId,album,description);
+        songDao.update(id,editSong);
+        request.getRequestDispatcher("songs/detail.jsp").forward(request, response);
+    }
 
-    private void createSong(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void createSong(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
         String name = request.getParameter("nameSong");
         String des = request.getParameter("description");
         String linkMp3 = request.getParameter("mp3File");

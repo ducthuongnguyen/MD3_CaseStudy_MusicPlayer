@@ -24,6 +24,16 @@ public class Playlist {
         this.songId = songId;
     }
 
+    public Playlist(String namePlaylist, int typeId, String description, int songQuantity, int view, int userId, int songId) {
+        this.namePlaylist = namePlaylist;
+        this.typeId = typeId;
+        this.description = description;
+        this.songQuantity = songQuantity;
+        this.view = view;
+        this.userId = userId;
+        this.songId = songId;
+    }
+
     public int getId() {
         return id;
     }

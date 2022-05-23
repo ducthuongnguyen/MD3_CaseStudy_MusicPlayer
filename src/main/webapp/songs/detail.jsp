@@ -67,16 +67,24 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="index.jsp">Home</a></li>
-                                <li><a href="albums-store.html">Albums</a></li>
-                                <li><a href="#">Songs</a>
+                                <li><a href="/singers">Singers</a>
                                     <ul class="dropdown">
-                                        <li><a href="/songs">Show list songs</a></li>
-                                        <li><a href="/songs?action=create">Add new song</a></li>
+                                        <li><a href="/singers">Show list singers</a></li>
+                                        <li><a href="/singers?action=create">Add new singer</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="event.html">Events</a></li>
-                                <li><a href="blog.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="#">Songs</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Show list songs</a></li>
+                                        <li><a href="songs?action=create">Add new song</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/PlaylistServlet">Playlist</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/PlaylistServlet">Show list playlists</a></li>
+                                        <li><a href="/PlaylistServlet?action=create">Add new playlist</a></li>
+                                    </ul>
+                                </li>
                             </ul>
 
                             <!-- Login/Register & Cart Button -->
@@ -121,7 +129,7 @@
                     </div>
                     <div class="song-play-area">
                         <div class="song-name">
-                            <p>${song.nameSong}</p>
+                            <p>${song.id}. ${song.nameSong} - ${song.singerId}</p>
                         </div>
                         <audio preload="auto" controls>
                             <source src="${song.mp3File}">

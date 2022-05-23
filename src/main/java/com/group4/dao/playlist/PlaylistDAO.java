@@ -14,7 +14,7 @@ public class PlaylistDAO implements IPlaylistDAO {
     private static final String UPDATE_PLAYLIST = "update playlists set namePlaylist=?,typeId=?,description=?,songQuantity=?,view=?,userId=?,songId=? where playlists.id=?;";
     private static final String DELETE_PLAYLIST = "delete from playlists where playlists.id=?;";
     private static final String FIND_BY_ID = "select *from playlists where id =?;";
-    private static final String SELECT_ALL_SONG_IN_PLAYLIST="select s.nameSong, s.avatar from  songs s join type t on t.typeId = s.typeId join playlists pl on pl.typeId = s.typeId where pl.id=?;";
+    private static final String SELECT_ALL_SONG_IN_PLAYLIST="select s.nameSong, s.avatar from  songs s join songtypes t on t.id = s.typeId join playlists pl on pl.typeId = s.typeId where pl.id=?;";
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {

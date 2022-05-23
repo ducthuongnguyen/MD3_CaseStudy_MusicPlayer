@@ -121,7 +121,7 @@
                     </div>
                     <div class="song-play-area">
                         <div class="song-name">
-                            <p>${song.nameSong} = ${singers.}</p>
+                            <p>${song.nameSong} = ${singers.singerName}</p>
                         </div>
                         <audio preload="auto" controls>
                             <source src="${song.mp3File}">

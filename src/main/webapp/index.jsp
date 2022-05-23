@@ -79,42 +79,15 @@
                                         <li><a href="/PlaylistServlet?action=create">Add new playlist</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="users?action=login" >Login</a></li>
-                                <li><a href="users?action=register">Register</a></li>
-                                <li><a href="event.html">Events</a></li>
-                                <li><a href="blog.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
                                 <c:if test="${sessionScope.acc == null}">
                                     <li><a href="users?action=register">Register</a></li>
-                                    <li><a href="users?action=login" >Login</a></li>
+                                    <li><a href="users?action=login">Login</a></li>
                                 </c:if>
                                 <c:if test="${sessionScope.acc != null}">
                                     <li><a>Hello ${sessionScope.acc.username}</a></li>
-                                    <li><a href="users?action=logout" >LogOut</a></li>
+                                    <li><a href="users?action=logout">LogOut</a></li>
                                 </c:if>
-                                <li><a href="#">My Playlist</a>
-                                <ul class="dropdown">
-                                    <li><a href="/PlaylistServlet">Show My Playlist</a></li>
-                                    <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
-                                    <li><a href="/PlaylistServlet?action=popular">Popular Playlist</a></li>
-                                </ul></li>
-                                <li><a href="blog.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-
                             </ul>
-
-                            <!-- Login/Register & Cart Button -->
-                            <div class="login-register-cart-button d-flex align-items-center">
-                                <!-- Login/Register -->
-                                <div class="login-register-btn mr-50">
-                                    <a href="login.html" id="loginBtn">Login / Register</a>
-                                </div>
-
-                                <!-- Cart Button -->
-                                <div class="cart-btn">
-                                    <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                </div>
-                            </div>
                         </div>
                         <!-- Nav End -->
 
@@ -552,78 +525,28 @@
         <div class="row">
             <!-- ***** Weeks Top ***** -->
             <div class="col-12 col-lg-4">
-                <div class="weeks-top-area mb-100">
+                <div class="new-hits-area mb-100">
                     <div class="section-heading text-left mb-50 wow fadeInUp" data-wow-delay="50ms">
                         <p>See what’s new</p>
-                        <h2>This week’s top</h2>
+                        <h2>New Hits</h2>
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="100ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt1.jpg" alt="">
+                    <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
+                         data-wow-delay="100ms">
+                        <div class="first-part d-flex align-items-center">
+                            <div class="thumbnail">
+                                <img src="img/bg-img/wt7.jpg" alt="">
+                            </div>
+                            <div class="content-">
+                                <h6>Sam Smith</h6>
+                                <p>Underground</p>
+                            </div>
                         </div>
-                        <div class="content-">
-                            <h6>Sam Smith</h6>
-                            <p>Underground</p>
-                        </div>
+                        <audio preload="auto" controls>
+                            <source src="audio/dummy-audio.mp3">
+                        </audio>
                     </div>
-
-                    <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="150ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt2.jpg" alt="">
-                        </div>
-                        <div class="content-">
-                            <h6>Power Play</h6>
-                            <p>In my mind</p>
-                        </div>
-                    </div>
-
-                    <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="200ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt3.jpg" alt="">
-                        </div>
-                        <div class="content-">
-                            <h6>Cristinne Smith</h6>
-                            <p>My Music</p>
-                        </div>
-                    </div>
-
-                    <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="250ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt4.jpg" alt="">
-                        </div>
-                        <div class="content-">
-                            <h6>The Music Band</h6>
-                            <p>Underground</p>
-                        </div>
-                    </div>
-
-                    <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="300ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt5.jpg" alt="">
-                        </div>
-                        <div class="content-">
-                            <h6>Creative Lyrics</h6>
-                            <p>Songs and stuff</p>
-                        </div>
-                    </div>
-
-                    <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="350ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt6.jpg" alt="">
-                        </div>
-                        <div class="content-">
-                            <h6>The Culture</h6>
-                            <p>Pop Songs</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 

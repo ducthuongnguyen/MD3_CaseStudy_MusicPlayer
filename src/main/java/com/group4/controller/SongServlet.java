@@ -56,6 +56,9 @@ public class SongServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 break;
+            case "index":
+
+                break;
             default:
                 try {
                     showSongList(request, response);
@@ -72,7 +75,7 @@ public class SongServlet extends HttpServlet {
         List<SongType> typeList = songTypeDAO.findAll();
         request.setAttribute("types", typeList);
         List<Singer> singerList = singerDAO.findAll();
-        request.setAttribute("singers",singerList);
+        request.setAttribute("singers", singerList);
         request.setAttribute("editSong", song);
         request.getRequestDispatcher("songs/edit.jsp").forward(request, response);
     }
@@ -83,7 +86,7 @@ public class SongServlet extends HttpServlet {
         Song song = songDao.findById(id);
         List<Singer> singerList = findAllSingers(songs);
         request.setAttribute("song", song);
-        request.setAttribute("singers", singerList);
+        request.setAttribute("singers", findSinger(song));
         request.getRequestDispatcher("songs/detail.jsp").forward(request, response);
     }
 
@@ -92,7 +95,7 @@ public class SongServlet extends HttpServlet {
         List<SongType> typeList = songTypeDAO.findAll();
         request.setAttribute("types", typeList);
         List<Singer> singerList = singerDAO.findAll();
-        request.setAttribute("singers",singerList);
+        request.setAttribute("singers", singerList);
         dispatcher.forward(request, response);
     }
 
@@ -121,6 +124,16 @@ public class SongServlet extends HttpServlet {
             singerList.add(singer);
         }
         return singerList;
+    }
+
+    protected Singer findSinger(Song song) throws SQLException {
+        Singer singer = new Singer();
+        List<Singer> singerList = singerDAO.findAll();
+        for (int i = 0; i < singerList.size(); i++) {
+            if (singerList.get(i).getId() == song.getSingerId())
+                return singerList.get(i);
+        }
+        return singer;
     }
 
     @Override

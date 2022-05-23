@@ -2,18 +2,23 @@ package com.group4.controller;
 
 import com.group4.dao.song.ISongDao;
 import com.group4.dao.song.SongDAO;
+import com.group4.dao.songtype.ISongTypeDAO;
+import com.group4.dao.songtype.SongTypeDAO;
 import com.group4.model.Song;
+import com.group4.model.SongType;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "SongServlet", value = "/songs")
 public class SongServlet extends HttpServlet {
     ISongDao songDao = new SongDAO();
+    ISongTypeDAO songTypeDAO = new SongTypeDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,7 +28,11 @@ public class SongServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                showCreateForm(request, response);
+                try {
+                    showCreateForm(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "detail":
                 try {
@@ -63,16 +72,29 @@ public class SongServlet extends HttpServlet {
         request.getRequestDispatcher("songs/detail.jsp").forward(request, response);
     }
 
-    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("songs/create.jsp");
+        List<SongType> typeList = songTypeDAO.findAll();
+        request.setAttribute("types", typeList);
         dispatcher.forward(request, response);
     }
 
     private void showSongList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("songs/list.jsp");
         List<Song> songs = songDao.findAll();
+        List<SongType> types = findAllSongTypes(songs);
         request.setAttribute("songList", songs);
+        request.setAttribute("typeList", types);
         dispatcher.forward(request, response);
+    }
+
+    protected List<SongType> findAllSongTypes(List<Song> songs) throws SQLException {
+        List<SongType> typeList = new ArrayList<>();
+        for (int i = 0; i < songs.size(); i++) {
+            SongType songType = songTypeDAO.findById(songs.get(i).getTypeId());
+            typeList.add(songType);
+        }
+        return typeList;
     }
 
     @Override
@@ -100,6 +122,7 @@ public class SongServlet extends HttpServlet {
                 }
         }
     }
+
     //    update songs set nameSong=?,avatar =?,author =?,typeId=?,album=?,description =? where id = ?;
     private void editSong(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -109,8 +132,8 @@ public class SongServlet extends HttpServlet {
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String album = request.getParameter("album");
         String description = request.getParameter("description");
-        Song editSong = new Song(id,nameSong,avatar,author,typeId,album,description);
-        songDao.update(id,editSong);
+        Song editSong = new Song(id, nameSong, avatar, author, typeId, album, description);
+        songDao.update(id, editSong);
         request.getRequestDispatcher("songs/detail.jsp").forward(request, response);
     }
 

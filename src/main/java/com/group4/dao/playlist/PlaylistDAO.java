@@ -14,7 +14,8 @@ public class PlaylistDAO implements IPlaylistDAO {
     private static final String UPDATE_PLAYLIST = "update playlists set namePlaylist=?,typeId=?,description=?,songQuantity=?,view=?,userId=?,songId=? where playlists.id=?;";
     private static final String DELETE_PLAYLIST = "delete from playlists where playlists.id=?;";
     private static final String FIND_BY_ID = "select *from playlists where id =?;";
-    private static final String SELECT_ALL_SONG_IN_PLAYLIST="select s.nameSong, s.avatar from  songs s join type t on t.typeId = s.typeId join playlists pl on pl.typeId = s.typeId where pl.id=?;";
+    private static final String SELECT_ALL_SONG_IN_PLAYLIST = "select s.nameSong, s.avatar from  songs s join type t on t.typeId = s.typeId join playlists pl on pl.typeId = s.typeId where pl.id=?;";
+    private static final String FIND_BY_NAME = " select * from playlists where namePlaylist like ?;";
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
@@ -208,5 +209,55 @@ public class PlaylistDAO implements IPlaylistDAO {
 
 
         return songList;
+    }
+
+    @Override
+    public List<Playlist> findByName(String nameSearch) {
+//        List<Playlist> playlists = new ArrayList<>();
+//        // Step 1: Establishing a Connection
+//        try (Connection connection = getConnection();
+//             // Step 2:Create a statement using connection object
+//             PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_NAME);) {
+//            preparedStatement.setString(1,"%" + nameSearch + "%");
+//            // Step 3: Execute the query or update query
+//            ResultSet rs = preparedStatement.executeQuery();
+//
+//            // Step 4: Process the ResultSet object.
+//            while (rs.next()) {
+////                int id= rs.getInt("id");
+//                String namePlaylist = rs.getString("namePlaylist");
+////                String email = rs.getString("email");
+////                String country = rs.getString("country");
+//                playlists.add(new Playlist( namePlaylist));
+//            }
+//        } catch (SQLException e) {
+//            printSQLException(e);
+//        }
+//        return playlists;
+//    }
+        List<Playlist> playlistServletList = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_NAME)) {
+            preparedStatement.setString(1, "%" + nameSearch + "%");
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String namePlaylist = rs.getString("namePlaylist");
+                int typeId = Integer.parseInt(rs.getString("typeId"));
+                String description = rs.getString("description");
+                int songQuantity = rs.getInt("songQuantity");
+                int view = rs.getInt("view");
+                int userId = rs.getInt("userId");
+                int songId = rs.getInt("songId");
+
+                playlistServletList.add(new Playlist(id, namePlaylist, typeId, description, songQuantity, view, userId, songId));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+
+        return playlistServletList;
     }
 }

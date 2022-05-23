@@ -58,6 +58,9 @@ public class PlaylistServlet extends HttpServlet {
             case "findSongPlaylist":
                 showFindSongInPlaylist(request,response);
                 break;
+            case "search":
+                searchByName(request, response);
+                break;
 
             default:
                 try {
@@ -71,6 +74,15 @@ public class PlaylistServlet extends HttpServlet {
 //        catch (SQLException ex) {
 //            throw new ServletException(ex);
 //        }
+    }
+
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        List<Playlist> playlists = playlistDAO.findByName(name);
+        request.setAttribute("playlists", playlists);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/search.jsp");
+        dispatcher.forward(request, response);
+
     }
 
     private void showFindSongInPlaylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -125,7 +137,13 @@ public class PlaylistServlet extends HttpServlet {
     }
 
     private void allPlaylist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        List<Playlist> playlists = playlistDAO.findAll();
+        String name = request.getParameter("name");
+        List<Playlist> playlists = new ArrayList<>();
+        if (name!=null&&name!=""){
+            playlists = playlistDAO.findByName(name);
+        } else {
+            playlists = playlistDAO.findAll();
+        }
         List<Song> songList = findAllSongInPlaylist(playlists);
         request.setAttribute("playlist", playlists);
         request.setAttribute("songlist", songList);

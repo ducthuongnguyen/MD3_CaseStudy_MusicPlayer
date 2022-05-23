@@ -11,4 +11,6 @@ public interface IPlaylistDAO extends IGeneralDAO<Playlist> {
     List<Playlist> findPopular() throws SQLException;
     List<Song> findAllSongInPlaylist(int id);
 
+    List<Playlist> findByName(String name);
+
 }

@@ -1,11 +1,14 @@
 package com.group4.controller;
 
+import com.group4.dao.playlist.IPlaylistDAO;
+import com.group4.dao.playlist.PlaylistDAO;
 import com.group4.dao.singer.ISingerDAO;
 import com.group4.dao.singer.SingerDAO;
 import com.group4.dao.song.ISongDao;
 import com.group4.dao.song.SongDAO;
 import com.group4.dao.songtype.ISongTypeDAO;
 import com.group4.dao.songtype.SongTypeDAO;
+import com.group4.model.Playlist;
 import com.group4.model.Singer;
 import com.group4.model.Song;
 import com.group4.model.SongType;
@@ -23,6 +26,7 @@ public class SongServlet extends HttpServlet {
     ISongDao songDao = new SongDAO();
     ISongTypeDAO songTypeDAO = new SongTypeDAO();
     ISingerDAO singerDAO = new SingerDAO();
+    IPlaylistDAO playlistDAO = new PlaylistDAO();
 
     public SongServlet() throws SQLException {
     }
@@ -57,7 +61,11 @@ public class SongServlet extends HttpServlet {
                 }
                 break;
             case "index":
-
+                try {
+                    showHome(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 try {
@@ -67,6 +75,15 @@ public class SongServlet extends HttpServlet {
                 }
                 break;
         }
+    }
+
+    private void showHome(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        Song song = songDao.findLastedSong(songDao.findAll());
+        Playlist playlist = playlistDAO.findLatestPlaylist(playlistDAO.findAll());
+        request.setAttribute("latestSong", song);
+        request.setAttribute("latestPlaylist", playlist);
+        dispatcher.forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
@@ -82,9 +99,9 @@ public class SongServlet extends HttpServlet {
 
     private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
-        List<Song> songs = songDao.findAll();
+//        List<Song> songs = songDao.findAll();
         Song song = songDao.findById(id);
-        List<Singer> singerList = findAllSingers(songs);
+//        List<Singer> singerList = findAllSingers(songs);
         request.setAttribute("song", song);
         request.setAttribute("singers", findSinger(song));
         request.getRequestDispatcher("songs/detail.jsp").forward(request, response);

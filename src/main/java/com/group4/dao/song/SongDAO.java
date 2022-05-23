@@ -17,6 +17,7 @@ public class SongDAO implements ISongDao {
     private static final String SELECT_BY_ID = "select nameSong,singerId,userId,mp3File,description,avatar,author,album from songs where id =?;";
     private static final String DELETE_SONG = "delete from songs where id=?;";
     private static final String UPDATE_SONG_BY_ID = "update songs set nameSong=?,avatar =?,author =?,typeId=?,album=?,description =? where id = ?;";
+    private static final String SELECT_LASTEST_SONG = "select nameSong,id from songs where id =(SELECT max(id) from songs);";
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -109,22 +110,38 @@ public class SongDAO implements ISongDao {
         }
     }
 
-    //    update songs set nameSong=?,avatar =?,author =?,typeId=?,album=?,description =? where id = ?;
     @Override
     public void update(int id, Song song) {
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SONG_BY_ID)) {
             preparedStatement.setString(1, song.getNameSong());
-            preparedStatement.setString(2,song.getAvatar());
-            preparedStatement.setString(3,song.getAuthor());
-            preparedStatement.setInt(4,song.getTypeId());
-            preparedStatement.setString(5,song.getAlbum());
-            preparedStatement.setString(6,song.getDescription());
-            preparedStatement.setInt(7,id);
+            preparedStatement.setString(2, song.getAvatar());
+            preparedStatement.setString(3, song.getAuthor());
+            preparedStatement.setInt(4, song.getTypeId());
+            preparedStatement.setString(5, song.getAlbum());
+            preparedStatement.setString(6, song.getDescription());
+            preparedStatement.setInt(7, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
         }
+    }
+
+    @Override
+    public Song findLastedSong(List<Song> songs) {
+        Song song = null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LASTEST_SONG)) {
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nameSong = rs.getString("nameSong");
+                song = new Song(id, nameSong);
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return song;
     }
 
     private void printSQLException(SQLException ex) {
@@ -142,4 +159,5 @@ public class SongDAO implements ISongDao {
             }
         }
     }
+
 }

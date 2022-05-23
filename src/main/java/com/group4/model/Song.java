@@ -57,6 +57,11 @@ public class Song {
         this.album = album;
     }
 
+    public Song(int id, String nameSong) {
+        this.id = id;
+        this.nameSong = nameSong;
+    }
+
     public Song(int id, String nameSong, String avatar, String author, int typeId, String album, String description) {
         this.id = id;
         this.nameSong = nameSong;

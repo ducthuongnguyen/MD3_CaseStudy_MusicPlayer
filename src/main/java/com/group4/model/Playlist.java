@@ -24,6 +24,11 @@ public class Playlist {
         this.songId = songId;
     }
 
+    public Playlist(int id, String namePlaylist) {
+        this.id = id;
+        this.namePlaylist = namePlaylist;
+    }
+
     public Playlist(String namePlaylist, int typeId, String description, int songQuantity, int view, int userId, int songId) {
         this.namePlaylist = namePlaylist;
         this.typeId = typeId;
@@ -45,6 +50,7 @@ public class Playlist {
     public String getNamePlaylist() {
         return namePlaylist;
     }
+
     public void setNamePlaylist(String namePlaylist) {
         this.namePlaylist = namePlaylist;
     }

@@ -111,9 +111,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="hero-slides-content text-center">
-                            <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">Beyond Time <span>Beyond Time</span></h2>
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover
+                            <h6 data-animation="fadeInUp" data-delay="100ms">Latest song</h6>
+                            <h2 data-animation="fadeInUp" data-delay="300ms">${latestSong.nameSong}<span>${latestSong.nameSong}</span></h2>
+<%--                            <a data-animation="fadeInUp" data-delay="500ms" href="/songs?action=detail&id=${song.id}" class="btn oneMusic-btn mt-50">Discover--%>
                                 <i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
@@ -130,10 +130,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="hero-slides-content text-center">
-                            <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">Colorlib Music <span>Colorlib Music</span>
+                            <h6 data-animation="fadeInUp" data-delay="100ms">Latest playlist</h6>
+                            <h2 data-animation="fadeInUp" data-delay="300ms">${latestPlaylist.namePlaylist}<span>${latestPlaylist.namePlaylist}</span>
                             </h2>
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover
+<%--                            <a data-animation="fadeInUp" data-delay="500ms" href="/PlaylistServlet?action=findSongPlaylist&id=${play.id}" class="btn oneMusic-btn mt-50">Discover--%>
                                 <i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>

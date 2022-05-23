@@ -79,8 +79,11 @@ public class SongServlet extends HttpServlet {
 
     private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
+        List<Song> songs = songDao.findAll();
         Song song = songDao.findById(id);
+        List<Singer> singerList = findAllSingers(songs);
         request.setAttribute("song", song);
+        request.setAttribute("singers", singerList);
         request.getRequestDispatcher("songs/detail.jsp").forward(request, response);
     }
 
@@ -109,6 +112,15 @@ public class SongServlet extends HttpServlet {
             typeList.add(songType);
         }
         return typeList;
+    }
+
+    protected List<Singer> findAllSingers(List<Song> songs) throws SQLException {
+        List<Singer> singerList = new ArrayList<>();
+        for (int i = 0; i < singerList.size(); i++) {
+            Singer singer = singerDAO.findById(songs.get(i).getSingerId());
+            singerList.add(singer);
+        }
+        return singerList;
     }
 
     @Override

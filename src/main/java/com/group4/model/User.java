@@ -9,6 +9,12 @@ public class User {
     public User() {
     }
 
+    public User(String username, String password, String telephoneNo) {
+        this.username = username;
+        this.password = password;
+        this.telephoneNo = telephoneNo;
+    }
+
     public User(int id, String username, String password, String telephoneNo) {
         this.id = id;
         this.username = username;

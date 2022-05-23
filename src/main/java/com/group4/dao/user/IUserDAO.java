@@ -2,10 +2,12 @@ package com.group4.dao.user;
 
 import com.group4.model.User;
 
-public interface IUserDAO {
-    void login(String username, String password);
+import java.sql.SQLException;
 
-    void register(User user);
+public interface IUserDAO {
+    User login(String username, String password) throws SQLException;
+
+    void register(User user) throws SQLException;
 
     void logout();
 }

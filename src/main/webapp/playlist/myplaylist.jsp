@@ -138,8 +138,8 @@
                             <a href="#">
                                 <h5><a href="#"><c:out value="${play.namePlaylist}"/></a></h5>
                             </a>
-                            <p><a href="/PlaylistServlet?action=edit&id=${play.id}" style="color: crimson">Edit</a>
-                                <a href="/PlaylistServlet?action=delete&id=${play.id}" style="color: crimson">Delete</a>
+                            <p><a href="/PlaylistServlet?action=edit&id=${play.id}" style="color: crimson" class="btn btn-outline-dark">Edit</a>
+                                <a href="/PlaylistServlet?action=delete&id=${play.id}" style="color: crimson" class="btn btn-outline-dark">Delete</a>
                             </p>
                         </div>
                     </div>

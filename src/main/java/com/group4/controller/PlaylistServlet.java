@@ -15,12 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "PlaylistServlet", value = "/PlaylistServlet")
 public class PlaylistServlet extends HttpServlet {
     IPlaylistDAO playlistDAO = new PlaylistDAO();
-    ISongDao songDao=new SongDAO();
+    ISongDao songDao = new SongDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,12 +56,12 @@ public class PlaylistServlet extends HttpServlet {
                 }
                 break;
             case "findSongPlaylist":
-                showFindSongInPlaylist(request,response);
+                showFindSongInPlaylist(request, response);
                 break;
 
             default:
                 try {
-                    playlist(request, response);
+                    allPlaylist(request, response);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -82,9 +83,9 @@ public class PlaylistServlet extends HttpServlet {
     }
 
     List<Song> findAllSongInPlaylist(List<Playlist> playlists) throws SQLException {
-        List<Song> list=new ArrayList<>();
-        for (int i=0;i<playlists.size();i++){
-            Song song=songDao.findById(playlists.get(i).getSongId());
+        List<Song> list = new ArrayList<>();
+        for (int i = 0; i < playlists.size(); i++) {
+            Song song = songDao.findById(playlists.get(i).getSongId());
             list.add(song);
         }
         return list;

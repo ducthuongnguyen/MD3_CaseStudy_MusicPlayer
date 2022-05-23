@@ -58,7 +58,7 @@ public class SingerServlet extends HttpServlet {
 
     }
 
-    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("singer/create.jsp");
         List<SongType> typeList = songTypeDAO.findAll();
         request.setAttribute("typeList", typeList);

@@ -121,7 +121,7 @@
                     </div>
                     <div class="song-play-area">
                         <div class="song-name">
-                            <p>${song.nameSong} = ${singers.singerName}</p>
+                            <p>${song.id}.${song.nameSong} - ${singers.singerName}</p>
                         </div>
                         <audio preload="auto" controls>
                             <source src="${song.mp3File}">
@@ -132,23 +132,9 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3">
-                <div class="load-more-btn text-center">
-                    <a href="#" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="load-more-btn text-right">
-                    <a href="#" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="load-more-btn text-right">
                     <a href="/songs?action=edit&id=${song.id}" class="btn btn-outline-dark">Edit</a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="load-more-btn text-right">
                     <a href="/songs?action=delete&id=${song.id}" class="btn btn-outline-dark">Delete</a>
                 </div>
             </div>

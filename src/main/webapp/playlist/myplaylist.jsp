@@ -108,7 +108,7 @@
                                 <div class="cart-btn">
                                     <form action="/PlaylistServlet">
                                         <input type="text" name="name" placeholder="Search by Name">
-                                        <button type="submit">Search By Name</button>
+                                        <button type="submit" class="btn btn-outline-dark">Search By Name</button>
                                     </form>
                                 </div>
                             </div>

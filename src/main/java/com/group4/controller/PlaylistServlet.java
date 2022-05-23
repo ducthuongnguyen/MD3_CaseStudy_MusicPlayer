@@ -3,7 +3,6 @@ package com.group4.controller;
 import com.group4.dao.playlist.PlaylistDAO;
 import com.group4.dao.playlist.IPlaylistDAO;
 import com.group4.model.Playlist;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,15 +15,13 @@ import java.util.List;
 
 @WebServlet(name = "PlaylistServlet", value = "/PlaylistServlet")
 public class PlaylistServlet extends HttpServlet {
-    IPlaylistDAO playlistDAO=new PlaylistDAO();
-
+    IPlaylistDAO playlistDAO = new PlaylistDAO();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
         }
-//        try {
         switch (action) {
             case "create":
                 showCreatePlaylist(request, response);
@@ -51,10 +48,6 @@ public class PlaylistServlet extends HttpServlet {
                 }
                 break;
         }
-//        }
-//        catch (SQLException ex) {
-//            throw new ServletException(ex);
-//        }
     }
 
     private void deletePlaylist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -125,9 +118,9 @@ public class PlaylistServlet extends HttpServlet {
         int view = Integer.parseInt(request.getParameter("view"));
         int userId = Integer.parseInt(request.getParameter("userId"));
         int songId = Integer.parseInt(request.getParameter("songId"));
-      Playlist playlist = new Playlist(namePlaylist, typeId, description, songQuantity, view, userId, songId);
+        Playlist playlist = new Playlist(namePlaylist, typeId, description, songQuantity, view, userId, songId);
 
-        playlistDAO.update(id,playlist);
+        playlistDAO.update(id, playlist);
         RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/edit.jsp");
         dispatcher.forward(request, response);
     }

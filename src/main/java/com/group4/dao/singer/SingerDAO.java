@@ -2,16 +2,15 @@ package com.group4.dao.singer;
 
 import com.group4.model.Singer;
 import com.group4.model.User;
-
-import javax.servlet.RequestDispatcher;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SingerDAO implements ISingerDAO {
-
+    User user = new User();
     public static final String SELECT_ALL_SINGER = "select*from singers";
     public static final String INSERT_NEW_SINGER = "insert into singers(singerName,sex,dateOfBirth,typeId,story,userId,avatar) VALUES(?,?,?,?,?,?,?)";
+
     protected Connection getConnection() {
         Connection connection = null;
         try {
@@ -47,17 +46,13 @@ public class SingerDAO implements ISingerDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-            return singers;
-        }
+        return singers;
+    }
 
     @Override
     public Singer findById(int id) {
         return null;
     }
-
-
-//    ResultSet  resultSet=preparedStatement.executeUpdate();
-
 
     @Override
     public void save(Singer singer) {
@@ -68,14 +63,13 @@ public class SingerDAO implements ISingerDAO {
             preparedStatement.setString(3, singer.getDateOfBirth());
             preparedStatement.setInt(4, singer.getTypeId());
             preparedStatement.setString(5, singer.getStory());
-            preparedStatement.setInt(6, 2);
+            preparedStatement.setInt(6, singer.getUserId());
             preparedStatement.setString(7, singer.getAvatar());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public void delete(int id) {
@@ -86,5 +80,4 @@ public class SingerDAO implements ISingerDAO {
     public void update(int id, Singer singer) {
 
     }
-
 }

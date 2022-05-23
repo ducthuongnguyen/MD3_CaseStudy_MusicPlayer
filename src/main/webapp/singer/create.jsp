@@ -5,6 +5,7 @@
   Time: 10:17 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 
@@ -62,8 +63,14 @@
                                     <input type="text" class="form-control" name="dateOfBirth"
                                            placeholder="Date of Birth">
                                 </div>
-                                <div class="form-group">
-                                    <input type="number" class="form-control" name="typeId" placeholder="Music style">
+                                <div class="form-group wow fadeInUp">
+                                    <select name="typeId" class="form-control" style="padding: 0px">
+                                        <option value="">Select music type</option>
+                                        <c:forEach items="${types}" var="type">
+                                            <option value="${type.id}" class="form-control"
+                                                    style="color: black">${type.name}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -94,16 +101,6 @@
 <footer class="footer-area">
     <div class="container">
         <div class="row d-flex flex-wrap align-items-center">
-            <%--            <div class="col-12 col-md-6">--%>
-            <%--                <a href="#"><img src="img/core-img/logo.png" alt=""></a>--%>
-            <%--                <p class="copywrite-text"><a href="#"></a>--%>
-            <%--                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->--%>
-            <%--                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>--%>
-            <%--                    All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by--%>
-            <%--                    <a href="https://colorlib.com" target="_blank">Colorlib</a>--%>
-            <%--                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>--%>
-            <%--            </div>--%>
-
             <div class="col-12 col-md-6">
                 <div class="footer-nav">
                     <ul>
@@ -118,18 +115,5 @@
         </div>
     </div>
 </footer>
-<!-- ##### Footer Area Start ##### -->
-
-<!-- ##### All Javascript Script ##### -->
-<!-- jQuery-2.2.4 js -->
-<%--<script src="js/jquery/jquery-2.2.4.min.js"></script>--%>
-<%--<!-- Popper js -->--%>
-<%--<script src="js/bootstrap/popper.min.js"></script>--%>
-<%--<!-- Bootstrap js -->--%>
-<%--<script src="js/bootstrap/bootstrap.min.js"></script>--%>
-<%--<!-- All Plugins js -->--%>
-<%--<script src="js/plugins/plugins.js"></script>--%>
-<%--<!-- Active js -->--%>
-<%--<script src="js/active.js"></script>--%>
 </body>
 </html>

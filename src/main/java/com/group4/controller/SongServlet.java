@@ -27,6 +27,13 @@ public class SongServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
+            case "search":
+                try {
+                    searchSong(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
             case "create":
                 try {
                     showCreateForm(request, response);
@@ -56,6 +63,13 @@ public class SongServlet extends HttpServlet {
                 }
                 break;
         }
+    }
+
+    private void searchSong(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String nameSong = request.getParameter("key");
+        List<Song> songListByName = songDao.searchByName(nameSong);
+        request.setAttribute("songSearch", songListByName);
+        request.getRequestDispatcher("songs/search.jsp").forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
@@ -104,6 +118,13 @@ public class SongServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
+            case "search":
+                try {
+                    searchSong(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
             case "create":
                 try {
                     createSong(request, response);

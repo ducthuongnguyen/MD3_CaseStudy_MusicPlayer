@@ -12,6 +12,7 @@ public class SongDAO implements ISongDao {
     public SongDAO() {
     }
 
+    private static final String SELECT_SONG_BY_NAME = "select nameSong,avatar from songs where nameSong like ? ";
     private static final String SELECT_ALL_SONG = "select * from songs;";
     private static final String INSERT_SONG = "insert into songs(nameSong,description,mp3File,avatar,author,typeId,album) values (?,?,?,?,?,?,?);";
     private static final String SELECT_BY_ID = "select nameSong,singerId,userId,mp3File,description,avatar,author,album from songs where id =?;";
@@ -20,7 +21,7 @@ public class SongDAO implements ISongDao {
 
     protected Connection getConnection() {
         Connection connection = null;
-        try {
+         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicplayer", "root", "123456");
         } catch (SQLException | ClassNotFoundException e) {
@@ -115,12 +116,12 @@ public class SongDAO implements ISongDao {
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SONG_BY_ID)) {
             preparedStatement.setString(1, song.getNameSong());
-            preparedStatement.setString(2,song.getAvatar());
-            preparedStatement.setString(3,song.getAuthor());
-            preparedStatement.setInt(4,song.getTypeId());
-            preparedStatement.setString(5,song.getAlbum());
-            preparedStatement.setString(6,song.getDescription());
-            preparedStatement.setInt(7,id);
+            preparedStatement.setString(2, song.getAvatar());
+            preparedStatement.setString(3, song.getAuthor());
+            preparedStatement.setInt(4, song.getTypeId());
+            preparedStatement.setString(5, song.getAlbum());
+            preparedStatement.setString(6, song.getDescription());
+            preparedStatement.setInt(7, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -141,5 +142,24 @@ public class SongDAO implements ISongDao {
                 }
             }
         }
+    }
+
+    @Override
+    public List<Song> searchByName(String name) throws SQLException {
+        Song song = null;
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SONG_BY_NAME);
+        preparedStatement.setString( 1,"%"+name+"%");
+        List<Song> songSearchByName = new ArrayList<>();
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            String nameSong = rs.getString("nameSong");// có cần trường này ko
+            String avatar = rs.getString("avatar");
+            song = new Song(nameSong, avatar);
+            songSearchByName.add(song);
+        }
+
+
+        return songSearchByName;
     }
 }

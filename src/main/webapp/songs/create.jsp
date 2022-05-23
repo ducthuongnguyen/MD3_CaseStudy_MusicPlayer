@@ -119,7 +119,7 @@
             <div class="col-12">
                 <!-- Create Form Area -->
                 <div class="contact-form-area">
-                    <form  method="post">
+                    <form method="post">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
@@ -144,13 +144,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
-                                    <select name="typeId" id="categories" class="form-control" style="padding: 0px" >
+                                    <select name="typeId" id="categories" class="form-control" style="padding: 0px">
                                         <option value="">Select music type</option>
                                         <c:forEach items="${types}" var="type">
-                                            <option value="${type.id}" class="form-control" style="color: black">${type.name}</option>
+                                            <option value="${type.id}" class="form-control"
+                                                    style="color: black">${type.name}</option>
                                         </c:forEach>
                                     </select>
-<%--                                    <input type="number" class="form-control" placeholder="Music type" name="typeId">--%>
                                 </div>
                             </div>
                             <div class="col-md-6">

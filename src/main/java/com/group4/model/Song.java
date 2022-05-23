@@ -16,6 +16,11 @@ public class Song {
     public Song() {
     }
 
+    public Song(String nameSong, String avatar) {
+        this.nameSong = nameSong;
+        this.avatar = avatar;
+    }
+
     public Song(int id, String nameSong, String description, String mp3File, String avatar, String author, int typeId, String album, int view, int userId, int singerId) {
         this.id = id;
         this.nameSong = nameSong;

@@ -73,22 +73,11 @@
                                         <li><a href="songs?action=create">Add new song</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/PlaylistServlet">Playlist</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/PlaylistServlet">Show list playlists</a></li>
-                                        <li><a href="/PlaylistServlet?action=create">Add new playlist</a></li>
-                                    </ul>
-                                </li>
-
                                 <li><a href="#">My Playlist</a>
                                 <ul class="dropdown">
                                     <li><a href="/PlaylistServlet">Show My Playlist</a></li>
                                     <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
                                     <li><a href="/PlaylistServlet?action=popular">Popular Playlist</a></li>
-                                    <li><a href="blog.html">News</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="elements.html">Elements</a></li>
-                                    <li><a href="login.html">Login</a></li>
                                 </ul></li>
                                 <li><a href="blog.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>

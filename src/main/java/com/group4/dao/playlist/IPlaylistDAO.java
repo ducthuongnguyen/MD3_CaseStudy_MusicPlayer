@@ -12,4 +12,6 @@ public interface IPlaylistDAO extends IGeneralDAO<Playlist> {
     List<Song> findAllSongInPlaylist(int id);
     Playlist findLatestPlaylist(List<Playlist> playlists);
 
+    List<Playlist> findByName(String name);
+
 }

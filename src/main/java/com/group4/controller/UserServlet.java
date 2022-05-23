@@ -24,7 +24,14 @@ public class UserServlet extends HttpServlet {
             case "login":
                 showLoginForm(request, response);
                 break;
+            case "logout":
+                showLogOutForm(request,response);
+                break;
         }
+    }
+
+    private void showLogOutForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("user/login.jsp").forward(request, response);
     }
 
     private void showRegisterForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,11 +57,15 @@ public class UserServlet extends HttpServlet {
                 case "login":
                     loginAccount(request, response);
                     break;
+                case "logout":
+//                    logout(request, response);
+                    break;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     private void registerUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         String username = request.getParameter("username");
@@ -62,7 +73,11 @@ public class UserServlet extends HttpServlet {
         String repass = request.getParameter("repass");
         String telephoneNo = request.getParameter("telephoneNo");
         User newUser = new User(username, password, telephoneNo);
-
+        if (password.length() > 10 || password.length() < 0) {
+            String mess = "Wrong password syntax.";
+            request.setAttribute("mess5", mess);
+            request.getRequestDispatcher("user/register.jsp").forward(request, response);
+        }
         if (!password.equals(repass)) {
             String mess = "Wrong password.";
             request.setAttribute("mess2", mess);
@@ -98,9 +113,17 @@ public class UserServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("user/login.jsp");
             dispatcher.forward(request, response);
         } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", user);
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
         }
-
     }
+
+//    private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+//        HttpSession session = request.getSession();
+//        session.removeAttribute("acc");
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+//        dispatcher.forward(request, response);
+//    }
 }

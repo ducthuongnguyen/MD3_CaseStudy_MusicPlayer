@@ -93,21 +93,15 @@
                                 <li><a href="event.html">Events</a></li>
                                 <li><a href="blog.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>
-                                <li><a href="users?action=login" >Login</a></li>
-                                <li><a href="users?action=register">Register</a></li>
+                                <c:if test="${sessionScope.acc == null}">
+                                    <li><a href="users?action=register">Register</a></li>
+                                    <li><a href="users?action=login" >Login</a></li>
+                                </c:if>
+                                <c:if test="${sessionScope.acc != null}">
+                                    <li><a>Hello ${sessionScope.acc.username}</a></li>
+                                    <li><a href="users?action=logout" >LogOut</a></li>
+                                </c:if>
                             </ul>
-
-                            <!-- Login/Register & Cart Button -->
-<%--                            <div class="login-register-cart-button d-flex align-items-center">--%>
-<%--                                <!-- Login/Register -->--%>
-<%--                                <div class="login-register-btn">--%>
-<%--                                    <a href="users?action=login" id="loginBtn">Login</a>--%>
-<%--                                </div>--%>
-<%--                                &lt;%&ndash; register button&ndash;%&gt;--%>
-<%--                                <div class="login-register-btn mr-50">--%>
-<%--                                    <a href="users?action=register">Register</a>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
                         </div>
                         <!-- Nav End -->
 

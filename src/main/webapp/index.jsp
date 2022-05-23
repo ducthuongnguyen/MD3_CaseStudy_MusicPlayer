@@ -64,26 +64,27 @@
                                 <li><a href="/singers">Singers</a>
                                     <ul class="dropdown">
                                         <li><a href="/singers">Show list singers</a></li>
-                                        <li><a href="/singers?action=create">Add new singer</a></li>
+                                        <c:if test="${sessionScope.acc !=null}">
+                                            <li><a href="/singers?action=create">Add new singer</a></li>
+                                        </c:if>
                                     </ul>
                                 </li>
                                 <li><a href="/songs">Songs</a>
                                     <ul class="dropdown">
                                         <li><a href="/songs">Show list songs</a></li>
-                                        <li><a href="songs?action=create">Add new song</a></li>
+                                        <c:if test="${sessionScope.acc !=null}">
+                                            <li><a href="songs?action=create">Add new song</a></li>
+                                        </c:if>
                                     </ul>
                                 </li>
                                 <li><a href="/PlaylistServlet">Playlist</a>
                                     <ul class="dropdown">
                                         <li><a href="/PlaylistServlet">Show list playlists</a></li>
+                                        <c:if test="${sessionScope.acc !=null}">
                                         <li><a href="/PlaylistServlet?action=create">Add new playlist</a></li>
+                                        </c:if>
                                     </ul>
                                 </li>
-                                <li><a href="users?action=login" >Login</a></li>
-                                <li><a href="users?action=register">Register</a></li>
-                                <li><a href="event.html">Events</a></li>
-                                <li><a href="blog.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
                                 <c:if test="${sessionScope.acc == null}">
                                     <li><a href="users?action=register">Register</a></li>
                                     <li><a href="users?action=login" >Login</a></li>
@@ -93,21 +94,8 @@
                                     <li><a href="users?action=logout" >LogOut</a></li>
                                 </c:if>
                             </ul>
-
-                            <!-- Login/Register & Cart Button -->
-<%--                            <div class="login-register-cart-button d-flex align-items-center">--%>
-<%--                                <!-- Login/Register -->--%>
-<%--                                <div class="login-register-btn">--%>
-<%--                                    <a href="users?action=login" id="loginBtn">Login</a>--%>
-<%--                                </div>--%>
-<%--                                &lt;%&ndash; register button&ndash;%&gt;--%>
-<%--                                <div class="login-register-btn mr-50">--%>
-<%--                                    <a href="users?action=register">Register</a>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
                         </div>
                         <!-- Nav End -->
-
                         <<<<<<< HEAD
                     </div>
                 </nav>
@@ -128,44 +116,6 @@
 
 <!-- ##### Album Catagory Area Start ##### -->
 <section class="album-catagory section-padding-100-0">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="browse-by-catagories catagory-menu d-flex flex-wrap align-items-center mb-70">
-                    <a href="#" data-filter="*">Browse All</a>
-                    <a href="#" data-filter=".a" class="active">A</a>
-                    <a href="#" data-filter=".b">B</a>
-                    <a href="#" data-filter=".c">C</a>
-                    <a href="#" data-filter=".d">D</a>
-                    <a href="#" data-filter=".e">E</a>
-                    <a href="#" data-filter=".f">F</a>
-                    <a href="#" data-filter=".g">G</a>
-                    <a href="#" data-filter=".h">H</a>
-                    <a href="#" data-filter=".i">I</a>
-                    <a href="#" data-filter=".j">J</a>
-                    <a href="#" data-filter=".k">K</a>
-                    <a href="#" data-filter=".l">L</a>
-                    <a href="#" data-filter=".m">M</a>
-                    <a href="#" data-filter=".n">N</a>
-                    <a href="#" data-filter=".o">O</a>
-                    <a href="#" data-filter=".p">P</a>
-                    <a href="#" data-filter=".q">Q</a>
-                    <a href="#" data-filter=".r">R</a>
-                    <a href="#" data-filter=".s">S</a>
-                    <a href="#" data-filter=".t">T</a>
-                    <a href="#" data-filter=".u">U</a>
-                    <a href="#" data-filter=".v">V</a>
-                    <a href="#" data-filter=".w">W</a>
-                    <a href="#" data-filter=".x">X</a>
-                    <a href="#" data-filter=".y">Y</a>
-                    <a href="#" data-filter=".z">Z</a>
-                    <a href="#" data-filter=".number">0-9</a>
-                    =======
-                </div>
-                </nav>
-            </div>
-        </div>
-    </div>
     </header>
     <!-- ##### Header Area End ##### -->
 
@@ -181,8 +131,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="hero-slides-content text-center">
-                                <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Beyond Time <span>Beyond Time</span>
+                                <h6 data-animation="fadeInUp" data-delay="100ms">Latest song</h6>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">  <span> Beyond Time</span>
                                 </h2>
                                 <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover
                                     <i class="fa fa-angle-double-right"></i></a>

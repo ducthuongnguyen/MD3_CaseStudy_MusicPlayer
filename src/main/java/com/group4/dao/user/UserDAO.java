@@ -4,6 +4,9 @@ import com.group4.model.User;
 import java.sql.*;
 
 public class UserDAO implements IUserDAO{
+    private static final String SELECT_USER = "select * from users where username = ? and password =?";
+    private static final String INSERT_USER_SQL = "insert into users (username,password,telephoneNo) values (?,?,?);" ;
+    private static final String CHECK_EXIST = "select * from users where username = ?" ;
     protected Connection getConnection() {
         Connection connection = null;
         try {
@@ -21,8 +24,10 @@ public class UserDAO implements IUserDAO{
 
     @Override
     public User login(String username, String password) {
-        try(Connection connection = getConnection();) {
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from users where username = ? and password =?");
+        try(Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER);
+        )
+        {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
             rs = preparedStatement.executeQuery();
@@ -37,11 +42,11 @@ public class UserDAO implements IUserDAO{
         }
         return null;
     }
-
     @Override
     public void register(User user) throws SQLException {
         try(Connection connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into users(username,password,telephoneNo) values (?,?,?);");)
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER_SQL)
+            )
         {
             preparedStatement.setString(1, user.getUsername());
             preparedStatement.setString(2, user.getPassword());
@@ -52,10 +57,9 @@ public class UserDAO implements IUserDAO{
             e.printStackTrace();
         }
     }
-
     public User checkUserExist(String username) {
         try(Connection connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from users where username = ?")
+            PreparedStatement preparedStatement = connection.prepareStatement(CHECK_EXIST)
         ) {
             preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
@@ -70,23 +74,6 @@ public class UserDAO implements IUserDAO{
         }
         return null;
     }
-//
-//    public void register(String username,String password,String telephoneNo) {
-//        DatabaseConnection databaseConnection = new DatabaseConnection();
-//        try(Connection connection = databaseConnection.getConnection();
-//            PreparedStatement preparedStatement = connection.prepareStatement("insert into users(username,password,telephoneNo) values (?,?,?);")
-//        ) {
-//            preparedStatement.setString(1, username);
-//            preparedStatement.setString(2, password);
-//            preparedStatement.setString(3, telephoneNo);
-//            System.out.println(preparedStatement);
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
     @Override
     public void logout() {
 

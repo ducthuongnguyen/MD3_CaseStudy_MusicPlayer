@@ -25,13 +25,16 @@ public class UserServlet extends HttpServlet {
                 showLoginForm(request, response);
                 break;
             case "logout":
-                showLogOutForm(request,response);
+                logOut(request,response);
                 break;
         }
     }
 
-    private void showLogOutForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("user/login.jsp").forward(request, response);
+    private void logOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.removeAttribute("acc");
+        response.sendRedirect("index.jsp");
+
     }
 
     private void showRegisterForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -57,9 +60,7 @@ public class UserServlet extends HttpServlet {
                 case "login":
                     loginAccount(request, response);
                     break;
-                case "logout":
-//                    logout(request, response);
-                    break;
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -76,6 +77,11 @@ public class UserServlet extends HttpServlet {
         if (password.length() > 10 || password.length() < 0) {
             String mess = "Wrong password syntax.";
             request.setAttribute("mess5", mess);
+            request.getRequestDispatcher("user/register.jsp").forward(request, response);
+        }
+        if (username.length()==0){
+            String mess = "Please input username";
+            request.setAttribute("mess6", mess);
             request.getRequestDispatcher("user/register.jsp").forward(request, response);
         }
         if (!password.equals(repass)) {
@@ -119,11 +125,4 @@ public class UserServlet extends HttpServlet {
             dispatcher.forward(request, response);
         }
     }
-
-//    private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-//        HttpSession session = request.getSession();
-//        session.removeAttribute("acc");
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-//        dispatcher.forward(request, response);
-//    }
 }

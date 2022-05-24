@@ -7,19 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Title</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<c:forEach items="${songList}" var="song">--%>
-<%--    ${song.id}--%>
-<%--    ${song.nameSong}--%>
-<%--    <img src="${song.avatar}" alt="">--%>
-<%--    ${song.author}--%>
-<%--</c:forEach>--%>
-<%--</body>--%>
-<%--</html>--%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>One Music</title>
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
     <!-- Stylesheet -->
@@ -51,7 +38,7 @@
         <div class="classy-nav-container breakpoint-off">
             <div class="container">
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
-                    <a href="index.html" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
+                    <a href="/songs?action=index" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
                     <div class="classy-navbar-toggler">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div>
@@ -61,7 +48,7 @@
                         </div>
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="/songs?action=index">Home</a></li>
                                 <c:if test="${sessionScope.acc !=null}">
                                     <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
                                 </c:if>
@@ -103,7 +90,7 @@
                                 <h5><a href="#"><c:out value="${play.namePlaylist}"/></a></h5>
                             </a>
                             <p>
-                                <c:if test="${sessionScope.acc != null && sessionScope.acc.id == play.userId }">
+                                <c:if test="${sessionScope.acc != null}">
                                     <a href="/PlaylistServlet?action=edit&id=${play.id}" style="color: crimson" class="btn btn-outline-dark">Edit</a>
                                     <a href="/PlaylistServlet?action=delete&id=${play.id}" style="color: crimson" class="btn btn-outline-dark">Delete</a>
                                 </c:if>

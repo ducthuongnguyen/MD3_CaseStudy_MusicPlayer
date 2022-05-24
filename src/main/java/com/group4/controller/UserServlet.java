@@ -33,15 +33,24 @@ public class UserServlet extends HttpServlet {
                 showLoginForm(request, response);
                 break;
             case "logout":
-                logOut(request,response);
+                try {
+                    logOut(request,response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }
 
-    private void logOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void logOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         HttpSession session = request.getSession();
         session.removeAttribute("acc");
-        response.sendRedirect("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        Song song = songDao.findLastedSong(songDao.findAll());
+        Playlist playlist = playlistDAO.findLatestPlaylist(playlistDAO.findAll());
+        request.setAttribute("latestSong", song);
+        request.setAttribute("latestPlaylist", playlist);
+        dispatcher.forward(request, response);
 
     }
 

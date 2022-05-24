@@ -17,7 +17,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>One Music</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -48,7 +48,7 @@
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="/songs?action=index" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -56,19 +56,6 @@
                     </div>
 
                     <!-- Menu -->
-                    <div>
-                        <form action="/songs?action=search" method="post">
-                            <input  type="text" name="key" placeholder="what you want???" style="background-color:white ;color: black;
-        border-radius: 5px;
-
-        box-shadow: white;
-        height: 2em;
-        width: 15rem;
-        margin-left: 5rem;
-        overflow: visible;">
-                            <input type="submit" value="search" style="border-radius:2px ;background-color:#660033 ;color: white;">
-                        </form>
-                    </div>
                     <div class="classy-menu">
 
                         <!-- Close Button -->
@@ -79,7 +66,7 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="/songs?action=index">Home</a></li>
                                     <li><a href="/songs">Show list songs</a></li>
                                 </li>
                             </ul>
@@ -111,7 +98,6 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading white">
-                    <p>See what’s new</p>
                     <h2>Add a new song</h2>
                 </div>
             </div>

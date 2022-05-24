@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>One Music</title>
     <link rel="icon" href="img/core-img/favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,7 +26,7 @@
             <div class="classy-nav-container breakpoint-off">
                 <div class="container">
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
-                        <a href="index.html" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
+                        <a href="/songs?action=index" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
                         <div class="classy-navbar-toggler">
                             <span class="navbarToggler"><span></span><span></span><span></span></span>
                         </div>
@@ -36,18 +36,18 @@
                             </div>
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
+                                    <li><a href="/songs?action=index">Home</a></li>
                                     <li><a href="/PlaylistServlet">Show My Playlist</a></li>
                                     <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
                                 </ul>
                                 <ul>
                                     <c:if test="${sessionScope.acc == null}">
                                         <li><a href="users?action=register">Register</a></li>
-                                        <li><a href="users?action=login" >Login</a></li>
+                                        <li><a href="users?action=login">Login</a></li>
                                     </c:if>
                                     <c:if test="${sessionScope.acc != null}">
                                         <li><a>Hello ${sessionScope.acc.username}</a></li>
-                                        <li><a href="users?action=logout" >LogOut</a></li>
+                                        <li><a href="users?action=logout">LogOut</a></li>
                                     </c:if>
                                 </ul>
                             </div>
@@ -66,52 +66,44 @@
                 <div class="contact-form-area">
                     <form action="#" method="post">
                         <div class="row">
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" value="${playlist.namePlaylist}"
                                            name="namePlaylist" id="namePlaylist" placeholder="namePlaylist">
                                 </div>
                                 <br>
                             </div>
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" value="${playlist.typeId}" name="typeId"
-                                           id="typeId" placeholder="typeId">
+                                    <div>
+                                        <select name="typeId" class="form-control" style="padding: 0px">
+                                            <option value="">Select music type</option>
+                                            <c:forEach items="${typeList}" var="type">
+                                                <option value="${type.id}" class="form-control"
+                                                        style="color: black">${type.name}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <br>
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" value="${playlist.description}"
                                            name="description" id="description" placeholder="description">
                                 </div>
                             </div>
-                            <br>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <input type="number" class="form-control" value="${playlist.songQuantity}"
-                                           name="songQuantity" id="songQuantity" placeholder="songQuantity">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <input type="number" class="form-control" value="${playlist.view}" name="view"
-                                           id="view" placeholder="view">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <input type="number" class="form-control" value="${playlist.userId}" name="userId"
-                                           id="userId" placeholder="userId">
-                                </div>
-                            </div>
-                            <br></div>
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="number" class="form-control" value="${playlist.songId}" name="songId"
-                                       id="songId" placeholder="songId">
+                                <select name="songId" class="form-control" style="padding: 0px">
+                                    <option value="">Select song</option>
+                                    <c:forEach items="${playlists}" var="p">
+                                        <option value="${p.id}" class="form-control"
+                                                style="color: black">${p.nameSong}</option>
+                                    </c:forEach>
+                                </select>
+                                <%--                                --%>
+                                <%--                                <input type="number" class="form-control" value="${playlist.songId}" name="songId"--%>
+                                <%--                                       id="songId" placeholder="songId">--%>
                             </div>
                         </div>
                         <div class="col-12 text-center">

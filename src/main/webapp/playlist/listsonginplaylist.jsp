@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>One Music</title>
     <link rel="icon" href="img/core-img/favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,7 +26,7 @@
         <div class="classy-nav-container breakpoint-off">
             <div class="container">
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
-                    <a href="index.html" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
+                    <a href="/songs?action=index" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
                     <div class="classy-navbar-toggler">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="/songs?action=index">Home</a></li>
                                 <li><a href="/PlaylistServlet">Show My Playlist</a></li>
                                 <li><a href="/PlaylistServlet?action=create">Create Playlist</a></li>
                             </ul>

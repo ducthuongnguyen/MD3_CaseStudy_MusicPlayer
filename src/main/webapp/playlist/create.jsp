@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>One Music</title>
     <link rel="icon" href="img/core-img/favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,7 +26,7 @@
             <div class="classy-nav-container breakpoint-off">
                 <div class="container">
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
-                        <a href="index.html" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
+                        <a href="/songs?action=index" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
                         <div class="classy-navbar-toggler">
                             <span class="navbarToggler"><span></span><span></span><span></span></span>
                         </div>
@@ -36,7 +36,7 @@
                             </div>
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
+                                    <li><a href="/songs?action=index">Home</a></li>
                                     <li><a href="/PlaylistServlet">Show My Playlist</a></li>
                                     </li>
                                 </ul>
@@ -66,44 +66,38 @@
                 <div class="contact-form-area">
                     <form method="post">
                         <div class="row">
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-6">
                                 <div>
                                     <input type="text" class="form-control" name="namePlaylist"
                                            placeholder="namePlaylist">
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-6">
                                 <div>
-                                    <input type="number" class="form-control" name="typeId" placeholder="typeId">
+                                    <select name="typeId" class="form-control" style="padding: 0px">
+                                        <option value="">Select music type</option>
+                                        <c:forEach items="${typeList}" var="type">
+                                            <option value="${type.id}" class="form-control"
+                                                    style="color: black">${type.name}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-6">
                                 <div>
                                     <input type="text" class="form-control" name="description"
                                            placeholder="description">
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div>
-                                    <input type="number" class="form-control" name="songQuantity"
-                                           placeholder="songQuantity">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div>
-                                    <input type="number" class="form-control" name="view" placeholder="view">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div>
-                                    <input type="number" class="form-control" name="userId" placeholder="UserID">
-                                </div>
-                                <p style="color: white;">Please input UserID = ${sessionScope.acc.id} to text</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-6">
                             <div>
-                                <input type="number" class="form-control" name="songId" placeholder="songId">
+                                <select name="songId" class="form-control" style="padding: 0px">
+                                    <option value="">Select song</option>
+                                    <c:forEach items="${playlists}" var="p">
+                                        <option value="${p.id}" class="form-control"
+                                                style="color: black">${p.nameSong}</option>
+                                    </c:forEach>
+                                </select>
                             </div>
                         </div>
                         <div class="col-12 text-center">

@@ -7,19 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Title</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<c:forEach items="${songList}" var="song">--%>
-<%--    ${song.id}--%>
-<%--    ${song.nameSong}--%>
-<%--    <img src="${song.avatar}" alt="">--%>
-<%--    ${song.author}--%>
-<%--</c:forEach>--%>
-<%--</body>--%>
-<%--</html>--%>
 <html lang="en">
 
 <head>
@@ -30,7 +17,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>One Music</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -61,7 +48,7 @@
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="/songs?action=index" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -92,7 +79,7 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="/songs?action=index">Home</a></li>
                                 <c:if test="${sessionScope.acc !=null}">
                                 <li><a href="/songs?action=create">Add new song</a></li>
                                 </c:if>

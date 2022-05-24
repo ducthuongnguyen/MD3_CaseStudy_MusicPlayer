@@ -33,13 +33,28 @@ public class Playlist {
         this.namePlaylist = namePlaylist;
     }
 
+    public Playlist(int id,String namePlaylist, int typeId, String description, int songId) {
+        this.id = id;
+        this.namePlaylist = namePlaylist;
+        this.typeId = typeId;
+        this.description = description;
+        this.songId = songId;
+    }
+
     public Playlist(String namePlaylist, int typeId, String description, int songQuantity, int view, int userId, int songId) {
         this.namePlaylist = namePlaylist;
         this.typeId = typeId;
         this.description = description;
+        this.songId = songId;
         this.songQuantity = songQuantity;
         this.view = view;
         this.userId = userId;
+    }
+
+    public Playlist(String namePlaylist, int typeId, String description, int songId) {
+        this.namePlaylist = namePlaylist;
+        this.typeId = typeId;
+        this.description = description;
         this.songId = songId;
     }
 

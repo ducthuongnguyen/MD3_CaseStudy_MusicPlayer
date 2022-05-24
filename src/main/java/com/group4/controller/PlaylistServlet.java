@@ -4,8 +4,11 @@ import com.group4.dao.playlist.PlaylistDAO;
 import com.group4.dao.playlist.IPlaylistDAO;
 import com.group4.dao.song.ISongDao;
 import com.group4.dao.song.SongDAO;
+import com.group4.dao.songtype.ISongTypeDAO;
+import com.group4.dao.songtype.SongTypeDAO;
 import com.group4.model.Playlist;
 import com.group4.model.Song;
+import com.group4.model.SongType;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,6 +25,7 @@ import java.util.List;
 public class PlaylistServlet extends HttpServlet {
     IPlaylistDAO playlistDAO = new PlaylistDAO();
     ISongDao songDao = new SongDAO();
+    ISongTypeDAO songTypeDAO = new SongTypeDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,7 +36,11 @@ public class PlaylistServlet extends HttpServlet {
 //        try {
         switch (action) {
             case "create":
-                showCreatePlaylist(request, response);
+                try {
+                    showCreatePlaylist(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "edit":
                 try {
@@ -118,12 +126,20 @@ public class PlaylistServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Playlist playlist = playlistDAO.findById(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/edit.jsp");
+        List<Song> songs = songDao.findAll();
+        request.setAttribute("playlists", songs);
+        List<SongType> typeList = songTypeDAO.findAll();
+        request.setAttribute("typeList", typeList);
         request.setAttribute("playlist", playlist);
         dispatcher.forward(request, response);
     }
 
-    private void showCreatePlaylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showCreatePlaylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("playlist/create.jsp");
+        List<Song> songs = songDao.findAll();
+        request.setAttribute("playlists", songs);
+        List<SongType> typeList = songTypeDAO.findAll();
+        request.setAttribute("typeList", typeList);
         dispatcher.forward(request, response);
 
     }
@@ -170,11 +186,8 @@ public class PlaylistServlet extends HttpServlet {
         String namePlaylist = request.getParameter("namePlaylist");
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String description = request.getParameter("description");
-        int songQuantity = Integer.parseInt(request.getParameter("songQuantity"));
-        int view = Integer.parseInt(request.getParameter("view"));
-        int userId = Integer.parseInt(request.getParameter("userId"));
         int songId = Integer.parseInt(request.getParameter("songId"));
-        Playlist playlist = new Playlist(namePlaylist, typeId, description, songQuantity, view, userId, songId);
+        Playlist playlist = new Playlist(namePlaylist, typeId, description, songId);
         playlistDAO.update(id, playlist);
         response.sendRedirect("/PlaylistServlet");
     }
@@ -183,11 +196,8 @@ public class PlaylistServlet extends HttpServlet {
         String namePlaylist = request.getParameter("namePlaylist");
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String description = request.getParameter("description");
-        int songQuantity = Integer.parseInt(request.getParameter("songQuantity"));
-        int view = Integer.parseInt(request.getParameter("view"));
-        int userId = Integer.parseInt(request.getParameter("userId"));
         int songId = Integer.parseInt(request.getParameter("songId"));
-        Playlist playlist = new Playlist(namePlaylist, typeId, description, songQuantity, view, userId, songId);
+        Playlist playlist = new Playlist(namePlaylist, typeId, description,songId);
         playlistDAO.save(playlist);
         response.sendRedirect("/PlaylistServlet");
 

@@ -10,12 +10,12 @@ import java.util.List;
 public class PlaylistDAO implements IPlaylistDAO {
     private static final String SELECT_ALL_PLAYLIST = "select * from playlists;";
     private static final String SELECT_POPULAR_PLAYLIST = "select * from playlists order by view desc limit 6;";
-    private static final String INSERT_PLAYLIST = "insert into playlists(namePlaylist,typeId,description,songQuantity,view,userId,songId) values (?,?,?,?,?,?,?);";
-    private static final String UPDATE_PLAYLIST = "update playlists set namePlaylist=?,typeId=?,description=?,songQuantity=?,view=?,userId=?,songId=? where playlists.id=?;";
+    private static final String INSERT_PLAYLIST = "insert into playlists(namePlaylist,typeId,description,songId) values (?,?,?,?);";
+    private static final String UPDATE_PLAYLIST = "update playlists set namePlaylist=?,typeId=?,description=?,songId=? where playlists.id=?;";
     private static final String DELETE_PLAYLIST = "delete from playlists where playlists.id=?;";
     private static final String FIND_BY_ID = "select *from playlists where id =?;";
     private static final String SELECT_ALL_SONG_IN_PLAYLIST = "select s.nameSong, s.avatar from  songs s join songtypes t on t.id = s.typeId join playlists pl on pl.typeId = s.typeId where pl.id=?;";
-    private static final String SELECT_LASTEST_PLAYLIST = "select namePlaylist,id from playlists where id =(SELECT max(id) from playlists);";
+    private static final String SELECT_LATEST_PLAYLIST = "select namePlaylist,id from playlists where id =(SELECT max(id) from playlists);";
     private static final String FIND_BY_NAME = " select * from playlists where namePlaylist like ?;";
 
     private void printSQLException(SQLException ex) {
@@ -108,11 +108,8 @@ public class PlaylistDAO implements IPlaylistDAO {
                 String namePlaylist = rs.getString("namePlaylist");
                 int typeId = Integer.parseInt(rs.getString("typeId"));
                 String description = rs.getString("description");
-                int songQuantity = rs.getInt("songQuantity");
-                int view = rs.getInt("view");
-                int userId = rs.getInt("userId");
                 int songId = rs.getInt("songId");
-                playlistServletList.add(new Playlist(id, namePlaylist, typeId, description, songQuantity, view, userId, songId));
+                playlistServletList.add(new Playlist(id, namePlaylist, typeId, description,songId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -127,10 +124,7 @@ public class PlaylistDAO implements IPlaylistDAO {
             preparedStatement.setString(1, playlist.getNamePlaylist());
             preparedStatement.setInt(2, playlist.getTypeId());
             preparedStatement.setString(3, playlist.getDescription());
-            preparedStatement.setInt(4, playlist.getSongQuantity());
-            preparedStatement.setInt(5, playlist.getView());
-            preparedStatement.setInt(6, playlist.getUserId());
-            preparedStatement.setInt(7, playlist.getSongId());
+            preparedStatement.setInt(4, playlist.getSongId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -156,11 +150,8 @@ public class PlaylistDAO implements IPlaylistDAO {
             preparedStatement.setString(1, playlist.getNamePlaylist());
             preparedStatement.setInt(2, playlist.getTypeId());
             preparedStatement.setString(3, playlist.getDescription());
-            preparedStatement.setInt(4, playlist.getSongQuantity());
-            preparedStatement.setInt(5, playlist.getView());
-            preparedStatement.setInt(6, playlist.getUserId());
-            preparedStatement.setInt(7, playlist.getSongId());
-            preparedStatement.setInt(8, id);
+            preparedStatement.setInt(4, playlist.getSongId());
+            preparedStatement.setInt(5, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -189,7 +180,7 @@ public class PlaylistDAO implements IPlaylistDAO {
     public Playlist findLatestPlaylist(List<Playlist> playlists) {
         Playlist playlist = null;
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LASTEST_PLAYLIST)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LATEST_PLAYLIST)) {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -204,28 +195,6 @@ public class PlaylistDAO implements IPlaylistDAO {
 
     @Override
     public List<Playlist> findByName(String nameSearch) {
-//        List<Playlist> playlists = new ArrayList<>();
-//        // Step 1: Establishing a Connection
-//        try (Connection connection = getConnection();
-//             // Step 2:Create a statement using connection object
-//             PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_NAME);) {
-//            preparedStatement.setString(1,"%" + nameSearch + "%");
-//            // Step 3: Execute the query or update query
-//            ResultSet rs = preparedStatement.executeQuery();
-//
-//            // Step 4: Process the ResultSet object.
-//            while (rs.next()) {
-////                int id= rs.getInt("id");
-//                String namePlaylist = rs.getString("namePlaylist");
-////                String email = rs.getString("email");
-////                String country = rs.getString("country");
-//                playlists.add(new Playlist( namePlaylist));
-//            }
-//        } catch (SQLException e) {
-//            printSQLException(e);
-//        }
-//        return playlists;
-//    }
         List<Playlist> playlistServletList = new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_NAME)) {

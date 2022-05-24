@@ -17,7 +17,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>One Music</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -40,7 +40,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="/songs?action=index" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -58,7 +58,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
+                                    <li><a href="/songs?action=index">Home</a></li>
                                     <li><a href="/singers">Show List Singer</a></li>
                                     </li>
                                 </ul>
@@ -108,34 +108,36 @@
                                     <input type="text" class="form-control" name="sex" placeholder="Sex">
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-md-6 col-lg-4">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="dateOfBirth"
                                            placeholder="Date of Birth">
                                 </div>
-                                <div class="form-group">
-                                    <select name="typeId" id="categories" class="form-control" style="padding: 0px">
+                            </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <select name="typeId" class="form-control" style="padding: 0px">
                                         <option value="">Select music type</option>
                                         <c:forEach items="${typeList}" var="type">
                                             <option value="${type.id}" class="form-control"
                                                     style="color: black">${type.name}</option>
                                         </c:forEach>
                                     </select>
-<%--                                    <input type="number" class="form-control" name="typeId" placeholder="Music style">--%>
                                 </div>
-                            </div>
-                            <div class="col-12">
+
+                            <div class="col-md-6 col-lg-4">
                                 <div class="form-group">
-                                        <textarea class="form-control" name="avatar" cols="30" rows="10"
-                                                  placeholder="URL image"></textarea>
+                                    <input type="text" class="form-control" name="avatar"
+                                           placeholder="URL image">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="story"
+                                           placeholder="Story">
                                 </div>
                             </div>
                             <div class="col-12 text-center">
-                                    <textarea class="form-control" name="story" cols="30" rows="10"
-                                              placeholder="Story"></textarea>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button class="btn oneMusic-btn mt-30" type="submit">Send <i
+                                <button class="btn oneMusic-btn mt-30" type="submit">Create <i
                                         class="fa fa-angle-double-right"></i></button>
                             </div>
                         </div>

@@ -56,6 +56,19 @@
                     </div>
 
                     <!-- Menu -->
+                    <div>
+                        <form action="/songs?action=search" method="post">
+                            <input  type="text" name="key" placeholder="what you want???" style="background-color:white ;color: black;
+        border-radius: 5px;
+
+        box-shadow: white;
+        height: 2em;
+        width: 15rem;
+        margin-left: 5rem;
+        overflow: visible;">
+                            <input type="submit" value="search" style="border-radius:2px ;background-color:#660033 ;color: white;">
+                        </form>
+                    </div>
                     <div class="classy-menu">
 
                         <!-- Close Button -->
@@ -106,19 +119,6 @@
 
                         </div>
                 </nav>
-            </div>
-            <div>
-                <form action="/songs?action=search" method="post">
-                    <input type="text" name="key" placeholder="what you want???" style="color: black;
-        border-radius: 5px;
-        background-color: white;
-        box-shadow: darkcyan;
-        height: 2rem;
-        width: 25rem;
-        margin-left: 15rem;
-        overflow: visible;">
-                    <input type="submit" value="search">
-                </form>
             </div>
         </div>
     </div>

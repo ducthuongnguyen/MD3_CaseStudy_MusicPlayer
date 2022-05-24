@@ -26,9 +26,96 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 <!-- Preloader -->
+<div class="preloader d-flex align-items-center justify-content-center">
+    <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
 
+<!-- ##### Header Area Start ##### -->
+<header class="header-area">
+    <!-- Navbar Area -->
+    <div class="oneMusic-main-menu">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+
+                    <!-- Nav brand -->
+                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div>
+                        <form action="/songs?action=search" method="post">
+                            <input  type="text" name="key" placeholder="what you want???" style="background-color:white ;color: black;
+        border-radius: 5px;
+
+        box-shadow: white;
+        height: 2em;
+        width: 15rem;
+        margin-left: 5rem;
+        overflow: visible;">
+                            <input type="submit" value="search" style="border-radius:2px ;background-color:#660033 ;color: white;">
+                        </form>
+                    </div>
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="albums-store.html">Albums</a></li>
+                                <li><a href="#">Songs</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/songs">Show list songs</a></li>
+                                        <li><a href="#">Add new song</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="event.html">Events</a></li>
+                                <li><a href="blog.html">News</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+
+                            <!-- Login/Register & Cart Button -->
+                            <div class="login-register-cart-button d-flex align-items-center">
+                                <!-- Login/Register -->
+                                <div class="login-register-btn mr-50">
+                                    <a href="login.html" id="loginBtn">Login / Register</a>
+                                </div>
+
+                                <!-- Cart Button -->
+                                <div class="cart-btn">
+                                    <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Nav End -->
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ##### Header Area End ##### -->
+
+<!-- ##### Contact Area Start ##### -->
 <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"
          style="background-image: url(img/bg-img/bg-2.jpg);">
     <div class="container">
@@ -71,7 +158,7 @@
                                                     style="color: black">${type.name}</option>
                                         </c:forEach>
                                     </select>
-<%--                                    <input type="number" class="form-control" name="typeId" placeholder="Music style">--%>
+                                    <%--                                    <input type="number" class="form-control" name="typeId" placeholder="Music style">--%>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -102,15 +189,15 @@
 <footer class="footer-area">
     <div class="container">
         <div class="row d-flex flex-wrap align-items-center">
-            <%--            <div class="col-12 col-md-6">--%>
-            <%--                <a href="#"><img src="img/core-img/logo.png" alt=""></a>--%>
-            <%--                <p class="copywrite-text"><a href="#"></a>--%>
-            <%--                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->--%>
-            <%--                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>--%>
-            <%--                    All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by--%>
-            <%--                    <a href="https://colorlib.com" target="_blank">Colorlib</a>--%>
-            <%--                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>--%>
-            <%--            </div>--%>
+            <div class="col-12 col-md-6">
+                <a href="#"><img src="img/core-img/logo.png" alt=""></a>
+                <p class="copywrite-text"><a href="#"></a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
 
             <div class="col-12 col-md-6">
                 <div class="footer-nav">
@@ -130,14 +217,15 @@
 
 <!-- ##### All Javascript Script ##### -->
 <!-- jQuery-2.2.4 js -->
-<%--<script src="js/jquery/jquery-2.2.4.min.js"></script>--%>
-<%--<!-- Popper js -->--%>
-<%--<script src="js/bootstrap/popper.min.js"></script>--%>
-<%--<!-- Bootstrap js -->--%>
-<%--<script src="js/bootstrap/bootstrap.min.js"></script>--%>
-<%--<!-- All Plugins js -->--%>
-<%--<script src="js/plugins/plugins.js"></script>--%>
-<%--<!-- Active js -->--%>
-<%--<script src="js/active.js"></script>--%>
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins js -->
+<script src="js/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="js/active.js"></script>
 </body>
+
 </html>

@@ -58,7 +58,7 @@
                     <!-- Menu -->
                     <div>
                         <form action="/songs?action=search" method="post">
-                            <input  type="text" name="key" placeholder="what you want???" style="background-color:white ;color: black;
+                            <input type="text" name="key" placeholder="what you want???" style="background-color:white ;color: black;
         border-radius: 5px;
 
         box-shadow: white;
@@ -66,7 +66,8 @@
         width: 15rem;
         margin-left: 5rem;
         overflow: visible;">
-                            <input type="submit" value="search" style="border-radius:2px ;background-color:#660033 ;color: white;">
+                            <input type="submit" value="search"
+                                   style="border-radius:2px ;background-color:#660033 ;color: white;">
                         </form>
                     </div>
                     <div class="classy-menu">
@@ -94,11 +95,11 @@
                             <ul>
                                 <c:if test="${sessionScope.acc == null}">
                                     <li><a href="users?action=register">Register</a></li>
-                                    <li><a href="users?action=login" >Login</a></li>
+                                    <li><a href="users?action=login">Login</a></li>
                                 </c:if>
                                 <c:if test="${sessionScope.acc != null}">
                                     <li><a>Hello ${sessionScope.acc.username}</a></li>
-                                    <li><a href="users?action=logout" >LogOut</a></li>
+                                    <li><a href="users?action=logout">LogOut</a></li>
                                 </c:if>
                             </ul>
                         </div>
@@ -126,16 +127,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
-                    <div class="song-thumbnail">
-                        <img src="${song.avatar}" alt="">
-                    </div>
-                    <div class="song-play-area">
-                        <div class="song-name">
+                    <div class="song-play-area"style="align-content: center">
+                        <div class="song-name" >
                             <p>${song.id}.${song.nameSong} - ${singers.singerName}</p>
+                            ${song.mp3File}
                         </div>
-                        <audio preload="auto" controls>
-                            <source src="${song.mp3File}">
-                        </audio>
                     </div>
                 </div>
             </div>

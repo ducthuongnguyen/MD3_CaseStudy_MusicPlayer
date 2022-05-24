@@ -139,13 +139,6 @@
 
             <div class="col-12 col-md-6">
                 <div class="footer-nav">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Albums</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
                 </div>
             </div>
         </div>

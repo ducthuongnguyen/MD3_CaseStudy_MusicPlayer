@@ -81,11 +81,11 @@
                             <ul>
                                 <c:if test="${sessionScope.acc == null}">
                                     <li><a href="users?action=register">Register</a></li>
-                                    <li><a href="users?action=login" >Login</a></li>
+                                    <li><a href="users?action=login">Login</a></li>
                                 </c:if>
                                 <c:if test="${sessionScope.acc != null}">
                                     <li><a>Hello ${sessionScope.acc.username}</a></li>
-                                    <li><a href="users?action=logout" >LogOut</a></li>
+                                    <li><a href="users?action=logout">LogOut</a></li>
                                 </c:if>
                             </ul>
                         </div>
@@ -146,20 +146,19 @@
                                         </c:forEach>
                                     </select>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group wow fadeInUp">
-                                        <input type="text" class="form-control" placeholder="Album"
-                                               name="album" value="${editSong.album}">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group wow fadeInUp">
-                                        <input type="text" class="form-control" placeholder="Description"
-                                               name="description" value="${editSong.description}">
-                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group wow fadeInUp">
+                                    <input type="text" class="form-control" placeholder="Album"
+                                           name="album" value="${editSong.album}">
                                 </div>
                             </div>
-
+                            <div class="col-md-6">
+                                <div class="form-group wow fadeInUp">
+                                    <input type="text" class="form-control" placeholder="Description"
+                                           name="description" value="${editSong.description}">
+                                </div>
+                            </div>
                             <div class="col-12 text-center">
                                 <button class="btn oneMusic-btn mt-30" type="submit">Edit <i
                                         class="fa fa-angle-double-right"></i></button>

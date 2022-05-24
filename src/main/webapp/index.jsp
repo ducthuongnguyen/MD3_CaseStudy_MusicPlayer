@@ -11,7 +11,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>One Music</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -42,7 +42,7 @@
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="#" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -60,7 +60,7 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="#">Home</a></li>
                                 <li><a href="/singers">Singers</a>
                                     <ul class="dropdown">
                                         <li><a href="/singers">Show list singers</a></li>
@@ -81,17 +81,17 @@
                                     <ul class="dropdown">
                                         <li><a href="/PlaylistServlet">Show list playlists</a></li>
                                         <c:if test="${sessionScope.acc !=null}">
-                                        <li><a href="/PlaylistServlet?action=create">Add new playlist</a></li>
+                                            <li><a href="/PlaylistServlet?action=create">Add new playlist</a></li>
                                         </c:if>
                                     </ul>
                                 </li>
                                 <c:if test="${sessionScope.acc == null}">
                                     <li><a href="users?action=register">Register</a></li>
-                                    <li><a href="users?action=login" >Login</a></li>
+                                    <li><a href="users?action=login">Login</a></li>
                                 </c:if>
                                 <c:if test="${sessionScope.acc != null}">
                                     <li><a>Hello ${sessionScope.acc.username}</a></li>
-                                    <li><a href="users?action=logout" >LogOut</a></li>
+                                    <li><a href="users?action=logout">LogOut</a></li>
                                 </c:if>
                             </ul>
                         </div>
@@ -131,8 +131,9 @@
                     <div class="col-12">
                         <div class="hero-slides-content text-center">
                             <h6 data-animation="fadeInUp" data-delay="100ms">Latest song</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">${latestSong.nameSong} <span>${latestSong.nameSong} </span></h2>
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover
+                            <h2 data-animation="fadeInUp" data-delay="300ms">${latestSong.nameSong}
+                                <span>${latestSong.nameSong} </span></h2>
+<%--                            <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover--%>
                                 <i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
@@ -150,10 +151,11 @@
                     <div class="col-12">
                         <div class="hero-slides-content text-center">
                             <h6 data-animation="fadeInUp" data-delay="100ms">Latest playlist</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">${latestPlaylist.namePlaylist}<span>${latestPlaylist.namePlaylist}</span>
+                            <h2 data-animation="fadeInUp"
+                                data-delay="300ms">${latestPlaylist.namePlaylist}<span>${latestPlaylist.namePlaylist}</span>
                             </h2>
-<%--                            <a data-animation="fadeInUp" data-delay="500ms" href="/PlaylistServlet?action=findSongPlaylist&id=${play.id}" class="btn oneMusic-btn mt-50">Discover--%>
-                                <i class="fa fa-angle-double-right"></i></a>
+                            <%--                            <a data-animation="fadeInUp" data-delay="500ms" href="/PlaylistServlet?action=findSongPlaylist&id=${play.id}" class="btn oneMusic-btn mt-50">Discover--%>
+                            <i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -174,17 +176,6 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-9">
-                <div class="ablums-text text-center mb-70">
-                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius
-                        rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi,
-                        ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit
-                        non elit pulvinar pellentesque et non eros.</p>
-                </div>
-            </div>
-        </div>
-
         <div class="row">
             <div class="col-12">
                 <div class="albums-slideshow owl-carousel">
@@ -503,7 +494,8 @@
 <!-- ##### Buy Now Area End ##### -->
 
 <!-- ##### Featured Artist Area Start ##### -->
-<section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style="background-image: url(img/bg-img/bg-4.jpg);">
+<section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed"
+         style="background-image: url(img/bg-img/bg-4.jpg);">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-12 col-md-5 col-lg-4">
@@ -518,7 +510,10 @@
                         <p>See what’s new</p>
                         <h2>Buy What’s New</h2>
                     </div>
-                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
+                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius
+                        rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi,
+                        ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit
+                        non elit pulvinar pellentesque et non eros.</p>
                     <div class="song-play-area">
                         <div class="song-name">
                             <p>01. Main Hit Song</p>
@@ -527,37 +522,11 @@
                             <source src="audio/dummy-audio.mp3">
                         </audio>
                     </div>
-                    >>>>>>> 1be21509d7cdf7d29725e6dd58023d365a5397f8
                 </div>
             </div>
         </div>
-    </div>
-    <<<<<<< HEAD
     </div>
     <!-- ##### Add Area End ##### -->
-
-    <!-- ##### Song Area Start ##### -->
-    <div class="one-music-songs-area mb-70">
-        <div class="container">
-            <div class="row">
-
-                <!-- Single Song Area -->
-                <div class="col-12">
-                    <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
-                        <div class="song-thumbnail">
-                            <img src="img/bg-img/s1.jpg" alt="">
-                        </div>
-                        <div class="song-play-area">
-                            <div class="song-name">
-                                <p>01. Main Hit Song</p>
-                            </div>
-                            =======
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 <!-- ##### Featured Artist Area End ##### -->
 
@@ -746,7 +715,6 @@
                                 <h6>The Culture</h6>
                                 <p>Pop Songs</p>
                             </div>
-                            >>>>>>> 1be21509d7cdf7d29725e6dd58023d365a5397f8
                         </div>
                         <audio preload="auto" controls>
                             <source src="audio/dummy-audio.mp3">
@@ -755,240 +723,99 @@
                 </div>
             </div>
 
-            <<<<<<< HEAD
-            <!-- Single Song Area -->
-            <div class="col-12">
-                <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
-                    <div class="song-thumbnail">
-                        <img src="img/bg-img/s2.jpg" alt="">
+            <!-- ***** Popular Artists ***** -->
+            <div class="col-12 col-lg-4">
+                <div class="popular-artists-area mb-100">
+                    <div class="section-heading text-left mb-50 wow fadeInUp" data-wow-delay="50ms">
+                        <p>See what’s new</p>
+                        <h2>Popular Artist</h2>
                     </div>
-                    <div class="song-play-area">
-                        <div class="song-name">
-                            <p>01. Main Hit Song</p>
+
+                    <!-- Single Artist -->
+                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="100ms">
+                        <div class="thumbnail">
+                            <img src="img/bg-img/pa1.jpg" alt="">
                         </div>
-                        <audio preload="auto" controls>
-                            <source src="audio/dummy-audio.mp3">
-                        </audio>
+                        <div class="content-">
+                            <p>Sam Smith</p>
+                        </div>
                     </div>
+
+                    <!-- Single Artist -->
+                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="150ms">
+                        <div class="thumbnail">
+                            <img src="img/bg-img/pa2.jpg" alt="">
+                        </div>
+                        <div class="content-">
+                            <p>William Parker</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Artist -->
+                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="200ms">
+                        <div class="thumbnail">
+                            <img src="img/bg-img/pa3.jpg" alt="">
+                        </div>
+                        <div class="content-">
+                            <p>Jessica Walsh</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Artist -->
+                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="250ms">
+                        <div class="thumbnail">
+                            <img src="img/bg-img/pa4.jpg" alt="">
+                        </div>
+                        <div class="content-">
+                            <p>Tha Stoves</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Artist -->
+                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="300ms">
+                        <div class="thumbnail">
+                            <img src="img/bg-img/pa5.jpg" alt="">
+                        </div>
+                        <div class="content-">
+                            <p>DJ Ajay</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Artist -->
+                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="350ms">
+                        <div class="thumbnail">
+                            <img src="img/bg-img/pa6.jpg" alt="">
+                        </div>
+                        <div class="content-">
+                            <p>Radio Vibez</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Artist -->
+                    <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="400ms">
+                        <div class="thumbnail">
+                            <img src="img/bg-img/pa7.jpg" alt="">
+                        </div>
+                        <div class="content-">
+                            <p>Music 4u</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
-            <!-- Single Song Area -->
-            <div class="col-12">
-                <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
-                    <div class="song-thumbnail">
-                        <img src="img/bg-img/s3.jpg" alt="">
-                    </div>
-                    <div class="song-play-area">
-                        <div class="song-name">
-                            <p>01. Main Hit Song</p>
-                        </div>
-                        <audio preload="auto" controls>
-                            <source src="audio/dummy-audio.mp3">
-                        </audio>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Song Area -->
-            <div class="col-12">
-                <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
-                    <div class="song-thumbnail">
-                        <img src="img/bg-img/s4.jpg" alt="">
-                    </div>
-                    <div class="song-play-area">
-                        <div class="song-name">
-                            <p>01. Main Hit Song</p>
-                        </div>
-                        <audio preload="auto" controls>
-                            <source src="audio/dummy-audio.mp3">
-                        </audio>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </div>
-    </div>
-    <!-- ##### Song Area End ##### -->
-    =======
-    <!-- ***** Popular Artists ***** -->
-    <div class="col-12 col-lg-4">
-        <div class="popular-artists-area mb-100">
-            <div class="section-heading text-left mb-50 wow fadeInUp" data-wow-delay="50ms">
-                <p>See what’s new</p>
-                <h2>Popular Artist</h2>
-            </div>
-
-            <!-- Single Artist -->
-            <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="100ms">
-                <div class="thumbnail">
-                    <img src="img/bg-img/pa1.jpg" alt="">
-                </div>
-                <div class="content-">
-                    <p>Sam Smith</p>
-                </div>
-            </div>
-
-            <!-- Single Artist -->
-            <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="150ms">
-                <div class="thumbnail">
-                    <img src="img/bg-img/pa2.jpg" alt="">
-                </div>
-                <div class="content-">
-                    <p>William Parker</p>
-                </div>
-            </div>
-
-            <!-- Single Artist -->
-            <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="200ms">
-                <div class="thumbnail">
-                    <img src="img/bg-img/pa3.jpg" alt="">
-                </div>
-                <div class="content-">
-                    <p>Jessica Walsh</p>
-                </div>
-            </div>
-
-            <!-- Single Artist -->
-            <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="250ms">
-                <div class="thumbnail">
-                    <img src="img/bg-img/pa4.jpg" alt="">
-                </div>
-                <div class="content-">
-                    <p>Tha Stoves</p>
-                </div>
-            </div>
-
-            <!-- Single Artist -->
-            <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="300ms">
-                <div class="thumbnail">
-                    <img src="img/bg-img/pa5.jpg" alt="">
-                </div>
-                <div class="content-">
-                    <p>DJ Ajay</p>
-                </div>
-            </div>
-
-            <!-- Single Artist -->
-            <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="350ms">
-                <div class="thumbnail">
-                    <img src="img/bg-img/pa6.jpg" alt="">
-                </div>
-                <div class="content-">
-                    <p>Radio Vibez</p>
-                </div>
-            </div>
-
-            <!-- Single Artist -->
-            <div class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="400ms">
-                <div class="thumbnail">
-                    <img src="img/bg-img/pa7.jpg" alt="">
-                </div>
-                <div class="content-">
-                    <p>Music 4u</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    </div>
     </div>
 </section>
 <!-- ##### Miscellaneous Area End ##### -->
->>>>>>> 1be21509d7cdf7d29725e6dd58023d365a5397f8
-
-<!-- ##### Contact Area Start ##### -->
-<%--<section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"--%>
-<%--         style="background-image: url(img/bg-img/bg-2.jpg);">--%>
-<%--    <div class="container">--%>
-<%--        <div class="row">--%>
-<%--            <div class="col-12">--%>
-<%--                <<<<<<< HEAD--%>
-<%--                <div class="section-heading white">--%>
-<%--                    =======--%>
-<%--                    <div class="section-heading white wow fadeInUp" data-wow-delay="100ms">--%>
-<%--                        >>>>>>> 1be21509d7cdf7d29725e6dd58023d365a5397f8--%>
-<%--                        <p>See what’s new</p>--%>
-<%--                        <h2>Get In Touch</h2>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-<%--            &lt;%&ndash;        <div class="row">&ndash;%&gt;--%>
-<%--            &lt;%&ndash;            <div class="col-12">&ndash;%&gt;--%>
-<%--            <!-- Contact Form Area -->--%>
-<%--            <div class="contact-form-area">--%>
-<%--                <form action="#" method="post">--%>
-<%--                    <div class="row">--%>
-<%--                        <div class="col-md-6 col-lg-4">--%>
-<%--                            <<<<<<< HEAD--%>
-<%--                            <div class="form-group">--%>
-<%--                                =======--%>
-<%--                                <div class="form-group wow fadeInUp" data-wow-delay="100ms">--%>
-<%--                                    >>>>>>> 1be21509d7cdf7d29725e6dd58023d365a5397f8--%>
-<%--                                    <input type="text" class="form-control" id="name" placeholder="Name">--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                            <div class="col-md-6 col-lg-4">--%>
-<%--                                <<<<<<< HEAD--%>
-<%--                                <div class="form-group">--%>
-<%--                                    =======--%>
-<%--                                    <div class="form-group wow fadeInUp" data-wow-delay="200ms">--%>
-<%--                                        >>>>>>> 1be21509d7cdf7d29725e6dd58023d365a5397f8--%>
-<%--                                        <input type="email" class="form-control" id="email" placeholder="E-mail">--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                                <div class="col-lg-4">--%>
-<%--                                    <<<<<<< HEAD--%>
-<%--                                    <div class="form-group">--%>
-<%--                                        =======--%>
-<%--                                        <div class="form-group wow fadeInUp" data-wow-delay="300ms">--%>
-<%--                                            >>>>>>> 1be21509d7cdf7d29725e6dd58023d365a5397f8--%>
-<%--                                            <input type="text" class="form-control" id="subject" placeholder="Subject">--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="col-12">--%>
-<%--                                        <<<<<<< HEAD--%>
-<%--                                        <div class="form-group">--%>
-<%--                                            <textarea name="message" class="form-control" id="message1" cols="30"--%>
-<%--                                                      rows="10" placeholder="Message"></textarea>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="col-12 text-center">--%>
-<%--                                        =======--%>
-<%--                                        <div class="form-group wow fadeInUp" data-wow-delay="400ms">--%>
-<%--                                            <textarea name="message" class="form-control" id="message" cols="30"--%>
-<%--                                                      rows="10" placeholder="Message"></textarea>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="500ms">--%>
-<%--                                        >>>>>>> 1be21509d7cdf7d29725e6dd58023d365a5397f8--%>
-<%--                                        <button class="btn oneMusic-btn mt-30" type="submit">Send <i--%>
-<%--                                                class="fa fa-angle-double-right"></i></button>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                </form>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        &lt;%&ndash;        </div>&ndash;%&gt;--%>
-
-<%--</section>--%>
-<!-- ##### Contact Area End ##### -->
-
-<!-- ##### Footer Area Start ##### -->
 <footer class="footer-area">
     <div class="container">
         <div class="row d-flex flex-wrap align-items-center">
             <div class="col-12 col-md-6">
                 <a href="#"><img src="img/core-img/logo.png" alt=""></a>
-                <<<<<<< HEAD
                 <p class="copywrite-text"><a href="#"></a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    =======
                 <p class="copywrite-text"><a href="#"></a></a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    >>>>>>> 1be21509d7cdf7d29725e6dd58023d365a5397f8
                     Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                     All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
                     <a href="https://colorlib.com" target="_blank">Colorlib</a>

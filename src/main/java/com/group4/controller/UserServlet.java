@@ -1,6 +1,12 @@
 package com.group4.controller;
 
+import com.group4.dao.playlist.IPlaylistDAO;
+import com.group4.dao.playlist.PlaylistDAO;
+import com.group4.dao.song.ISongDao;
+import com.group4.dao.song.SongDAO;
 import com.group4.dao.user.UserDAO;
+import com.group4.model.Playlist;
+import com.group4.model.Song;
 import com.group4.model.User;
 
 import javax.servlet.*;
@@ -11,6 +17,8 @@ import java.sql.SQLException;
 
 @WebServlet(name = "UserServlet", value = "/users")
 public class UserServlet extends HttpServlet {
+    ISongDao songDao = new SongDAO();
+    IPlaylistDAO playlistDAO = new PlaylistDAO();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -108,7 +116,7 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void loginAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void loginAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         UserDAO userDAO = new UserDAO();
@@ -122,6 +130,10 @@ public class UserServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("acc", user);
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+            Song song = songDao.findLastedSong(songDao.findAll());
+            Playlist playlist = playlistDAO.findLatestPlaylist(playlistDAO.findAll());
+            request.setAttribute("latestSong", song);
+            request.setAttribute("latestPlaylist", playlist);
             dispatcher.forward(request, response);
         }
     }

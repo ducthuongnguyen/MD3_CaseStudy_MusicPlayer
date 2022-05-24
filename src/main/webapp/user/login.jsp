@@ -48,7 +48,7 @@
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="/songs?action=index" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -66,7 +66,7 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="/songs?action=index">Home</a></li>
                             </ul>
 
                             <!-- Login/Register Button -->
@@ -105,7 +105,7 @@
                     <h3>Welcome Back</h3>
                     <!-- Login Form -->
                     <div class="login-form">
-                        <form action="users?action=login" method="post">
+                        <form action="/users?action=login" method="post">
                             <div class="form-group">
                                 <p class="text-danger">${mess}</p>
                                 <label for="exampleInputEmail1">Username</label>

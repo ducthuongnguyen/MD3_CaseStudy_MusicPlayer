@@ -4,6 +4,9 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/playlist/create.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/playlist/listsonginplaylist.jsp" value="file://$PROJECT_DIR$/src/main/webapp/playlist" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/playlist/myplaylist.jsp" value="file://$PROJECT_DIR$/src/main/webapp/playlist" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/singer/list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/singer" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/songs/create.jsp" value="file://$PROJECT_DIR$/src/main/webapp/songs" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/songs/detail.jsp" value="file://$PROJECT_DIR$/src/main/webapp/songs" />

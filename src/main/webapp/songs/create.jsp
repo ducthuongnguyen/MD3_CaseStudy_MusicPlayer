@@ -17,7 +17,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>One Music</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -48,7 +48,7 @@
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="/songs?action=index" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -66,38 +66,20 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
-                                <li><a href="/singers">Singers</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/singers">Show list singers</a></li>
-                                        <li><a href="/singers?action=create">Add new singer</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="/songs">Songs</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/songs">Show list songs</a></li>
-                                        <li><a href="#">Add new song</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="/PlaylistServlet">Playlist</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/PlaylistServlet">Show list playlists</a></li>
-                                        <li><a href="/PlaylistServlet?action=create">Add new playlist</a></li>
-                                    </ul>
+                                <li><a href="/songs?action=index">Home</a></li>
+                                    <li><a href="/songs">Show list songs</a></li>
                                 </li>
                             </ul>
-                            <!-- Login/Register & Cart Button -->
-                            <div class="login-register-cart-button d-flex align-items-center">
-                                <!-- Login/Register -->
-                                <div class="login-register-btn mr-50">
-                                    <a href="login.html" id="loginBtn">Login / Register</a>
-                                </div>
-
-                                <!-- Cart Button -->
-                                <div class="cart-btn">
-                                    <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                </div>
-                            </div>
+                            <ul>
+                                <c:if test="${sessionScope.acc == null}">
+                                    <li><a href="users?action=register">Register</a></li>
+                                    <li><a href="users?action=login" >Login</a></li>
+                                </c:if>
+                                <c:if test="${sessionScope.acc != null}">
+                                    <li><a>Hello ${sessionScope.acc.username}</a></li>
+                                    <li><a href="users?action=logout" >LogOut</a></li>
+                                </c:if>
+                            </ul>
                         </div>
                         <!-- Nav End -->
 
@@ -116,7 +98,6 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading white">
-                    <p>See what’s new</p>
                     <h2>Add a new song</h2>
                 </div>
             </div>
@@ -126,7 +107,7 @@
             <div class="col-12">
                 <!-- Create Form Area -->
                 <div class="contact-form-area">
-                    <form  method="post">
+                    <form method="post">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
@@ -151,7 +132,24 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
-                                    <input type="number" class="form-control" placeholder="Music type" name="typeId">
+                                    <select name="typeId" id="categories" class="form-control" style="padding: 0px">
+                                        <option value="">Select music type</option>
+                                        <c:forEach items="${types}" var="type">
+                                            <option value="${type.id}" class="form-control"
+                                                    style="color: black">${type.name}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group wow fadeInUp">
+                                    <select name="singerId" class="form-control" style="padding: 0px">
+                                        <option value="">Select singer</option>
+                                        <c:forEach items="${singers}" var="singer">
+                                            <option value="${singer.id}" class="form-control"
+                                                    style="color: black">${singer.singerName}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -160,7 +158,7 @@
                                            name="album">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
                                     <input type="text" class="form-control" placeholder="Description"
                                            name="description">
@@ -195,17 +193,6 @@
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
 
-            <div class="col-12 col-md-6">
-                <div class="footer-nav">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Albums</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
 </footer>

@@ -1,8 +1,13 @@
 package com.group4.controller;
 
 import com.group4.dao.singer.SingerDAO;
+import com.group4.dao.songtype.ISongTypeDAO;
+import com.group4.dao.songtype.SongTypeDAO;
+import com.group4.dao.songtype.SongTypeDAO;
 import com.group4.model.Singer;
+import com.group4.model.SongType;
 import com.group4.model.User;
+import com.group4.model.SongType;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -16,6 +21,7 @@ import java.util.jar.JarOutputStream;
 @WebServlet(name = "SingerServlet", value = "/singers")
 public class SingerServlet extends HttpServlet {
     SingerDAO singerDAO = new SingerDAO();
+    ISongTypeDAO songTypeDAO = new SongTypeDAO();
 
     public SingerServlet() throws SQLException {
     }
@@ -28,7 +34,11 @@ public class SingerServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                showCreateForm(request, response);
+                try {
+                    showCreateForm(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 try {
@@ -48,8 +58,10 @@ public class SingerServlet extends HttpServlet {
 
     }
 
-    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("singer/create.jsp");
+        List<SongType> typeList = songTypeDAO.findAll();
+        request.setAttribute("typeList", typeList);
         requestDispatcher.forward(request, response);
     }
 
@@ -72,32 +84,13 @@ public class SingerServlet extends HttpServlet {
     }
 
     private void createSinger(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, IOException {
-//        singers = singerDAO.findAll();
         String nameSinger = request.getParameter("nameSinger");
         String sex = request.getParameter("sex");
         String dateOfBirth = request.getParameter("dateOfBirth");
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String story = request.getParameter("story");
-//        int userId = Integer.parseInt(request.getParameter("userId"));
         String avatar = request.getParameter("avatar");
         Singer singer = new Singer(nameSinger, sex, dateOfBirth, typeId, story, avatar);
-//        for (int i=1;i<=singers.size();i++){
-//            String x=singers.get(i).getSingerName();
-//            if (singers.get(i).getSingerName().equals(nameSinger)&&
-//                    singers.get(i).getSex().equals(sex)&&
-//                    singers.get(i).getDateOfBirth().equals(dateOfBirth)&&
-//                    singers.get(i).getTypeId()==typeId&&
-//                    singers.get(i).getStory().equals(story)&&
-////                    singers.get(i).getUserId()==userId&&
-//                    singers.get(i).getAvatar().equals(avatar)
-//            ){
-//                String ms="This singer is already exited";
-//                request.setAttribute("ms",ms);
-//                RequestDispatcher requestDispatcher=request.getRequestDispatcher("singer/create.jsp");
-//                requestDispatcher.forward(request,response);
-//                showCreateForm(request,response);
-//            }
-//        }
         singerDAO.save(singer);
         response.sendRedirect("/index.jsp");
     }

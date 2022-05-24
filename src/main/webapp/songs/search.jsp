@@ -1,12 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Duc Thuong Nguyen
-  Date: 5/20/2022
-  Time: 9:27 PM
+  User: MY PC
+  Date: 5/23/2022
+  Time: 3:09 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 
 <head>
@@ -80,24 +80,44 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="/songs?action=index">Home</a></li>
-                                <c:if test="${sessionScope.acc !=null}">
-                                <li><a href="/songs?action=create">Add new song</a></li>
-                                </c:if>
+                                <li><a href="/singers">Singers</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/singers">Show list singers</a></li>
+                                        <li><a href="/singers?action=create">Add new singer</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/songs">Songs</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/songs">Show list songs</a></li>
+                                        <li><a href="songs?action=create">Add new song</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/PlaylistServlet">Playlist</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/PlaylistServlet">Show list playlists</a></li>
+                                        <li><a href="/PlaylistServlet?action=create">Add new playlist</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="users?action=login">Login</a></li>
+                                <li><a href="users?action=register">Register</a></li>
                             </ul>
-                            <ul>
-                                <c:if test="${sessionScope.acc == null}">
-                                    <li><a href="users?action=register">Register</a></li>
-                                    <li><a href="users?action=login" >Login</a></li>
-                                </c:if>
-                                <c:if test="${sessionScope.acc != null}">
-                                    <li><a>Hello ${sessionScope.acc.username}</a></li>
-                                    <li><a href="users?action=logout" >LogOut</a></li>
-                                </c:if>
-                            </ul>
-                        </div>
-                        <!-- Nav End -->
 
-                    </div>
+                            <!-- Login/Register & Cart Button -->
+                            <%--                            <div class="login-register-cart-button d-flex align-items-center">--%>
+                            <%--                                <!-- Login/Register -->--%>
+                            <%--                                <div class="login-register-btn mr-50">--%>
+                            <%--                                    <a href="login.html" id="loginBtn">Login / Register</a>--%>
+                            <%--                                </div>--%>
+
+                            <%--                                <!-- Cart Button -->--%>
+                            <%--                                <div class="cart-btn">--%>
+                            <%--                                    <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>--%>
+                            <%--                                </div>--%>
+                            <%--                            </div>--%>
+                            <%--                        </div>--%>
+                            <!-- Nav End -->
+
+                        </div>
                 </nav>
             </div>
         </div>
@@ -120,15 +140,15 @@
         <div class="row oneMusic-albums">
 
             <!-- Single Album -->
-            <c:forEach items="${songList}" var="song">
+            <c:forEach items="${songSearch}" var="s">
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
                     <div class="single-album">
-                        <img src="${song.avatar}" alt="">
+                        <img src="${s.avatar}" alt="">
                         <div class="album-info">
                             <a href="/songs?action=detail&id=${song.id}">
-                                <h5>${song.nameSong}</h5>
+                                <h5>${s.nameSong}</h5>
                             </a>
-                            <p>${song.album}</p>
+                            <p>${s.album}</p>
                         </div>
                     </div>
                 </div>
@@ -251,10 +271,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9">
                 <div class="ablums-text text-center mb-70">
-                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius
-                        rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi,
-                        ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit
-                        non elit pulvinar pellentesque et non eros.</p>
+                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
                 </div>
             </div>
         </div>
@@ -415,6 +432,7 @@
 
             <div class="col-12 col-md-6">
                 <div class="footer-nav">
+
                 </div>
             </div>
         </div>

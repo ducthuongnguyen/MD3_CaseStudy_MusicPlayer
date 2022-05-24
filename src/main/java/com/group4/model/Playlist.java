@@ -13,6 +13,10 @@ public class Playlist {
     public Playlist() {
     }
 
+    public Playlist(String namePlaylist) {
+        this.namePlaylist = namePlaylist;
+    }
+
     public Playlist(int id, String namePlaylist, int typeId, String description, int songQuantity, int view, int userId, int songId) {
         this.id = id;
         this.namePlaylist = namePlaylist;
@@ -24,13 +28,33 @@ public class Playlist {
         this.songId = songId;
     }
 
+    public Playlist(int id, String namePlaylist) {
+        this.id = id;
+        this.namePlaylist = namePlaylist;
+    }
+
+    public Playlist(int id,String namePlaylist, int typeId, String description, int songId) {
+        this.id = id;
+        this.namePlaylist = namePlaylist;
+        this.typeId = typeId;
+        this.description = description;
+        this.songId = songId;
+    }
+
     public Playlist(String namePlaylist, int typeId, String description, int songQuantity, int view, int userId, int songId) {
         this.namePlaylist = namePlaylist;
         this.typeId = typeId;
         this.description = description;
+        this.songId = songId;
         this.songQuantity = songQuantity;
         this.view = view;
         this.userId = userId;
+    }
+
+    public Playlist(String namePlaylist, int typeId, String description, int songId) {
+        this.namePlaylist = namePlaylist;
+        this.typeId = typeId;
+        this.description = description;
         this.songId = songId;
     }
 
@@ -45,6 +69,7 @@ public class Playlist {
     public String getNamePlaylist() {
         return namePlaylist;
     }
+
     public void setNamePlaylist(String namePlaylist) {
         this.namePlaylist = namePlaylist;
     }

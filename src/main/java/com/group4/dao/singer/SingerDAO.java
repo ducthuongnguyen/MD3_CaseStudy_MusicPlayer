@@ -12,6 +12,8 @@ public class SingerDAO implements ISingerDAO {
 
     public static final String SELECT_ALL_SINGER = "select*from singers";
     public static final String INSERT_NEW_SINGER = "insert into singers(singerName,sex,dateOfBirth,typeId,story,userId,avatar) VALUES(?,?,?,?,?,?,?)";
+    public static final String SELECT_BY_ID = "select * from singers where  id=?;";
+
     protected Connection getConnection() {
         Connection connection = null;
         try {
@@ -52,7 +54,25 @@ public class SingerDAO implements ISingerDAO {
 
     @Override
     public Singer findById(int id) {
-        return null;
+        Singer singer = null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID)) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String singerName = rs.getString("singerName");
+                String sex = rs.getString("singerName");
+                String dateOfBirth = rs.getString("dateOfBirth");
+                int typeId = rs.getInt("typeId");
+                String story = rs.getString("story");
+                int userId = rs.getInt("userId");
+                String avatar = rs.getString("avatar");
+                singer = new Singer(id, singerName, sex, dateOfBirth, typeId, story, userId, avatar);
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return singer;
     }
 
 
@@ -87,4 +107,19 @@ public class SingerDAO implements ISingerDAO {
 
     }
 
+    private void printSQLException(SQLException ex) {
+        for (Throwable e : ex) {
+            if (e instanceof SQLException) {
+                e.printStackTrace(System.err);
+                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
+                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
+                System.err.println("Message: " + e.getMessage());
+                Throwable t = ex.getCause();
+                while (t != null) {
+                    System.out.println("Cause: " + t);
+                    t = t.getCause();
+                }
+            }
+        }
+    }
 }

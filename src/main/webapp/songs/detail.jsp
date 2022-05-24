@@ -17,7 +17,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>One Music</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -48,7 +48,7 @@
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="/songs?action=index" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -56,6 +56,19 @@
                     </div>
 
                     <!-- Menu -->
+                    <div>
+                        <form action="/songs?action=search" method="post">
+                            <input  type="text" name="key" placeholder="what you want???" style="background-color:white ;color: black;
+        border-radius: 5px;
+
+        box-shadow: white;
+        height: 2em;
+        width: 15rem;
+        margin-left: 5rem;
+        overflow: visible;">
+                            <input type="submit" value="search" style="border-radius:2px ;background-color:#660033 ;color: white;">
+                        </form>
+                    </div>
                     <div class="classy-menu">
 
                         <!-- Close Button -->
@@ -66,39 +79,28 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
-                                <li><a href="/singers">Singers</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/singers">Show list singers</a></li>
-                                        <li><a href="/singers?action=create">Add new singer</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Songs</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Show list songs</a></li>
-                                        <li><a href="songs?action=create">Add new song</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="/PlaylistServlet">Playlist</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/PlaylistServlet">Show list playlists</a></li>
-                                        <li><a href="/PlaylistServlet?action=create">Add new playlist</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="/songs?action=index">Home</a></li>
+                                <c:if test="${sessionScope.acc !=null}">
+                                    <li><a href="#">Songs</a>
+                                        <ul class="dropdown">
+                                            <li><a href="/songs">Show list songs</a></li>
+                                            <li><a href="/songs?action=create">Add new song</a></li>
+                                        </ul>
+                                    </li>
+                                </c:if>
                             </ul>
 
-                            <!-- Login/Register & Cart Button -->
-                            <div class="login-register-cart-button d-flex align-items-center">
-                                <!-- Login/Register -->
-                                <div class="login-register-btn mr-50">
-                                    <a href="login.html" id="loginBtn">Login / Register</a>
-                                </div>
-
-                                <!-- Cart Button -->
-                                <div class="cart-btn">
-                                    <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                </div>
-                            </div>
+                            <!-- Login/Register -->
+                            <ul>
+                                <c:if test="${sessionScope.acc == null}">
+                                    <li><a href="users?action=register">Register</a></li>
+                                    <li><a href="users?action=login" >Login</a></li>
+                                </c:if>
+                                <c:if test="${sessionScope.acc != null}">
+                                    <li><a>Hello ${sessionScope.acc.username}</a></li>
+                                    <li><a href="users?action=logout" >LogOut</a></li>
+                                </c:if>
+                            </ul>
                         </div>
                         <!-- Nav End -->
 
@@ -129,7 +131,7 @@
                     </div>
                     <div class="song-play-area">
                         <div class="song-name">
-                            <p>${song.id}. ${song.nameSong} - ${song.singerId}</p>
+                            <p>${song.id}.${song.nameSong} - ${singers.singerName}</p>
                         </div>
                         <audio preload="auto" controls>
                             <source src="${song.mp3File}">
@@ -140,24 +142,12 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3">
-                <div class="load-more-btn text-center">
-                    <a href="#" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="load-more-btn text-right">
-                    <a href="#" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="load-more-btn text-right">
-                    <a href="/songs?action=edit&id=${song.id}" class="btn btn-outline-dark">Edit</a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="load-more-btn text-right">
-                    <a href="/songs?action=delete&id=${song.id}" class="btn btn-outline-dark">Delete</a>
+                    <c:if test="${sessionScope.acc !=null}">
+                        <a href="/songs?action=edit&id=${song.id}" class="btn btn-outline-dark">Edit</a>
+                        <a href="/songs?action=delete&id=${song.id}" class="btn btn-outline-dark">Delete</a>
+                    </c:if>
                 </div>
             </div>
         </div>
@@ -238,18 +228,6 @@
                     All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
                     <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="footer-nav">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Albums</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>

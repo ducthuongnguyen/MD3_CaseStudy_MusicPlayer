@@ -79,28 +79,21 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="albums-store.html">Albums</a></li>
-                                <li><a href="#">Songs</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/songs">Show list songs</a></li>
-                                        <li><a href="/songs?action=create">Add new song</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="index.jsp">Home</a></li>
+                                <c:if test="${sessionScope.acc !=null}">
+                                <li><a href="/songs?action=create">Add new song</a></li>
+                                </c:if>
                             </ul>
-
-                            <!-- Login/Register & Cart Button -->
-                            <div class="login-register-cart-button d-flex align-items-center">
-                                <!-- Login/Register -->
-                                <div class="login-register-btn mr-50">
-                                    <a href="login.html" id="loginBtn">Login / Register</a>
-                                </div>
-
-                                <!-- Cart Button -->
-                                <div class="cart-btn">
-                                    <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                </div>
-                            </div>
+                            <ul>
+                                <c:if test="${sessionScope.acc == null}">
+                                    <li><a href="users?action=register">Register</a></li>
+                                    <li><a href="users?action=login" >Login</a></li>
+                                </c:if>
+                                <c:if test="${sessionScope.acc != null}">
+                                    <li><a>Hello ${sessionScope.acc.username}</a></li>
+                                    <li><a href="users?action=logout" >LogOut</a></li>
+                                </c:if>
+                            </ul>
                         </div>
                         <!-- Nav End -->
 
@@ -422,13 +415,6 @@
 
             <div class="col-12 col-md-6">
                 <div class="footer-nav">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Albums</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
                 </div>
             </div>
         </div>

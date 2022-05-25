@@ -100,7 +100,7 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-4">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nameSinger" placeholder="Name">
+                                    <input type="text" class="form-control" name="nameSinger" placeholder="Singer's name">
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4">

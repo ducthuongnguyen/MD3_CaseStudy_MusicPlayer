@@ -92,6 +92,6 @@ public class SingerServlet extends HttpServlet {
         String avatar = request.getParameter("avatar");
         Singer singer = new Singer(nameSinger, sex, dateOfBirth, typeId, story, avatar);
         singerDAO.save(singer);
-        response.sendRedirect("/index.jsp");
+        response.sendRedirect("/singers");
     }
 }

@@ -7,6 +7,7 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html lang="en">
 
 <head>
@@ -129,7 +130,7 @@
                 <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
                     <div>
                         <div class="song-name" style="text-align: center ">
-                            <p>${song.id}.${song.nameSong} - ${singers.singerName}</p>
+                            <h3>${song.nameSong}</h3>
                             ${song.mp3File}
                         </div>
                     </div>

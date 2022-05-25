@@ -124,12 +124,6 @@
                                            value="${editSong.nameSong}">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group wow fadeInUp">
-                                    <input type="text" class="form-control" placeholder="Avatar" name="avatar"
-                                           value="${editSong.avatar}">
-                                </div>
-                            </div>
                             <div class="col-md-6">
                                 <div class="form-group wow fadeInUp">
                                     <input type="text" class="form-control" placeholder="Author's name" name="author"

@@ -123,7 +123,7 @@
             <c:forEach items="${songList}" var="song">
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
                     <div class="single-album">
-                        <img src="${song.avatar}" alt="">
+                        <img src="https://images.macrumors.com/t/vMbr05RQ60tz7V_zS5UEO9SbGR0=/1600x900/smart/article-new/2018/05/apple-music-note.jpg" alt="">
                         <div class="album-info">
                             <a href="/songs?action=detail&id=${song.id}">
                                 <h5>${song.nameSong}</h5>

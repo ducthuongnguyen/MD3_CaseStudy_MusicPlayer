@@ -58,6 +58,12 @@ public class Playlist {
         this.songId = songId;
     }
 
+    public Playlist(String namePlaylist, int typeId, String description) {
+        this.namePlaylist = namePlaylist;
+        this.typeId = typeId;
+        this.description = description;
+    }
+
     public int getId() {
         return id;
     }

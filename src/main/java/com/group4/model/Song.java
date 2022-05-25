@@ -16,9 +16,10 @@ public class Song {
     public Song() {
     }
 
-    public Song(String nameSong, String avatar) {
+    public Song(String nameSong, String avatar, int songId) {
         this.nameSong = nameSong;
         this.avatar = avatar;
+        this.id = songId;
     }
 
     public Song(int id, String nameSong, String description, String mp3File, String avatar, String author, int typeId, String album, int view, int userId, int singerId) {
@@ -70,6 +71,29 @@ public class Song {
         this.author = author;
         this.album = album;
         this.typeId = typeId;
+    }
+
+    public Song(String name, String des, String linkMp3, String author, int typeId, String album) {
+        this.nameSong = name;
+        this.description = des;
+        this.mp3File = linkMp3;
+        this.author = author;
+        this.album = album;
+        this.typeId = typeId;
+    }
+
+    public Song(int id, String nameSong, String author, int typeId, String album, String description) {
+        this.id = id;
+        this.nameSong = nameSong;
+        this.description = description;
+        this.author = author;
+        this.album = album;
+        this.typeId = typeId;
+    }
+
+    public Song(String nameSong, String avatar) {
+        this.nameSong = nameSong;
+        this.avatar = avatar;
     }
 
     public int getId() {

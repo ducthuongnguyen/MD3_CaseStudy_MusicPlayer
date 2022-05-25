@@ -146,15 +146,6 @@ public class SongServlet extends HttpServlet {
         return typeList;
     }
 
-    protected List<Singer> findAllSingers(List<Song> songs) throws SQLException {
-        List<Singer> singerList = new ArrayList<>();
-        for (int i = 0; i < singerList.size(); i++) {
-            Singer singer = singerDAO.findById(songs.get(i).getSingerId());
-            singerList.add(singer);
-        }
-        return singerList;
-    }
-
     protected Singer findSinger(Song song) throws SQLException {
         Singer singer = new Singer();
         List<Singer> singerList = singerDAO.findAll();
@@ -198,29 +189,26 @@ public class SongServlet extends HttpServlet {
         }
     }
 
-    //    update songs set nameSong=?,avatar =?,author =?,typeId=?,album=?,description =? where id = ?;
     private void editSong(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
         String nameSong = request.getParameter("nameSong");
-        String avatar = request.getParameter("avatar");
         String author = request.getParameter("author");
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String album = request.getParameter("album");
         String description = request.getParameter("description");
-        Song editSong = new Song(id, nameSong, avatar, author, typeId, album, description);
+        Song editSong = new Song(id, nameSong, author, typeId, album, description);
         songDao.update(id, editSong);
-        request.getRequestDispatcher("songs/detail.jsp").forward(request, response);
+        response.sendRedirect("/songs");
     }
 
     private void createSong(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
         String name = request.getParameter("nameSong");
         String des = request.getParameter("description");
         String linkMp3 = request.getParameter("mp3File");
-        String avatar = request.getParameter("avatar");
         String author = request.getParameter("author");
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String album = request.getParameter("album");
-        Song song = new Song(name, des, linkMp3, avatar, author, typeId, album);
+        Song song = new Song(name, des, linkMp3, author, typeId, album);
         songDao.save(song);
         response.sendRedirect("/songs");
     }

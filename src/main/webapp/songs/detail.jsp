@@ -104,7 +104,6 @@
                             </ul>
                         </div>
                         <!-- Nav End -->
-
                     </div>
                 </nav>
             </div>
@@ -122,13 +121,14 @@
 <!-- ##### Breadcumb Area End ##### -->
 
 <!-- ##### Album Catagory Area Start ##### -->
+<%--<container style="text-align: center">--%>
 <section class="album-catagory section-padding-100-0">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12" style="padding-left: 15rem">
                 <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
-                    <div class="song-play-area"style="align-content: center">
-                        <div class="song-name" >
+                    <div>
+                        <div class="song-name" style="text-align: center ">
                             <p>${song.id}.${song.nameSong} - ${singers.singerName}</p>
                             ${song.mp3File}
                         </div>
@@ -153,11 +153,13 @@
                 <a class="post-title">Description</a>
                 <!-- Post Excerpt -->
                 <p>${song.description}</p>
+                <p>Author: ${song.author}</p>
             </div>
         </div>
 </section>
-<!-- ##### Album Catagory Area End ##### -->
+<%--</container>--%>
 
+<!-- ##### Album Catagory Area End ##### -->
 
 <!-- ##### Contact Area Start ##### -->
 <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"

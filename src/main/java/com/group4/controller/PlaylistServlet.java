@@ -2,11 +2,14 @@ package com.group4.controller;
 
 import com.group4.dao.playlist.PlaylistDAO;
 import com.group4.dao.playlist.IPlaylistDAO;
+import com.group4.dao.singer.ISingerDAO;
+import com.group4.dao.singer.SingerDAO;
 import com.group4.dao.song.ISongDao;
 import com.group4.dao.song.SongDAO;
 import com.group4.dao.songtype.ISongTypeDAO;
 import com.group4.dao.songtype.SongTypeDAO;
 import com.group4.model.Playlist;
+import com.group4.model.Singer;
 import com.group4.model.Song;
 import com.group4.model.SongType;
 
@@ -26,6 +29,10 @@ public class PlaylistServlet extends HttpServlet {
     IPlaylistDAO playlistDAO = new PlaylistDAO();
     ISongDao songDao = new SongDAO();
     ISongTypeDAO songTypeDAO = new SongTypeDAO();
+    ISingerDAO singerDAO = new SingerDAO();
+
+    public PlaylistServlet() throws SQLException {
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,7 +76,13 @@ public class PlaylistServlet extends HttpServlet {
             case "search":
                 searchByName(request, response);
                 break;
-
+            case "detail":
+                try {
+                    showSongDetail(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
             default:
                 try {
                     allPlaylist(request, response);
@@ -78,6 +91,25 @@ public class PlaylistServlet extends HttpServlet {
                 }
                 break;
         }
+    }
+
+    private void showSongDetail(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Song song = songDao.findById(id);
+        request.setAttribute("song", song);
+        request.setAttribute("singers", findSinger(song));
+        response.sendRedirect("songs/detail.jsp");
+//        request.getRequestDispatcher("songs/detail.jsp").forward(request, response);
+    }
+
+    protected Singer findSinger(Song song) throws SQLException {
+        Singer singer = new Singer();
+        List<Singer> singerList = singerDAO.findAll();
+        for (int i = 0; i < singerList.size(); i++) {
+            if (singerList.get(i).getId() == song.getSingerId())
+                return singerList.get(i);
+        }
+        return singer;
     }
 
     private void searchByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -186,8 +218,7 @@ public class PlaylistServlet extends HttpServlet {
         String namePlaylist = request.getParameter("namePlaylist");
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String description = request.getParameter("description");
-        int songId = Integer.parseInt(request.getParameter("songId"));
-        Playlist playlist = new Playlist(namePlaylist, typeId, description, songId);
+        Playlist playlist = new Playlist(namePlaylist, typeId, description);
         playlistDAO.update(id, playlist);
         response.sendRedirect("/PlaylistServlet");
     }
@@ -196,8 +227,7 @@ public class PlaylistServlet extends HttpServlet {
         String namePlaylist = request.getParameter("namePlaylist");
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String description = request.getParameter("description");
-        int songId = Integer.parseInt(request.getParameter("songId"));
-        Playlist playlist = new Playlist(namePlaylist, typeId, description,songId);
+        Playlist playlist = new Playlist(namePlaylist, typeId, description);
         playlistDAO.save(playlist);
         response.sendRedirect("/PlaylistServlet");
 

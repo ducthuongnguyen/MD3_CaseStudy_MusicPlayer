@@ -43,11 +43,11 @@
                             <ul>
                                 <c:if test="${sessionScope.acc == null}">
                                     <li><a href="users?action=register">Register</a></li>
-                                    <li><a href="users?action=login" >Login</a></li>
+                                    <li><a href="users?action=login">Login</a></li>
                                 </c:if>
                                 <c:if test="${sessionScope.acc != null}">
                                     <li><a>Hello ${sessionScope.acc.username}</a></li>
-                                    <li><a href="users?action=logout" >LogOut</a></li>
+                                    <li><a href="users?action=logout">LogOut</a></li>
                                 </c:if>
                             </ul>
                         </div>
@@ -68,10 +68,10 @@
             <c:forEach var="songList" items="${songList}">
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
                     <div class="single-album">
-                        <a href="/PlaylistServlet?action=findSongPlaylist&id=${play.id}"><img src="img/bg-img/a2.jpg"
-                                                                                              alt=""></a>
+                        <a href="#"><img src="img/bg-img/a2.jpg"
+                                         alt=""></a>
                         <div class="album-info">
-                            <a href="#">
+                            <a href="/songs?action=detail&id=${songList.id}">
                                 <h5>${songList.nameSong}</h5>
                             </a>
                         </div>

@@ -9,7 +9,9 @@ import java.util.List;
 
 public interface IPlaylistDAO extends IGeneralDAO<Playlist> {
     List<Playlist> findPopular() throws SQLException;
+
     List<Song> findAllSongInPlaylist(int id);
+
     Playlist findLatestPlaylist(List<Playlist> playlists);
 
     List<Playlist> findByName(String name);

@@ -89,17 +89,17 @@
                                            placeholder="description">
                                 </div>
                             </div>
-                        <div class="col-md-6 col-lg-6">
-                            <div>
-                                <select name="songId" class="form-control" style="padding: 0px">
-                                    <option value="">Select song</option>
-                                    <c:forEach items="${playlists}" var="p">
-                                        <option value="${p.id}" class="form-control"
-                                                style="color: black">${p.nameSong}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                        </div>
+<%--                        <div class="col-md-6 col-lg-6">--%>
+<%--                            <div>--%>
+<%--                                <select name="songId" class="form-control" style="padding: 0px">--%>
+<%--                                    <option value="">Select song</option>--%>
+<%--                                    <c:forEach items="${playlists}" var="p">--%>
+<%--                                        <option value="${p.id}" class="form-control"--%>
+<%--                                                style="color: black">${p.nameSong}</option>--%>
+<%--                                    </c:forEach>--%>
+<%--                                </select>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                         <div class="col-12 text-center">
                             <button class="btn oneMusic-btn mt-30" type="submit">Create <i
                                     class="fa fa-angle-double-right"></i></button>

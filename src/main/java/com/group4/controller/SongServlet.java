@@ -67,6 +67,9 @@ public class SongServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 break;
+            case "delete":
+                deleteSong(request,response);
+                break;
             case "index":
                 try {
                     showHome(request, response);
@@ -82,6 +85,12 @@ public class SongServlet extends HttpServlet {
                 }
                 break;
         }
+    }
+
+    private void deleteSong(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        songDao.delete(id);
+        response.sendRedirect("/songs");
     }
 
     private void showHome(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {

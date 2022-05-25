@@ -19,6 +19,7 @@ import java.sql.SQLException;
 public class UserServlet extends HttpServlet {
     ISongDao songDao = new SongDAO();
     IPlaylistDAO playlistDAO = new PlaylistDAO();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -34,7 +35,7 @@ public class UserServlet extends HttpServlet {
                 break;
             case "logout":
                 try {
-                    logOut(request,response);
+                    logOut(request, response);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -96,11 +97,7 @@ public class UserServlet extends HttpServlet {
             request.setAttribute("mess5", mess);
             request.getRequestDispatcher("user/register.jsp").forward(request, response);
         }
-        if (username.length()==0){
-            String mess = "Please input username";
-            request.setAttribute("mess6", mess);
-            request.getRequestDispatcher("user/register.jsp").forward(request, response);
-        }
+
         if (!password.equals(repass)) {
             String mess = "Wrong password.";
             request.setAttribute("mess2", mess);
@@ -109,6 +106,10 @@ public class UserServlet extends HttpServlet {
             if (telephoneNo.length() > 10 || telephoneNo.length() == 0) {
                 String mess1 = "Wrong telephone number format!!!! Max number are 10.";
                 request.setAttribute("mess4", mess1);
+                request.getRequestDispatcher("user/register.jsp").forward(request, response);
+            } else if (username.length() == 0) {
+                String mess = "Please input username";
+                request.setAttribute("mess6", mess);
                 request.getRequestDispatcher("user/register.jsp").forward(request, response);
             } else {
                 UserDAO userDAO = new UserDAO();
